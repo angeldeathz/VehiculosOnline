@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "http://localhost/Cotizaciones/",
+      "applicationUrl": "http://localhost/VehiculosOnline/Cotizaciones/",
       "sslPort": 0
     },
     "iisExpress": {
