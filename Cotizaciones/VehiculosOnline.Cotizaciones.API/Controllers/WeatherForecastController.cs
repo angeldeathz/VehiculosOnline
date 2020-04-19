@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using VehiculosOnline.Localizaciones.BLL;
 
 namespace VehiculosOnline.Localizaciones.API.Controllers
 {
@@ -11,6 +13,8 @@ namespace VehiculosOnline.Localizaciones.API.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        private readonly Class1 prueba = new Class1();
+
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -27,6 +31,7 @@ namespace VehiculosOnline.Localizaciones.API.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
+            prueba.Prueba();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),

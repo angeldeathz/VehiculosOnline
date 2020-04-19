@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using VehiculosOnline.Transversal.Repositorios;
 
 namespace VehiculosOnline.Localizaciones.API
 {
@@ -25,6 +26,7 @@ namespace VehiculosOnline.Localizaciones.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            GetConnectionStrings();
             services.AddControllers();
         }
 
@@ -46,6 +48,11 @@ namespace VehiculosOnline.Localizaciones.API
             {
                 endpoints.MapControllers();
             });
+        }
+
+        public void GetConnectionStrings()
+        {
+            ConnectionStrings.VehiculosOnline = Configuration.GetSection("ConnectionStrings").GetSection("vehiculosonline").Value;
         }
     }
 }
