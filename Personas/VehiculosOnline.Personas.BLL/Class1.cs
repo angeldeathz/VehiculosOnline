@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VentaVehiculo.BLL
+namespace VehiculosOnline.Personas.BLL
 {
     public class Class1
     {

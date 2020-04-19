@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Transversal
+namespace VehiculosOnline.Localizaciones.DAL
 {
     public class Class1
     {

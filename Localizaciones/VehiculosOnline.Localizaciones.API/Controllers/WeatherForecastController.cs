@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace VentaVehiculo.API.Controllers
+namespace VehiculosOnline.Localizaciones.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]

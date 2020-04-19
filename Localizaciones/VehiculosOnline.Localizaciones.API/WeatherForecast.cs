@@ -1,6 +1,6 @@
 using System;
 
-namespace VentaVehiculo.API
+namespace VehiculosOnline.Localizaciones.API
 {
     public class WeatherForecast
     {

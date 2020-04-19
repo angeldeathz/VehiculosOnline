@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace VentaVehiculo.API
+namespace VehiculosOnline.Personas.API
 {
     public class Program
     {
