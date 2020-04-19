@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VehiculosOnline.Localizaciones.DAL
+namespace VehiculosOnline.Localizaciones.BLL
 {
     public class Class1
     {
