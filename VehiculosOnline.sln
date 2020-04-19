@@ -5,17 +5,17 @@ VisualStudioVersion = 16.0.29920.165
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Localizaciones", "Localizaciones", "{FB6B8355-968A-41CB-88C8-9EB89B233A79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehiculosOnline.Localizaciones.DAL", "Localizaciones\VehiculosOnline.Localizaciones.DAL\VehiculosOnline.Localizaciones.DAL.csproj", "{8B27580B-15DF-4CB5-BE4C-DA5B6F96AE9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiculosOnline.Localizaciones.DAL", "Localizaciones\VehiculosOnline.Localizaciones.DAL\VehiculosOnline.Localizaciones.DAL.csproj", "{8B27580B-15DF-4CB5-BE4C-DA5B6F96AE9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehiculosOnline.Localizaciones.BLL", "Localizaciones\VehiculosOnline.Localizaciones.BLL\VehiculosOnline.Localizaciones.BLL.csproj", "{4056EA12-21CC-48DB-A0B9-1FE0196FAB4F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiculosOnline.Localizaciones.BLL", "Localizaciones\VehiculosOnline.Localizaciones.BLL\VehiculosOnline.Localizaciones.BLL.csproj", "{4056EA12-21CC-48DB-A0B9-1FE0196FAB4F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehiculosOnline.Localizaciones.API", "Localizaciones\VehiculosOnline.Localizaciones.API\VehiculosOnline.Localizaciones.API.csproj", "{A8EE63F6-E93A-434C-9D6C-4D847A0FBBF5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiculosOnline.Localizaciones.API", "Localizaciones\VehiculosOnline.Localizaciones.API\VehiculosOnline.Localizaciones.API.csproj", "{A8EE63F6-E93A-434C-9D6C-4D847A0FBBF5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Personas", "Personas", "{7244FDBF-0A54-4681-A13A-20F8ABEF9369}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehiculosOnline.Personas.DAL", "Personas\VehiculosOnline.Personas.DAL\VehiculosOnline.Personas.DAL.csproj", "{5647E4CA-19A3-4E36-8C8A-AB999519A6A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiculosOnline.Personas.DAL", "Personas\VehiculosOnline.Personas.DAL\VehiculosOnline.Personas.DAL.csproj", "{5647E4CA-19A3-4E36-8C8A-AB999519A6A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VehiculosOnline.Personas.API", "Personas\VehiculosOnline.Personas.API\VehiculosOnline.Personas.API.csproj", "{DDF19081-B45F-436A-93DA-A8A3B85CDD8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiculosOnline.Personas.API", "Personas\VehiculosOnline.Personas.API\VehiculosOnline.Personas.API.csproj", "{DDF19081-B45F-436A-93DA-A8A3B85CDD8E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiculosOnline.Personas.BLL", "Personas\VehiculosOnline.Personas.BLL\VehiculosOnline.Personas.BLL.csproj", "{6025E2F2-AF61-40DB-BECF-DDAE8F7659A9}"
 EndProject
