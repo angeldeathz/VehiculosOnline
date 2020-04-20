@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\VehiculosOnline.Localizaciones.DAL\VehiculosOnline.Localizaciones.DAL.csproj" />
+    <ProjectReference Include="..\VehiculosOnline.Cotizaciones.DAL\VehiculosOnline.Cotizaciones.DAL.csproj" />
   </ItemGroup>
 
 </Project>

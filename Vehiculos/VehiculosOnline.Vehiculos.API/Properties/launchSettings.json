@@ -3,7 +3,7 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "http://localhost/VehiculosOnline/localizaciones",
+      "applicationUrl": "http://localhost/VehiculosOnline/Vehiculos",
       "sslPort": 0
     },
     "iisExpress": {
