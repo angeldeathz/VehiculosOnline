@@ -1,26 +1,28 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using VehiculosOnline.Modelo.Clases;
+using VehiculosOnline.Direccion.Clases;
 using VehiculosOnline.Transversal.Repositorios;
 
 namespace VehiculosOnline.Localizaciones.DAL.Tables
 {
-    public class RegionDal
+    public class DireccionDal
     {
         private readonly Repository _repository;
             
-        public RegionDal()
+        public DireccionDal()
         {
             _repository = new Repository(ConnectionStrings.VehiculosOnline);
         }
 
-        public async Task<List<Region>> ObtenerTodosAsync()
+        public async Task<List<Direccion>> ObtenerTodosAsync()
         {
             var sql = @"select 
                         id,
-                        nombre
-                        from region";
-            return await _repository.GetAllAsync<Region>(sql);
+                        calle,
+                        numero,
+                        id_comuna AS IdComuna
+                        from direccion";
+            return await _repository.GetAllAsync<Direccion>(sql);
         }
     }
 }

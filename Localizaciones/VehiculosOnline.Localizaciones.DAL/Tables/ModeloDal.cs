@@ -5,22 +5,23 @@ using VehiculosOnline.Transversal.Repositorios;
 
 namespace VehiculosOnline.Localizaciones.DAL.Tables
 {
-    public class RegionDal
+    public class ModeloDal
     {
         private readonly Repository _repository;
             
-        public RegionDal()
+        public ModeloDal()
         {
             _repository = new Repository(ConnectionStrings.VehiculosOnline);
         }
 
-        public async Task<List<Region>> ObtenerTodosAsync()
+        public async Task<List<Modelo>> ObtenerTodosAsync()
         {
             var sql = @"select 
                         id,
-                        nombre
-                        from region";
-            return await _repository.GetAllAsync<Region>(sql);
+                        nombre,
+                        id_marca AS IdMarca
+                        from modelo";
+            return await _repository.GetAllAsync<Modelo>(sql);
         }
     }
 }

@@ -11,12 +11,12 @@ namespace VehiculosOnline.Localizaciones.BLL
 
         public RegionBl()
         {
-            _ciudadDal = new RegionDal();
+            _regionDal = new RegionDal();
         }
 
         public async Task<List<Region>> ObtenerTodosAsync()
         {
-            return await _ciudadDal.ObtenerTodosAsync();
+            return await _regionDal.ObtenerTodosAsync();
         }
     }
 }
