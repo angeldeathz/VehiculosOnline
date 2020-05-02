@@ -20,7 +20,7 @@ namespace VehiculosOnline.Localizaciones.DAL.Tables
                         id,
                         nombre,
                         id_region AS IdRegion
-                        from region";
+                        from ciudad";
             return await _repository.GetAllAsync<Ciudad>(sql);
         }
     }

@@ -21,7 +21,7 @@ namespace VehiculosOnline.Personas.DAL.Tables
                         id_direccion AS IdDireccion,
                         nombres,
                         apellidos,
-                        fec_nacimiento,
+                        fec_nacimiento as FechaNacimiento,
                         email,
                         celular,
                         telefono

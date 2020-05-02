@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using VehiculosOnline.Transversal.Repositorios;
 
 //rama carlitos prueba
 namespace VehiculosOnline.Personas.API
@@ -19,6 +20,7 @@ namespace VehiculosOnline.Personas.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            GetConnectionStrings();
             services.AddControllers();
         }
 
@@ -40,6 +42,11 @@ namespace VehiculosOnline.Personas.API
             {
                 endpoints.MapControllers();
             });
+        }
+
+        public void GetConnectionStrings()
+        {
+            ConnectionStrings.VehiculosOnline = Configuration.GetSection("ConnectionStrings").GetSection("vehiculosonline").Value;
         }
     }
 }
