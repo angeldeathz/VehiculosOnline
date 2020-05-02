@@ -1,8 +1,7 @@
-﻿namespace VehiculosOnline.Modelo.Clases
+﻿namespace VehiculosOnline.Model.Clases
 {
-    public class Comuna
+    public class Comuna : Base
     {
-        public int Id { get; set; }
         public string Nombre { get; set; }
         public int IdCiudad { get; set; }
     }

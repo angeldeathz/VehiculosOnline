@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\VehiculosOnline.Personas.DAL\VehiculosOnline.Personas.DAL.csproj" />
+  </ItemGroup>
+
 </Project>

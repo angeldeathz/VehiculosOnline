@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using VehiculosOnline.Localizaciones.DAL.Tables;
-using VehiculosOnline.Modelo.Clases;
+using VehiculosOnline.Model.Clases;
 
 namespace VehiculosOnline.Localizaciones.BLL
 {

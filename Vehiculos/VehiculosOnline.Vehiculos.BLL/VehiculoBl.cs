@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using VehiculosOnline.Localizaciones.DAL.Tables;
-using VehiculosOnline.Modelo.Clases;
+using VehiculosOnline.Model.Clases;
+using VehiculosOnline.Vehiculos.DAL.Tables;
 
-namespace VehiculosOnline.Localizaciones.BLL
+namespace VehiculosOnline.Vehiculos.BLL
 {
     public class VehiculoBl
     {

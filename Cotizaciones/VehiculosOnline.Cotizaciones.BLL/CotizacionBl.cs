@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using VehiculosOnline.Localizaciones.DAL.Tables;
-using VehiculosOnline.Modelo.Clases;
+using VehiculosOnline.Cotizaciones.DAL.Tables;
+using VehiculosOnline.Model.Clases;
 
-namespace VehiculosOnline.Localizaciones.BLL
+namespace VehiculosOnline.Cotizaciones.BLL
 {
     public class CotizacionBl
     {

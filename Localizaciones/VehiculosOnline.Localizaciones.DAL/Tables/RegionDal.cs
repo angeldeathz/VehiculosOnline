@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using VehiculosOnline.Modelo.Clases;
+using VehiculosOnline.Model.Clases;
 using VehiculosOnline.Transversal.Repositorios;
 
 namespace VehiculosOnline.Localizaciones.DAL.Tables
@@ -16,7 +16,7 @@ namespace VehiculosOnline.Localizaciones.DAL.Tables
 
         public async Task<List<Region>> ObtenerTodosAsync()
         {
-            var sql = @"select 
+            const string sql = @"select 
                         id,
                         nombre
                         from region";

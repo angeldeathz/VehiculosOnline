@@ -1,16 +1,12 @@
-﻿namespace VehiculosOnline.Modelo.Clases
+﻿using System;
+
+namespace VehiculosOnline.Model.Clases
 {
-    public class Cotizacion
+    public class Cotizacion : Base
     {
-        public int Id { get; set; }
-
         public int IdSolicitud { get; set; }
-
         public int IdVehiculo { get; set; }
-
-        [Range(typeof(DateTime), "1/1/1900", "6/6/2079")]
         public DateTime FecIngresoCotizacion { get; set; }
-
         public bool EstaCerrada { get; set; }
     }
 }

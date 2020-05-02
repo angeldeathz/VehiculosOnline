@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using VehiculosOnline.Vehiculo.Clases;
+using VehiculosOnline.Model.Clases;
 using VehiculosOnline.Transversal.Repositorios;
 
-namespace VehiculosOnline.Localizaciones.DAL.Tables
+namespace VehiculosOnline.Vehiculos.DAL.Tables
 {
     public class VehiculoDal
     {
@@ -16,7 +16,7 @@ namespace VehiculosOnline.Localizaciones.DAL.Tables
 
         public async Task<List<Vehiculo>> ObtenerTodosAsync()
         {
-            var sql = @"select 
+            const string sql = @"select 
                         id,
                         anio,
                         id_modelo AS IdModelo

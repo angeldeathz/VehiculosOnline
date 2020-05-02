@@ -1,11 +1,8 @@
-﻿namespace VehiculosOnline.Modelo.Clases
+﻿namespace VehiculosOnline.Model.Clases
 {
-    public class Vehiculo
+    public class Vehiculo : Base
     {
-        public int Id { get; set; }
-
         public string Nombre { get; set; }
-
         public bool Activo { get; set; }
     }
 }

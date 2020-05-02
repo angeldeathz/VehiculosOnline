@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiculosOnline.Personas.BL
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{0E21A73D-5086-43B3-B6AA-164DCFF310FF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiculosOnline.Modelo", "Shared\VehiculosOnline.Modelo\VehiculosOnline.Modelo.csproj", "{01C14593-B78B-474F-9540-2387E906576D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiculosOnline.Model", "Shared\VehiculosOnline.Modelo\VehiculosOnline.Model.csproj", "{01C14593-B78B-474F-9540-2387E906576D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VehiculosOnline.Transversal", "Shared\VehiculosOnline.Transversal\VehiculosOnline.Transversal.csproj", "{454E01F5-7B24-47FE-A522-D9333F5687B8}"
 EndProject

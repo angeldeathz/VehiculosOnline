@@ -9,7 +9,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Shared\VehiculosOnline.Modelo\VehiculosOnline.Modelo.csproj" />
+    <ProjectReference Include="..\..\Shared\VehiculosOnline.Modelo\VehiculosOnline.Model.csproj" />
     <ProjectReference Include="..\..\Shared\VehiculosOnline.Transversal\VehiculosOnline.Transversal.csproj" />
   </ItemGroup>
 

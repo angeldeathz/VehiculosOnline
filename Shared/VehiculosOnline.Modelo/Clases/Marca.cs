@@ -1,8 +1,7 @@
-﻿namespace VehiculosOnline.Modelo.Clases
+﻿namespace VehiculosOnline.Model.Clases
 {
-    public class Marca
+    public class Marca : Base
     {
-        public int Id { get; set; }
         public string Nombre { get; set; }
     }
 }

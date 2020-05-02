@@ -10,9 +10,9 @@ namespace VehiculosOnline.Transversal.Repositorios
     {
         private readonly string _connectionString;
 
-        public Repository(string ConnectionString)
+        public Repository(string connectionString)
         {
-            _connectionString = ConnectionString;
+            _connectionString = connectionString;
         }
 
         public async Task<List<T>> GetAllAsync<T>(string sqlQuery)
