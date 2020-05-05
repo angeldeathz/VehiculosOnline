@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\VehiculosOnline.Marcas.BLL\VehiculosOnline.Marcas.BLL.csproj" />
   </ItemGroup>
 
 
