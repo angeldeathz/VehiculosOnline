@@ -23,5 +23,6 @@ namespace VehiculosOnline.Vehiculos.DAL.Tables
                         from vehiculo";
             return await _repository.GetAllAsync<Vehiculo>(sql);
         }
+
     }
 }

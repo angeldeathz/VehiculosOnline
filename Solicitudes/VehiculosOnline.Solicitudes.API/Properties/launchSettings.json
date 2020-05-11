@@ -16,15 +16,15 @@
     "IIS Express": {
       "commandName": "IIS",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "api/solicitudes",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "VehiculosOnline.Localizaciones.API": {
+    "VehiculosOnline.Solicitudes.API": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "api/solicitudes",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

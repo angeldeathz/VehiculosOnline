@@ -18,5 +18,10 @@ namespace VehiculosOnline.Localizaciones.BLL
         {
             return await _ciudadDal.ObtenerTodosAsync();
         }
+
+        public async Task<Ciudad> ObtenerPorIdAsync(int id)
+        {
+            return await _ciudadDal.ObtenerPorIdAsync(id);
+        }
     }
 }

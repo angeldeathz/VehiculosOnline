@@ -16,7 +16,7 @@
     "IIS Express": {
       "commandName": "IIS",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "api/personas",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
@@ -24,7 +24,7 @@
     "VehiculosOnline.Personas.API": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "api/personas",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

@@ -23,5 +23,20 @@ namespace VehiculosOnline.Localizaciones.DAL.Tables
                         from ciudad";
             return await _repository.GetAllAsync<Ciudad>(sql);
         }
+
+        public async Task<Ciudad> ObtenerPorIdAsync(int id)
+        {
+            const string sql = @"select 
+                        id,
+                        nombre,
+                        id_region AS IdRegion
+                        from ciudad
+                        where id = @Id";
+
+            return await _repository.GetAsync<Ciudad>(sql, new Dictionary<string, object>
+            {
+                {"@Id", id}
+            });
+        }
     }
 }
