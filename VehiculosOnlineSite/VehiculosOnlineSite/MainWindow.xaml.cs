@@ -30,8 +30,14 @@ namespace VehiculosOnlineSite
 
         private void btnIngresarVenta_Click(object sender, RoutedEventArgs e)
         {
-            IngresoVenta ingresoVentaForm = new IngresoVenta();
-            ingresoVentaForm.ShowDialog();
+            IngresoSolicitud ingresoSolicitudForm = new IngresoSolicitud();
+            ingresoSolicitudForm.ShowDialog();
+        }
+
+        private void btnIngresoSolicitud_Click(object sender, RoutedEventArgs e)
+        {
+            IngresoSolicitud ingresoSolicitudForm = new IngresoSolicitud();
+            ingresoSolicitudForm.ShowDialog();
         }
     }
 }
