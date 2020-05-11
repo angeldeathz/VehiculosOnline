@@ -18,5 +18,16 @@ namespace VehiculosOnline.Personas.BLL
         {
             return await _personaDal.ObtenerTodosAsync();
         }
+
+        public async Task<Persona> ObtenerPorIdAsync(int id)
+        {
+            return await _personaDal.ObtenerPorIdAsync(id);
+        }
+
+        public async Task<Persona> ObtenerPorRutAsync(string rut)
+        {
+            // TODO: Aca hay que recibir el rut completo, y validar el rut
+            return await _personaDal.ObtenerPorRutAsync(0);
+        }
     }
 }

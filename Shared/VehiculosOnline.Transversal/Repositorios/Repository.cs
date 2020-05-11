@@ -24,12 +24,13 @@ namespace VehiculosOnline.Transversal.Repositorios
             }
         }
 
-        public async Task<List<T>> GetAllAsync<T>(string sqlQuery, object parameters)
+        public async Task<List<T>> GetAllAsync<T>(string sqlQuery, Dictionary<string, object> parameters)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
-                return (await connection.QueryAsync<T>(sqlQuery, parameters)).ToList();
+                var dynamicParameters = new DynamicParameters(parameters);
+                return (await connection.QueryAsync<T>(sqlQuery, dynamicParameters)).ToList();
             }
         }
 
@@ -42,12 +43,13 @@ namespace VehiculosOnline.Transversal.Repositorios
             }
         }
 
-        public async Task<T> GetAsync<T>(string sqlQuery, object parameters)
+        public async Task<T> GetAsync<T>(string sqlQuery, Dictionary<string, object> parameters)
         {
             using (var connection = new SqlConnection(_connectionString))
             {
                 await connection.OpenAsync();
-                return (await connection.QueryAsync<T>(sqlQuery, parameters)).FirstOrDefault();
+                var dynamicParameters = new DynamicParameters(parameters);
+                return (await connection.QueryAsync<T>(sqlQuery, dynamicParameters)).FirstOrDefault();
             }
         }
     }

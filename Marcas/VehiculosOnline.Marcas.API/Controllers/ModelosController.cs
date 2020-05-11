@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VehiculosOnline.Marcas.BLL;
@@ -17,6 +15,7 @@ namespace VehiculosOnline.Marcas.API.Controllers
         {
             _modeloBl = new ModeloBl();
         }
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -24,6 +23,15 @@ namespace VehiculosOnline.Marcas.API.Controllers
             if (!modelos.Any()) return NoContent();
 
             return Ok(modelos);
+        }
+
+        [HttpGet, Route("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var modelo = await _modeloBl.ObtenerPorIdAsync(id);
+            if (modelo == null) return NoContent();
+
+            return Ok(modelo);
         }
     }
 }

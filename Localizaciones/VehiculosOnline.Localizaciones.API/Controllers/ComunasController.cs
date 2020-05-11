@@ -24,5 +24,14 @@ namespace VehiculosOnline.Localizaciones.API.Controllers
 
             return Ok(comunas);
         }
+
+        [HttpGet, Route("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var comuna = await _comunaBl.ObtenerPorIdAsync(id);
+            if (comuna == null) return NoContent();
+
+            return Ok(comuna);
+        }
     }
 }

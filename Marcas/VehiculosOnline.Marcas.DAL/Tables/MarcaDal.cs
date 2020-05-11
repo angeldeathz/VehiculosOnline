@@ -22,5 +22,19 @@ namespace VehiculosOnline.Marcas.DAL.Tables
                         from marca";
             return await _repository.GetAllAsync<Marca>(sql);
         }
+
+        public async Task<Marca> ObtenerPorIdAsync(int id)
+        {
+            const string sql = @"select 
+                        id,
+                        nombre
+                        from marca
+                        where id = @Id";
+
+            return await _repository.GetAsync<Marca>(sql, new Dictionary<string, object>
+            {
+                {"@Id", id}
+            });
+        }
     }
 }

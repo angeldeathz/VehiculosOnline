@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\..\Shared\VehiculosOnline.Modelo\VehiculosOnline.Model.csproj" />
+    <ProjectReference Include="..\..\Shared\VehiculosOnline.Transversal\VehiculosOnline.Transversal.csproj" />
+    <ProjectReference Include="..\VehiculosOnline.Ventas.BLL\VehiculosOnline.Ventas.BLL.csproj" />
   </ItemGroup>
 
 

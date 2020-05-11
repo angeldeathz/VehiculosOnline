@@ -1,27 +1,29 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using VehiculosOnline.Model.Clases;
 using VehiculosOnline.Transversal.Repositorios;
 
-namespace VehiculosOnline.Localizaciones.DAL.Tables
+namespace VehiculosOnline.Vehiculos.DAL.Tables
 {
-    public class RegionDal
+    public class TipoCombustibleDal
     {
         private readonly Repository _repository;
-            
-        public RegionDal()
+
+        public TipoCombustibleDal()
         {
             _repository = new Repository(ConnectionStrings.VehiculosOnline);
         }
 
-        public async Task<List<Region>> ObtenerTodosAsync()
+        public async Task<List<TipoCombustible>> ObtenerTodosAsync()
         {
             const string sql = @"select 
                         id,
                         nombre
-                        from region";
+                        from TipoCombustible";
 
-            return await _repository.GetAllAsync<Region>(sql);
+            return await _repository.GetAllAsync<TipoCombustible>(sql);
         }
     }
 }

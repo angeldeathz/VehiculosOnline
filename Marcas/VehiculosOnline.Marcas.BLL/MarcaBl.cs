@@ -18,5 +18,10 @@ namespace VehiculosOnline.Marcas.BLL
         {
             return await _marcaDal.ObtenerTodosAsync();
         }
+
+        public async Task<Marca> ObtenerPorIdAsync(int id)
+        {
+            return await _marcaDal.ObtenerPorIdAsync(id);
+        }
     }
 }
