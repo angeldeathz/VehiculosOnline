@@ -23,6 +23,7 @@ namespace VehiculosOnline.Cotizaciones.DAL.Tables
                         fec_ingreso_cotizacion,
                         estaCerrada
                         from cotizacion";
+
             return await _repository.GetAllAsync<Cotizacion>(sql);
         }
     }

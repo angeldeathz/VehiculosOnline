@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using VehiculosOnline.CommonServices.Direcciones;
 using VehiculosOnline.Model.Clases;
 using VehiculosOnline.Personas.DAL.Tables;
 
@@ -19,15 +20,12 @@ namespace VehiculosOnline.Personas.BLL
             return await _personaDal.ObtenerTodosAsync();
         }
 
-        public async Task<Persona> ObtenerPorIdAsync(int id)
-        {
-            return await _personaDal.ObtenerPorIdAsync(id);
-        }
-
         public async Task<Persona> ObtenerPorRutAsync(string rut)
         {
-            // TODO: Aca hay que recibir el rut completo, y validar el rut
-            return await _personaDal.ObtenerPorRutAsync(0);
+            var persona = new Persona();
+            if (!persona.ValidaRut(rut)) return null;
+
+            return await _personaDal.ObtenerPorRutAsync(persona.Rut);
         }
     }
 }

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VehiculosOnline.Usuarios.DAL\VehiculosOnline.Usuarios.DAL.csproj" />
+    <ProjectReference Include="..\VehiculosOnline.Usuarios.DTO\VehiculosOnline.Usuarios.DTO.csproj" />
+  </ItemGroup>
+
+</Project>

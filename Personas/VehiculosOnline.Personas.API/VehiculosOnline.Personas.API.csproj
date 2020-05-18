@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\VehiculosOnline.Personas.BLL\VehiculosOnline.Personas.BLL.csproj" />
+    <ProjectReference Include="..\VehiculosOnline.Personas.Facade\VehiculosOnline.Personas.Facade.csproj" />
   </ItemGroup>
 
 

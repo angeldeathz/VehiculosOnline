@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\VehiculosOnline.CommonServices\VehiculosOnline.CommonServices.csproj" />
-    <ProjectReference Include="..\VehiculosOnline.Personas.DAL\VehiculosOnline.Personas.DAL.csproj" />
+    <ProjectReference Include="..\VehiculosOnline.Usuarios.BLL\VehiculosOnline.Usuarios.BLL.csproj" />
   </ItemGroup>
 
 </Project>

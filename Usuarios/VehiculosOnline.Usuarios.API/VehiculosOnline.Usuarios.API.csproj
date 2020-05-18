@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>e07bf7c0-d8f0-4b0d-aab4-57413c823339</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Shared\VehiculosOnline.Modelo\VehiculosOnline.Model.csproj" />
+    <ProjectReference Include="..\..\Shared\VehiculosOnline.Transversal\VehiculosOnline.Transversal.csproj" />
+    <ProjectReference Include="..\VehiculosOnline.Usuarios.BLL\VehiculosOnline.Usuarios.BLL.csproj" />
+    <ProjectReference Include="..\VehiculosOnline.Usuarios.DTO\VehiculosOnline.Usuarios.DTO.csproj" />
+    <ProjectReference Include="..\VehiculosOnline.Usuarios.Facade\VehiculosOnline.Usuarios.Facade.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
+  </ItemGroup>
+
+
+</Project>
