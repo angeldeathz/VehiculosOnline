@@ -11,5 +11,7 @@
         <Button x:Name="btnVerSolicitudes" Content="Ver Solicitudes" HorizontalAlignment="Left" Margin="196,195,0,0" VerticalAlignment="Top" Width="88" Height="33"/>
         <Button x:Name="btnVerVentas" Content="Ver Ventas" HorizontalAlignment="Left" Margin="523,195,0,0" VerticalAlignment="Top" Width="92" Height="33"/>
         <Button x:Name="btnIngresoSolicitud" Content="Flujo Completo" HorizontalAlignment="Left" Margin="196,88,0,0" VerticalAlignment="Top" Width="88" Height="33" Click="btnIngresoSolicitud_Click" RenderTransformOrigin="0.184,0.592"/>
+        <Button x:Name="btnFlujoEjecutivo" Content="Flujo Ejecutivo" HorizontalAlignment="Left" Margin="355,88,0,0" VerticalAlignment="Top" Width="88" Height="33" Click="btnFlujoEjecutivo_Click" RenderTransformOrigin="0.184,0.592"/>
+        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="523,88,0,0" VerticalAlignment="Top" Width="101" Height="33" Click="btnLogin_Click" />
     </Grid>
 </Window>

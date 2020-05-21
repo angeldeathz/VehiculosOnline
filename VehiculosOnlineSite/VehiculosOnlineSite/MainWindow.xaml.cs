@@ -39,5 +39,17 @@ namespace VehiculosOnlineSite
             IngresoSolicitud ingresoSolicitudForm = new IngresoSolicitud();
             ingresoSolicitudForm.ShowDialog();
         }
+
+        private void btnFlujoEjecutivo_Click(object sender, RoutedEventArgs e)
+        {
+            MantenedorVehiculo mantenedorVehiculoForm = new MantenedorVehiculo();
+            mantenedorVehiculoForm.ShowDialog();
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            Login loginForm = new Login();
+            loginForm.ShowDialog();
+        }
     }
 }

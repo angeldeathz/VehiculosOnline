@@ -19,9 +19,39 @@ namespace VehiculosOnlineSite
     /// </summary>
     public partial class Login : Window
     {
+        public string mensaje;
         public Login()
         {
             InitializeComponent();
+        }
+
+        private void btnEntrar_Click(object sender, RoutedEventArgs e)
+        {
+            lblMensaje.Content = "";
+            mensaje = "";
+            if (validarFormulario())
+            {
+                lblMensaje.Content = mensaje;
+            }
+        }
+        public bool validarFormulario()
+        {
+            bool hayErrores = false;
+            if (String.IsNullOrEmpty(txtUsuario.Text))
+            {
+                hayErrores = true;
+                mensaje = "Debe ingresar su usuario" + "\r\n";
+            }
+            if (String.IsNullOrEmpty(txtContrasena.Password))
+            {
+                hayErrores = true;
+                mensaje = mensaje += "Debe ingresar su contraseña" + "\r\n";
+            }
+            if (hayErrores == false)
+            {
+                //Aca debe validar si el usuario existe
+            }
+            return hayErrores;
         }
     }
 }
