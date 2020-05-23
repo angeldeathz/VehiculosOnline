@@ -19,13 +19,5 @@ namespace VehiculosOnline.Personas.BLL
         {
             return await _personaDal.ObtenerTodosAsync();
         }
-
-        public async Task<Persona> ObtenerPorRutAsync(string rut)
-        {
-            var persona = new Persona();
-            if (!persona.ValidaRut(rut)) return null;
-
-            return await _personaDal.ObtenerPorRutAsync(persona.Rut);
-        }
     }
 }

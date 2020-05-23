@@ -27,6 +27,14 @@ namespace VehiculosOnline.Personas.Facade
             return persona;
         }
 
+        public async Task<Persona> ObtenerPorRutAsync(string rut)
+        {
+            var persona = new Persona();
+            if (!persona.ValidaRut(rut)) return null;
+
+            return await _personaDal.ObtenerPorRutAsync(persona.Rut);
+        }
+
         public async Task<int> InsertarAsync(Persona persona)
         {
             if (!persona.ValidaRut(persona.ObtenerRutCompleto()))

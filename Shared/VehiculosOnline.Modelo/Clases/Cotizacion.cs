@@ -7,7 +7,7 @@ namespace VehiculosOnline.Model.Clases
     {
         public int IdSolicitud { get; set; }
         public int IdTipoPago { get; set; }
-        public DateTime FecIngresoCotizacion { get; set; }
+        public DateTime FechaIngresoCotizacion { get; set; }
         public bool EsPagoDiferido { get; set; }
         public int CantidadMesesDiferido { get; set; }
         public bool EstaCerrada { get; set; }

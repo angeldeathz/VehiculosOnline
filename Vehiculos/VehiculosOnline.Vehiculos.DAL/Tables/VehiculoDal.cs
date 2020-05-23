@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using VehiculosOnline.Model.Clases;
 using VehiculosOnline.Transversal.Repositorios;
+using VehiculosOnline.Vehiculos.DAL.ClassJoin;
 
 namespace VehiculosOnline.Vehiculos.DAL.Tables
 {
@@ -22,6 +23,37 @@ namespace VehiculosOnline.Vehiculos.DAL.Tables
                         id_modelo AS IdModelo
                         from vehiculo";
             return await _repository.GetAllAsync<Vehiculo>(sql);
+        }
+
+        public async Task<VehiculoJoin> ObtenerPorIdAsync(int id)
+        {
+            const string sql = @"select 
+                        v.id,
+                        v.id_modelo as IdModelo,
+                        mo.nombre as NombreModelo,
+                        ma.id as IdMarca,
+                        ma.nombre as NombreMarca,
+                        v.id_tipo_vehiculo as IdTipoVehiculo,
+                        tv.nombre as NombreTipoVehiculo,
+                        v.id_tipo_combustible as IdTipoCombustible,
+                        tc.nombre as NombreTipoCombustible,
+                        v.id_pais_origen as IdPaisOrigen,
+                        p.nombre as NombrePaisOrigen,
+                        v.anio,
+                        v.color,
+                        v.precio
+                        from vehiculo v
+                        join modelo mo on v.id_modelo = mo.id
+                        join marca ma on mo.id_marca = ma.id
+                        join TipoVehiculo tv on v.id_tipo_vehiculo = tv.id
+                        join TipoCombustible tc on v.id_tipo_combustible = tc.id
+                        join Pais p on v.id_pais_origen = p.id
+                        WHERE v.id = @Id";
+
+            return await _repository.GetAsync<VehiculoJoin>(sql, new Dictionary<string, object>
+            {
+                {"@Id", id}
+            });
         }
 
         public async Task<int> InsertarAsync(Vehiculo vehiculo)

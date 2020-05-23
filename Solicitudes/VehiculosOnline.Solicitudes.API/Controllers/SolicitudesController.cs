@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using VehiculosOnline.Model.Clases;
+using VehiculosOnline.Solicitudes.DTO;
 using VehiculosOnline.Solicitudes.Facade;
 
 namespace VehiculosOnline.Solicitudes.API.Controllers
@@ -16,8 +16,17 @@ namespace VehiculosOnline.Solicitudes.API.Controllers
             _solicitudFacade = new SolicitudFacade();
         }
 
+        [HttpGet, Route("{id}")]
+        public async Task<IActionResult> Get(int id)
+        {
+            var solicitud = await _solicitudFacade.ObtenerPorIdAsync(id);
+            if (solicitud == null) return NoContent();
+
+            return Ok(solicitud);
+        }
+
         [HttpPost, Route("")]
-        public async Task<IActionResult> Post(Solicitud solicitud)
+        public async Task<IActionResult> Post(SolicitudDto solicitud)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 

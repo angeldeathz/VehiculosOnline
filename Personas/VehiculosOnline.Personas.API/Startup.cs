@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using VehiculosOnline.Transversal.Errores;
 using VehiculosOnline.Transversal.Repositorios;
 
 //rama carlitos prueba
@@ -31,6 +32,8 @@ namespace VehiculosOnline.Personas.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseMiddleware<ErrorHandler>();
 
             app.UseHttpsRedirection();
 

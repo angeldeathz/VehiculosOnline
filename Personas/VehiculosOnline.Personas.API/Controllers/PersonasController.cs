@@ -52,7 +52,7 @@ namespace VehiculosOnline.Personas.API.Controllers
         [HttpGet, Route("filter")] //api/personas?rut=11.111.111-1, 111111111, 11111111-1 etc...
         public async Task<IActionResult> Get([FromQuery] string rut)
         {
-            var persona = await _personaBl.ObtenerPorRutAsync(rut);
+            var persona = await _personaFacade.ObtenerPorRutAsync(rut);
             if (persona == null) return NoContent();
 
             return Ok(persona);

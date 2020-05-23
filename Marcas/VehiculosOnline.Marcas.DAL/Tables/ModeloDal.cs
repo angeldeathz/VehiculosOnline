@@ -21,6 +21,7 @@ namespace VehiculosOnline.Marcas.DAL.Tables
                         nombre,
                         id_marca AS IdMarca
                         from modelo";
+
             return await _repository.GetAllAsync<Modelo>(sql);
         }
 

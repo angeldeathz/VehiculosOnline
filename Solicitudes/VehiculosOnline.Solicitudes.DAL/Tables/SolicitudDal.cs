@@ -18,10 +18,28 @@ namespace VehiculosOnline.Solicitudes.DAL.Tables
         {
             const string sql = @"select 
                         id,
-                        fec_ingreso_solicitud,
-                        id_persona AS IdPersona
+                        fec_ingreso_solicitud as FechaIngresoSolicitud,
+                        id_persona AS IdPersona,
+                        id_vehiculo AS IdVehiculo
                         from solicitud";
+
             return await _repository.GetAllAsync<Solicitud>(sql);
+        }
+
+        public async Task<Solicitud> ObtenerPorIdAsync(int id)
+        {
+            const string sql = @"select 
+                        id,
+                        fec_ingreso_solicitud as FechaIngresoSolicitud,
+                        id_persona AS IdPersona,
+                        id_vehiculo AS IdVehiculo
+                        from solicitud
+                        WHERE id = @Id";
+
+            return await _repository.GetAsync<Solicitud>(sql, new Dictionary<string, object>
+            {
+                {"@Id", id}
+            });
         }
 
         public async Task<int> InsertarAsync(Solicitud solicitud)

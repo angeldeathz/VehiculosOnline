@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using VehiculosOnline.Transversal.Errores;
 using VehiculosOnline.Transversal.Repositorios;
 
 namespace VehiculosOnline.Solicitudes.API
@@ -30,6 +31,8 @@ namespace VehiculosOnline.Solicitudes.API
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseMiddleware<ErrorHandler>();
 
             app.UseHttpsRedirection();
 

@@ -18,5 +18,11 @@ namespace VehiculosOnline.CommonServices.Vehiculos
             const string url = "http://localhost/VehiculosOnline/vehiculos/api/vehiculos/";
             return await _restClientHttp.PostAsync<int>(url, vehiculo);
         }
+
+        public async Task<Vehiculo> ObtenerPorIdAsync(int id)
+        {
+            var url = $"http://localhost/VehiculosOnline/vehiculos/api/vehiculos/{id}";
+            return await _restClientHttp.GetObjectAsync<Vehiculo>(url);
+        }
     }
 }

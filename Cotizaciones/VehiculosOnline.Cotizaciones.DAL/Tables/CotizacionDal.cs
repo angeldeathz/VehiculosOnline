@@ -26,5 +26,43 @@ namespace VehiculosOnline.Cotizaciones.DAL.Tables
 
             return await _repository.GetAllAsync<Cotizacion>(sql);
         }
+
+        public async Task<int> InsertarAsync(Cotizacion cotizacion)
+        {
+            const string sql = @"INSERT INTO COTIZACION
+                (
+                id_solicitud,
+                id_tipo_pago,
+                fec_ingreso_cotizacion,
+                es_pago_diferido,
+                cant_meses_diferido,
+                estaCerrada,
+                cant_cuotas,
+                valor_vehiculo
+                )
+                VALUES
+                (
+                @IdSolicitud,
+                @IdTipoPago,
+                @FechaIngresoCotizacion,
+                @EsPagoDiferido,
+                @CantidadMesesDiferido,
+                @EstaCerrada,
+                @CantidadCuotas,
+                @ValorVehiculo
+                );";
+
+            return await _repository.InsertAsync(sql, new Dictionary<string, object>
+            {
+                {"@IdSolicitud", cotizacion.IdSolicitud},
+                {"@IdTipoPago", cotizacion.IdTipoPago},
+                {"@FechaIngresoCotizacion", cotizacion.FechaIngresoCotizacion},
+                {"@EsPagoDiferido", cotizacion.EsPagoDiferido},
+                {"@CantidadMesesDiferido", cotizacion.CantidadMesesDiferido},
+                {"@EstaCerrada", cotizacion.EstaCerrada},
+                {"@CantidadCuotas", cotizacion.CantidadCuotas},
+                {"@ValorVehiculo", cotizacion.ValorVehiculo}
+            });
+        }
     }
 }
