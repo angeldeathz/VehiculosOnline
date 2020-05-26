@@ -98,8 +98,6 @@
     <Compile Include="MantenedorVehiculo.xaml.cs">
       <DependentUpon>MantenedorVehiculo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RestClientHttp.cs" />
-    <Compile Include="RestClientResponse.cs" />
     <Page Include="DatosContactoPersona.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -171,6 +169,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VehiculosOnlineSite.BLL\VehiculosOnlineSite.BLL.csproj">
+      <Project>{2BCFC43D-2B02-4242-823C-8E07FCE62238}</Project>
+      <Name>VehiculosOnlineSite.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VehiculosOnlineSite.Model\VehiculosOnlineSite.Model.csproj">
+      <Project>{7985D0CC-B78B-4A40-8833-5E13C9F3C72E}</Project>
+      <Name>VehiculosOnlineSite.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\VehiculosOnlineSite.Services\VehiculosOnlineSite.Services.csproj">
+      <Project>{562BCDFB-97EC-4CE8-BBC1-E991F00607F6}</Project>
+      <Name>VehiculosOnlineSite.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

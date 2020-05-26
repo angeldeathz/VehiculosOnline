@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace VehiculosOnlineSite
+namespace VehiculosOnlineSite.Services.Shared
 {
     public class RestClientResponse<T>
     {

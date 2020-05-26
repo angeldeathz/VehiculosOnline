@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using VehiculosOnlineSite.Services.Shared;
 
 namespace VehiculosOnlineSite
 {
@@ -20,11 +21,8 @@ namespace VehiculosOnlineSite
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly RestClientHttp restClientHttp = new RestClientHttp();
-
         public MainWindow()
         {
-            var respuesta = restClientHttp.GetAsync("http://localhost/VehiculosOnline/localizaciones/api/comunas");
             InitializeComponent();
         }
 
