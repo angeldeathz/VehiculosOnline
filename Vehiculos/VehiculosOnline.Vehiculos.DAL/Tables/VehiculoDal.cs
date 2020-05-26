@@ -56,6 +56,39 @@ namespace VehiculosOnline.Vehiculos.DAL.Tables
             });
         }
 
+        public async Task<List<VehiculoJoin>> ObtenerPorMarcaModeloAsync(int idMarca, int idModelo)
+        {
+            const string sql = @"select 
+                        v.id,
+                        v.id_modelo as IdModelo,
+                        mo.nombre as NombreModelo,
+                        ma.id as IdMarca,
+                        ma.nombre as NombreMarca,
+                        v.id_tipo_vehiculo as IdTipoVehiculo,
+                        tv.nombre as NombreTipoVehiculo,
+                        v.id_tipo_combustible as IdTipoCombustible,
+                        tc.nombre as NombreTipoCombustible,
+                        v.id_pais_origen as IdPaisOrigen,
+                        p.nombre as NombrePaisOrigen,
+                        v.anio,
+                        v.color,
+                        v.precio
+                        from vehiculo v
+                        join modelo mo on v.id_modelo = mo.id
+                        join marca ma on mo.id_marca = ma.id
+                        join TipoVehiculo tv on v.id_tipo_vehiculo = tv.id
+                        join TipoCombustible tc on v.id_tipo_combustible = tc.id
+                        join Pais p on v.id_pais_origen = p.id
+                        WHERE (v.id_modelo = @IdModelo OR 0 = @IdModelo) 
+                        AND (ma.id = @IdMarca OR 0 = @IdMarca)";
+
+            return await _repository.GetAllAsync<VehiculoJoin>(sql, new Dictionary<string, object>
+            {
+                {"@IdMarca", idMarca},
+                {"@IdModelo", idModelo}
+            });
+        }
+
         public async Task<int> InsertarAsync(Vehiculo vehiculo)
         {
             const string sql = 

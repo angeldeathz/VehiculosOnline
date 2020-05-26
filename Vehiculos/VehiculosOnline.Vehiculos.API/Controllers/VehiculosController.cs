@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using VehiculosOnline.Vehiculos.BLL;
 
@@ -22,6 +23,15 @@ namespace VehiculosOnline.Vehiculos.API.Controllers
             if (vehiculo == null) return NoContent();
 
             return Ok(vehiculo);
+        }
+
+        [HttpGet, Route("")]
+        public async Task<IActionResult> Get([FromQuery] int idMarca, [FromQuery] int idModelo)
+        {
+            var vehiculos = await _vehiculoBl.ObtenerPorMarcaModeloAsync(idMarca, idModelo);
+            if (!vehiculos.Any()) return NoContent();
+
+            return Ok(vehiculos);
         }
     }
 }
