@@ -15,12 +15,16 @@ namespace VehiculosOnlineSite.BLL
 
         public List<Marca> ObtenerMarcas()
         {
-            return _marcaService.ObtenerMarcas();
+            var marcas = new List<Marca> { new Marca { Id = 0, Nombre = "Seleccione..." } };
+            marcas.AddRange(_marcaService.ObtenerMarcas());
+            return marcas;
         }
 
         public List<Modelo> ObtenerModelos(int idMarca)
         {
-            return _marcaService.ObtenerModelos(idMarca);
+            var modelos = new List<Modelo> { new Modelo { Id = 0, Nombre = "Seleccione..." } };
+            modelos.AddRange(_marcaService.ObtenerModelos(idMarca));
+            return modelos;
         }
     }
 }

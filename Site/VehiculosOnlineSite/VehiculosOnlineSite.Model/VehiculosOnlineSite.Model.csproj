@@ -54,11 +54,13 @@
     <Compile Include="Clases\Region.cs" />
     <Compile Include="Clases\Seguro.cs" />
     <Compile Include="Clases\Solicitud.cs" />
+    <Compile Include="Clases\SolicitudDto.cs" />
     <Compile Include="Clases\TipoCombustible.cs" />
     <Compile Include="Clases\TipoPago.cs" />
     <Compile Include="Clases\TipoVehiculo.cs" />
     <Compile Include="Clases\Usuario.cs" />
     <Compile Include="Clases\Vehiculo.cs" />
+    <Compile Include="Clases\VehiculoDataGrid.cs" />
     <Compile Include="Clases\Venta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

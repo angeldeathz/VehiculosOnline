@@ -23,6 +23,7 @@ namespace VehiculosOnlineSite
     {
         public MainWindow()
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
         }
 

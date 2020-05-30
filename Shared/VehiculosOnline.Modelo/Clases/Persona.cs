@@ -99,5 +99,13 @@ namespace VehiculosOnline.Model.Clases
         {
             return $"{Rut}-{Dv}";
         }
-	}
+
+        public void ValidarFechaNacimiento()
+        {
+            if (FechaNacimiento.Year < 1950)
+            {
+                FechaNacimiento = new DateTime(1960, 12, 1);
+            }
+        }
+    }
 }

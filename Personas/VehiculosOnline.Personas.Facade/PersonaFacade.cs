@@ -44,24 +44,41 @@ namespace VehiculosOnline.Personas.Facade
 
             if (personaBdd == null)
             {
+                if (persona.Direccion == null)
+                {
+                    persona.Direccion = new Direccion
+                    {
+                        Calle = "Santiago",
+                        IdComuna = 127,
+                        Numero = 10001
+                    };
+                }
+
                 var direccionRespuesta = await _direccionService.InsertarAsync(persona.Direccion);
 
                 if (direccionRespuesta.StatusName != HttpStatusCode.OK)
                     throw new Exception($"No se pudo ingresar la direccion. Error {direccionRespuesta.Message}");
 
                 persona.IdDireccion = direccionRespuesta.Response;
+                persona.ValidarFechaNacimiento();
+
                 var id = await _personaDal.InsertarAsync(persona);
                 persona.Id = id;
             }
             else
             {
-                var direccionRespuesta = await _direccionService.ActualizarAsync(personaBdd.IdDireccion, persona.Direccion);
+                if (persona.Direccion != null)
+                {
+                    var direccionRespuesta = await _direccionService.ActualizarAsync(personaBdd.IdDireccion, persona.Direccion);
 
-                if (direccionRespuesta.StatusName != HttpStatusCode.OK)
-                    throw new Exception($"No se pudo actualizar la direccion. Error {direccionRespuesta.Message}");
-
+                    if (direccionRespuesta.StatusName != HttpStatusCode.OK)
+                        throw new Exception($"No se pudo actualizar la direccion. Error {direccionRespuesta.Message}");
+                }
+                
                 persona.Id = personaBdd.Id;
                 persona.IdDireccion = personaBdd.IdDireccion;
+                persona.ValidarFechaNacimiento();
+
                 var esActualizado = await _personaDal.ActualizarAsync(persona);
 
                 if (esActualizado == 0)

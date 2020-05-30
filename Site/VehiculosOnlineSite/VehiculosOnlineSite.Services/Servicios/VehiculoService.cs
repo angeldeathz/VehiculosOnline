@@ -1,4 +1,6 @@
-﻿using VehiculosOnlineSite.Model.Clases;
+﻿using System.Collections.Generic;
+using System.Net;
+using VehiculosOnlineSite.Model.Clases;
 using VehiculosOnlineSite.Services.Shared;
 
 namespace VehiculosOnlineSite.Services.Servicios
@@ -12,10 +14,12 @@ namespace VehiculosOnlineSite.Services.Servicios
             _restClientHttp = new RestClientHttp();
         }
 
-        public Vehiculo ObtenerPorId(int id)
+        public List<Vehiculo> ObtenerPorIdMarcaModelo(int idMarca, int idModelo)
         {
-            var url = $"http://localhost/VehiculosOnline/vehiculos/api/vehiculos/{id}";
-            return _restClientHttp.GetObject<Vehiculo>(url);
+            var url = $"http://localhost/VehiculosOnline/vehiculos/api/vehiculos?idModelo={idModelo}&idMarca={idMarca}";
+            var respuesta = _restClientHttp.Get<List<Vehiculo>>(url);
+            if (respuesta.StatusName != HttpStatusCode.OK) return new List<Vehiculo>();
+            return respuesta.Response;
         }
     }
 }

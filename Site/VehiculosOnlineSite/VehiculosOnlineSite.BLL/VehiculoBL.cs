@@ -1,4 +1,5 @@
-﻿using VehiculosOnlineSite.Model.Clases;
+﻿using System.Collections.Generic;
+using VehiculosOnlineSite.Model.Clases;
 using VehiculosOnlineSite.Services.Servicios;
 
 namespace VehiculosOnlineSite.BLL
@@ -12,9 +13,28 @@ namespace VehiculosOnlineSite.BLL
             _vehiculoService = new VehiculoService();
         }
 
-        public Vehiculo ObtenerPorIdAsync(int id)
+        public List<VehiculoDataGrid> ObtenerPorIdMarcaModelo(int idMarca, int idModelo)
         {
-            return _vehiculoService.ObtenerPorId(id);
+            var vehiculos = new List<VehiculoDataGrid>();
+            var vehiculosService = _vehiculoService.ObtenerPorIdMarcaModelo(idMarca, idModelo);
+
+            foreach (var v in vehiculosService)
+            {
+                vehiculos.Add(new VehiculoDataGrid
+                {
+                    Id = v.Id,
+                    Marca = v.Modelo.Marca.Nombre,
+                    Modelo = v.Modelo.Nombre,
+                    TipoVehiculo = v.TipoVehiculo.Nombre,
+                    TipoCombustible = v.TipoCombustible.Nombre,
+                    Pais = v.PaisOrigen.Nombre,
+                    Anio = v.Anio,
+                    Color = v.Color,
+                    Precio = v.Precio
+                });
+            }
+
+            return vehiculos;
         }
     }
 }

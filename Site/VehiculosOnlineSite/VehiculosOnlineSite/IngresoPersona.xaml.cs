@@ -1,26 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using VehiculosOnlineSite.BLL;
+using VehiculosOnlineSite.Model.Clases;
 
 namespace VehiculosOnlineSite
 {
-    /// <summary>
-    /// Lógica de interacción para IngresoPersona.xaml
-    /// </summary>
-    public partial class IngresoPersona : Window
+    public partial class IngresoPersona
     {
-        public string mensaje;
+        private readonly SolicitudBL _solicitudBl = new SolicitudBL();
+
+        public VehiculoDataGrid Vehiculo { get; set; }
 
         public IngresoPersona()
         {
@@ -29,122 +18,84 @@ namespace VehiculosOnlineSite
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            lblMensaje.Content = "";
-            mensaje = "";
-            if (validarFormulario())
+            try
             {
-                lblMensaje.Content = mensaje;
+                IngresarSolicitud();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
+            }
+        }
+
+        private void IngresarSolicitud()
+        {
+            if (EsPersonaValida())
+            {
+                var persona = new Persona
+                {
+                    Nombres = nombretxt.Text,
+                    Apellidos = apellidotxt.Text,
+                    Email = correoTxt.Text
+                };
+                persona.ValidaRut(ruttxt.Text);
+
+                var solicitud = new SolicitudDto
+                {
+                    IdVehiculo = Vehiculo.Id,
+                    Cliente = persona
+                };
+
+                var idSolicitud = _solicitudBl.IngresarSolicitud(solicitud);
+                if (idSolicitud > 0)
+                {
+                    var detalleVehiculoForm = new DetalleVehiculo();
+                    detalleVehiculoForm.ShowDialog();
+                }
+            }
+        }
+
+        private bool EsPersonaValida()
+        {
+            var mensaje = string.Empty;
+            var esValido = true;
+
+            if (nombretxt.Text.Trim().Length == 0)
+            {
+                esValido = false;
+                mensaje = "Debe ingresar su nombre." + "\r\n";
+            }
+
+            if (apellidotxt.Text.Trim().Length == 0)
+            {
+                esValido = false;
+                mensaje += "Debe ingresar sus apellidos." + "\r\n";
+            }
+
+            if (correoTxt.Text.Trim().Length == 0)
+            {
+                esValido = false;
+                mensaje += "Debe ingresar su correo electrónico." + "\r\n";
+            }
+
+            if (ruttxt.Text.Trim().Length == 0)
+            {
+                esValido = false;
+                mensaje += "Debe ingresar el rut." + "\r\n";
             }
             else
             {
-                DetalleVehiculo detalleVehiculoForm = new DetalleVehiculo();
-                detalleVehiculoForm.ShowDialog();
-            }
-            
-        }
-
-        public bool validarFormulario()
-        {
-            bool hayErrores = false;
-            if (String.IsNullOrEmpty(nombretxt.Text))
-            {
-                hayErrores = true;
-                mensaje = "Debe ingresar su nombre" + "\r\n";
-            }
-            if (String.IsNullOrEmpty(apellidotxt.Text))
-            {
-                hayErrores = true;
-                mensaje = mensaje += "Debe ingresar sus apellidos" + "\r\n";
-            }
-            if (String.IsNullOrEmpty(ruttxt.Text))
-            {
-                hayErrores = true;
-                mensaje = mensaje += "Debe ingresar el rut" + "\r\n";
-            }
-            else
-            {
-                int letters = 0;
-
-                foreach (char a in ruttxt.Text)
+                var persona = new Persona();
+                if (!persona.ValidaRut(ruttxt.Text))
                 {
-                    if (Char.IsLetter(a))
-                    {
-                        letters++;
-                    }
+                    esValido = false;
+                    mensaje += "El rut ingresado es inválido." + "\r\n";
                 }
-                if (letters>=2)
-                {
-                    hayErrores = true;
-                    mensaje = mensaje += "El rut ingresado no es valido" + "\r\n";
-                }
-                else
-                {
-                    ruttxt.Text = FormatearIdentificador(ruttxt.Text);
-                    if (!ValidarIdentificador(ruttxt.Text))
-                    {
-                        hayErrores = true;
-                        mensaje = mensaje += "El rut ingresado no es valido" + "\r\n";
-                    }
-                }
-               
-            }
-            
-
-            return hayErrores;
-        }
-
-        public bool ValidarIdentificador(string documento)
-        {
-            if (string.IsNullOrWhiteSpace(documento))
-            {
-                throw new ArgumentException("Argumento no debe ser nulo ni vacio", nameof(documento));
             }
 
-            bool validacion = false;
-            documento = documento.ToUpper();
-            documento = documento.Replace(".", "");
-            documento = documento.Replace("-", "");
-            int rutAux = int.Parse(documento.Substring(0, documento.Length - 1));
+            if (!esValido) MessageBox.Show(mensaje, "Ha ocurrido un error");
 
-            char dv = char.Parse(documento.Substring(documento.Length - 1, 1));
-
-            int m = 0, s = 1;
-            for (; rutAux != 0; rutAux /= 10)
-            {
-                s = (s + rutAux % 10 * (9 - m++ % 6)) % 11;
-            }
-            if (dv == (char)(s != 0 ? s + 47 : 75))
-            {
-                validacion = true;
-            }
-            return validacion;
-        }
-        public string FormatearIdentificador(string rut)
-        {
-
-            int cont = 0;
-            string format;
-            if (rut == null || rut.Length == 0)
-            {
-                return "";
-            }
-            else
-            {
-                rut = rut.Replace(".", "");
-                rut = rut.Replace("-", "");
-                format = "-" + rut.Substring(rut.Length - 1);
-                for (int i = rut.Length - 2; i >= 0; i--)
-                {
-                    format = rut.Substring(i, 1) + format;
-                    cont++;
-                    if (cont == 3 && i != 0)
-                    {
-                        format = "." + format;
-                        cont = 0;
-                    }
-                }
-                return format;
-            }
+            return esValido;
         }
     }
 }

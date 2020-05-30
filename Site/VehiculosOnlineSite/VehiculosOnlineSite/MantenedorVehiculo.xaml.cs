@@ -26,6 +26,7 @@ namespace VehiculosOnlineSite
 
         public MantenedorVehiculo()
         {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
             InitializeComponent();
             ObtenerMarcas();
         }
