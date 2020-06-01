@@ -9,11 +9,11 @@
     <Grid>
         <Label x:Name="label" Content="Seleccione Marca" HorizontalAlignment="Left" Margin="70,43,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy" Content="Seleccione Modelo" HorizontalAlignment="Left" Margin="248,43,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboMarca" HorizontalAlignment="Left" Margin="70,74,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cboMarca" HorizontalAlignment="Left" Margin="70,74,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboMarca_SelectionChanged"/>
         <ComboBox x:Name="cboModelo" HorizontalAlignment="Left" Margin="248,74,0,0" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="408,74,0,0" VerticalAlignment="Top" Width="75"/>
         <Label x:Name="label1" Content="¿Desea agregar un nuevo vehiculo?" HorizontalAlignment="Left" Margin="564,43,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnCrear" Content="Agregar Vehiculo" HorizontalAlignment="Left" Margin="618,74,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="btnCrear" Content="Agregar Vehiculo" HorizontalAlignment="Left" Margin="618,74,0,0" VerticalAlignment="Top" Width="100" Click="btnCrear_Click"/>
         <Grid HorizontalAlignment="Left" Height="232" Margin="70,161,0,0" VerticalAlignment="Top" Width="648"/>
         <Label x:Name="label2" Content="Listado de vehiculos" HorizontalAlignment="Left" Margin="84,132,0,0" VerticalAlignment="Top"/>
 
