@@ -59,6 +59,7 @@
     <Compile Include="Clases\TipoPago.cs" />
     <Compile Include="Clases\TipoVehiculo.cs" />
     <Compile Include="Clases\Usuario.cs" />
+    <Compile Include="Clases\UsuarioAutenticador.cs" />
     <Compile Include="Clases\Vehiculo.cs" />
     <Compile Include="Clases\VehiculoDataGrid.cs" />
     <Compile Include="Clases\Venta.cs" />

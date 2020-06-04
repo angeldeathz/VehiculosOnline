@@ -5,13 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VehiculosOnlineSite"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button x:Name="btnIngresarVenta" Content="Ingresar venta" HorizontalAlignment="Left" Margin="355,195,0,0" VerticalAlignment="Top" Width="101" Height="33" Click="btnIngresarVenta_Click"/>
-        <Button x:Name="btnVerSolicitudes" Content="Ver Solicitudes" HorizontalAlignment="Left" Margin="196,195,0,0" VerticalAlignment="Top" Width="88" Height="33"/>
-        <Button x:Name="btnVerVentas" Content="Ver Ventas" HorizontalAlignment="Left" Margin="523,195,0,0" VerticalAlignment="Top" Width="92" Height="33"/>
-        <Button x:Name="btnIngresoSolicitud" Content="Flujo Completo" HorizontalAlignment="Left" Margin="196,88,0,0" VerticalAlignment="Top" Width="88" Height="33" Click="btnIngresoSolicitud_Click" RenderTransformOrigin="0.184,0.592"/>
-        <Button x:Name="btnFlujoEjecutivo" Content="Flujo Ejecutivo" HorizontalAlignment="Left" Margin="355,88,0,0" VerticalAlignment="Top" Width="88" Height="33" Click="btnFlujoEjecutivo_Click" RenderTransformOrigin="0.184,0.592"/>
-        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="523,88,0,0" VerticalAlignment="Top" Width="101" Height="33" Click="btnLogin_Click" />
+        Title="MainWindow" Height="334" Width="685.6">
+    <Grid Margin="0,0,0.2,-0.2">
+        <Grid x:Name="gridInicio" HorizontalAlignment="Left" Height="88" Margin="128,90,0,0" VerticalAlignment="Top" Width="428">
+            <Label x:Name="label" Content="Ingrese rut" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="70"/>
+            <PasswordBox x:Name="txtContrasena" HorizontalAlignment="Left" Margin="158,41,0,0" VerticalAlignment="Top" Width="120" Height="23" MaxLength="30"/>
+            <Label x:Name="label_Copy" Content="Ingrese contraseña" HorizontalAlignment="Left" Margin="158,10,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btnLogin" Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="307,41,0,0" VerticalAlignment="Top" Width="91" Height="23" Click="btnLogin_Click" />
+        </Grid>
+        <Grid x:Name="gridIniciadoSesion" HorizontalAlignment="Left" Height="64" Margin="30,200,0,0" VerticalAlignment="Top" Width="628">
+            <Button x:Name="btnIngresarVenta" Content="Ingresar venta" HorizontalAlignment="Left" Margin="280,19,0,0" VerticalAlignment="Top" Width="86" Height="21" Click="btnIngresarVenta_Click"/>
+            <Button x:Name="btnVerSolicitudes" Content="Ver Solicitudes" HorizontalAlignment="Left" Margin="164,19,0,0" VerticalAlignment="Top" Width="88" Height="21"/>
+            <Button x:Name="btnVerVentas" Content="Ver Ventas" HorizontalAlignment="Left" Margin="400,19,0,0" VerticalAlignment="Top" Width="72" Height="21"/>
+            <Button x:Name="btnFlujoEjecutivo" Content="Flujo Ejecutivo" HorizontalAlignment="Left" Margin="39,19,0,0" VerticalAlignment="Top" Width="90" Height="21" Click="btnFlujoEjecutivo_Click" RenderTransformOrigin="0.184,0.592"/>
+            <Button x:Name="btnCerrarSesion" Content="Cerrar sesión" HorizontalAlignment="Left" Margin="506,19,0,0" VerticalAlignment="Top" Width="82" Height="21" Click="btnCerrarSesion_Click"/>
+        </Grid>
     </Grid>
 </Window>

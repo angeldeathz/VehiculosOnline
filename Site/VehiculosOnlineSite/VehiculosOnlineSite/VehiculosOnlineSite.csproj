@@ -92,9 +92,6 @@
     <Compile Include="ListarVehiculo.xaml.cs">
       <DependentUpon>ListarVehiculo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Login.xaml.cs">
-      <DependentUpon>Login.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MantenedorVehiculo.xaml.cs">
       <DependentUpon>MantenedorVehiculo.xaml</DependentUpon>
     </Compile>
@@ -119,10 +116,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ListarVehiculo.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
