@@ -4,9 +4,6 @@ using VehiculosOnlineSite.BLL;
 
 namespace VehiculosOnlineSite
 {
-    /// <summary>
-    /// Lógica de interacción para MainWindow.xaml
-    /// </summary>
     public partial class MainWindow
     {
         private readonly UsuarioBL _usuarioBl = new UsuarioBL();

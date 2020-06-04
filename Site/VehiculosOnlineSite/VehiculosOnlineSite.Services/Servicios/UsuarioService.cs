@@ -18,8 +18,8 @@ namespace VehiculosOnlineSite.Services.Servicios
         {
             var url = $"http://localhost/VehiculosOnline/usuarios/api/usuarios/autenticar";
             var respuesta = _restClientHttp.Post<bool>(url, autenticador);
-            if (respuesta.StatusName != HttpStatusCode.OK) throw new Exception(respuesta.Message);
-            return respuesta.Response;
+            if (respuesta.StatusName != HttpStatusCode.OK) return false;
+            return true;
         }
     }
 }
