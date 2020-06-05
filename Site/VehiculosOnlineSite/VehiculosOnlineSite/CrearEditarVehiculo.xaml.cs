@@ -13,7 +13,7 @@ namespace VehiculosOnlineSite
         private readonly MarcaBL _marcaBl = new MarcaBL();
         private readonly VehiculoBL _vehiculoBl = new VehiculoBL();
         private readonly LocalizacionBL _localizacionBl = new LocalizacionBL();
-
+        private bool EsModificacion { get; set; }
         public CrearEditarVehiculo()
         {
             try
@@ -53,11 +53,38 @@ namespace VehiculosOnlineSite
         {
             try
             {
-                GuardarVehiculo();
+                if (EsModificacion)
+                {
+                    ModificarVehiculo();
+                }
+                else
+                {
+                    GuardarVehiculo();
+                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
+            }
+        }
+
+        public void ObtenerVehiculoParaModificar(VehiculoDataGrid vehiculo)
+        {
+            var vehiculoBdd = _vehiculoBl.ObtenerPorId(vehiculo.Id);
+
+            if (vehiculoBdd != null)
+            {
+                cboMarca.SelectedValue = vehiculoBdd.Modelo.IdMarca;
+                cboModelo.SelectedValue = vehiculoBdd.IdModelo;
+                cboAnio.SelectedValue = vehiculoBdd.Anio;
+                cboTipoVehiculo.SelectedValue = vehiculoBdd.IdTipoVehiculo;
+                cboColor.SelectedValue = vehiculoBdd.Color;
+                cboPais.SelectedValue = vehiculoBdd.IdPaisOrigen;
+                cboTipoCombustible.SelectedValue = vehiculoBdd.IdTipoCombustible;
+                txtPrecio.Text = vehiculoBdd.Precio.ToString();
+                txtStock.Text = vehiculoBdd.Stock.ToString();
+                btnGuardarVehiculo.Name = "Modificar Vehículo";
+                EsModificacion = true;
             }
         }
 
@@ -77,13 +104,39 @@ namespace VehiculosOnlineSite
                     Stock = int.Parse(txtStock.Text)
                 };
 
-                var idVehiculo = _vehiculoBl.InsertarAsync(vehiculo);
+                var idVehiculo = _vehiculoBl.Insertar(vehiculo);
 
                 if (idVehiculo > 0)
                 {
                     MessageBox.Show("Vehiculo ingresado correctamente", "Éxito", MessageBoxButton.OK);
                     this.Close();
                 }
+            }
+        }
+
+        private void ModificarVehiculo()
+        {
+            if (EsFormularioValido())
+            {
+                var vehiculo = new Vehiculo
+                {
+                    IdModelo = int.Parse(cboModelo.SelectedValue.ToString()),
+                    IdTipoVehiculo = int.Parse(cboTipoVehiculo.SelectedValue.ToString()),
+                    IdTipoCombustible = int.Parse(cboTipoCombustible.SelectedValue.ToString()),
+                    IdPaisOrigen = int.Parse(cboPais.SelectedValue.ToString()),
+                    Anio = int.Parse(cboAnio.SelectedValue.ToString()),
+                    Color = cboColor.Text,
+                    Precio = int.Parse(txtPrecio.Text),
+                    Stock = int.Parse(txtStock.Text)
+                };
+
+                //var idVehiculo = _vehiculoBl.Insertar(vehiculo);
+
+                //if (idVehiculo > 0)
+                //{
+                //    MessageBox.Show("Vehiculo ingresado correctamente", "Éxito", MessageBoxButton.OK);
+                //    this.Close();
+                //}
             }
         }
 

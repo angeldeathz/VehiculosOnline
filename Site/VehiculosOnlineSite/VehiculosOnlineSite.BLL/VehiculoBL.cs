@@ -52,9 +52,14 @@ namespace VehiculosOnlineSite.BLL
             return tipoCombustibles;
         }
 
-        public int InsertarAsync(Vehiculo vehiculo)
+        public int Insertar(Vehiculo vehiculo)
         {
             return _vehiculoService.InsertarAsync(vehiculo);
+        }
+
+        public Vehiculo ObtenerPorId(int id)
+        {
+            return _vehiculoService.ObtenerPorId(id);
         }
     }
 }

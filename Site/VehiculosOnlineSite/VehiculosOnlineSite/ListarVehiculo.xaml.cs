@@ -59,7 +59,15 @@ namespace VehiculosOnlineSite
 
         private void BtnVerDetalles_OnClick(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                var vehiculo = (sender as Button)?.DataContext as VehiculoDataGrid;
+                EscogerVehiculo(vehiculo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
+            }
         }
 
         private void btnCrear_Click(object sender, RoutedEventArgs e)
@@ -220,6 +228,13 @@ namespace VehiculosOnlineSite
             this.cboAnio.DisplayMemberPath = "Text";
             this.cboAnio.SelectedValuePath = "Value";
             this.cboAnio.SelectedIndex = 0;
+        }
+
+        private void EscogerVehiculo(VehiculoDataGrid vehiculo)
+        {
+            var crearVehiculo = new CrearEditarVehiculo();
+            crearVehiculo.ObtenerVehiculoParaModificar(vehiculo);
+            crearVehiculo.ShowDialog();
         }
     }
 }

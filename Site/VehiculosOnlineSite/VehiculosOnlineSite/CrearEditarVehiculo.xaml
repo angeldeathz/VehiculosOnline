@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VehiculosOnlineSite"
         mc:Ignorable="d"
-        Title="Información del Vehóculo" Height="498.8" Width="800">
+        Title="Información del Vehículo" Height="498.8" Width="800">
     <Grid>
         <Label Content="Detalle del Vehículo" HorizontalAlignment="Left" Margin="333,19,0,0" VerticalAlignment="Top"/>
         <Label Content="Marca" HorizontalAlignment="Left" Margin="147,86,0,0" VerticalAlignment="Top"/>

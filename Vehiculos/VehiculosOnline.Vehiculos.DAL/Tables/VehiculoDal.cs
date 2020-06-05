@@ -31,7 +31,8 @@ namespace VehiculosOnline.Vehiculos.DAL.Tables
                         p.nombre as NombrePaisOrigen,
                         v.anio,
                         v.color,
-                        v.precio
+                        v.precio,
+                        v.stock
                         from vehiculo v
                         join modelo mo on v.id_modelo = mo.id
                         join marca ma on mo.id_marca = ma.id

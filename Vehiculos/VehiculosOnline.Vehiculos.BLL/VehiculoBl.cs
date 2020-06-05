@@ -31,6 +31,7 @@ namespace VehiculosOnline.Vehiculos.BLL
                 Anio = vehiculoCompleto.Anio,
                 Color = vehiculoCompleto.Color,
                 Precio = vehiculoCompleto.Precio,
+                Stock = vehiculoCompleto.Stock,
                 Modelo = new Modelo
                 {
                     Id = vehiculoCompleto.IdModelo,

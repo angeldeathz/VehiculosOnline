@@ -23,6 +23,14 @@ namespace VehiculosOnlineSite.Services.Servicios
             return respuesta.Response;
         }
 
+        public Vehiculo ObtenerPorId(int id)
+        {
+            var url = $"http://localhost/VehiculosOnline/vehiculos/api/vehiculos/{id}";
+            var respuesta = _restClientHttp.Get<Vehiculo>(url);
+            if (respuesta.StatusName != HttpStatusCode.OK) return null;
+            return respuesta.Response;
+        }
+
         public List<TipoVehiculo> ObtenerTipoVehiculos()
         {
             var url = $"http://localhost/VehiculosOnline/vehiculos/api/vehiculos/tipos";
