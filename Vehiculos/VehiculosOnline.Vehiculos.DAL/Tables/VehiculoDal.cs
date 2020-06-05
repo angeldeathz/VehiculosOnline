@@ -15,16 +15,6 @@ namespace VehiculosOnline.Vehiculos.DAL.Tables
             _repository = new Repository(ConnectionStrings.VehiculosOnline);
         }
 
-        public async Task<List<Vehiculo>> ObtenerTodosAsync()
-        {
-            const string sql = @"select 
-                        id,
-                        anio,
-                        id_modelo AS IdModelo
-                        from vehiculo";
-            return await _repository.GetAllAsync<Vehiculo>(sql);
-        }
-
         public async Task<VehiculoJoin> ObtenerPorIdAsync(int id)
         {
             const string sql = @"select 
@@ -56,7 +46,7 @@ namespace VehiculosOnline.Vehiculos.DAL.Tables
             });
         }
 
-        public async Task<List<VehiculoJoin>> ObtenerPorMarcaModeloAsync(int idMarca, int idModelo)
+        public async Task<List<VehiculoJoin>> ObtenerPorMarcaModeloAsync(int idMarca, int idModelo, int anio)
         {
             const string sql = @"select 
                         v.id,
@@ -72,7 +62,8 @@ namespace VehiculosOnline.Vehiculos.DAL.Tables
                         p.nombre as NombrePaisOrigen,
                         v.anio,
                         v.color,
-                        v.precio
+                        v.precio,
+                        v.stock
                         from vehiculo v
                         join modelo mo on v.id_modelo = mo.id
                         join marca ma on mo.id_marca = ma.id
@@ -80,12 +71,14 @@ namespace VehiculosOnline.Vehiculos.DAL.Tables
                         join TipoCombustible tc on v.id_tipo_combustible = tc.id
                         join Pais p on v.id_pais_origen = p.id
                         WHERE (v.id_modelo = @IdModelo OR 0 = @IdModelo) 
-                        AND (ma.id = @IdMarca OR 0 = @IdMarca)";
+                        AND (ma.id = @IdMarca OR 0 = @IdMarca)
+                        AND (v.anio = @Anio OR 0 = @Anio)";
 
             return await _repository.GetAllAsync<VehiculoJoin>(sql, new Dictionary<string, object>
             {
                 {"@IdMarca", idMarca},
-                {"@IdModelo", idModelo}
+                {"@IdModelo", idModelo},
+                {"@Anio", anio}
             });
         }
 
@@ -99,7 +92,8 @@ namespace VehiculosOnline.Vehiculos.DAL.Tables
                     id_pais_origen,
                     anio,
                     color,
-                    precio)
+                    precio,
+                    stock)
                     VALUES
                     (@IdModelo,
                     @IdTipoVehiculo,
@@ -107,7 +101,8 @@ namespace VehiculosOnline.Vehiculos.DAL.Tables
                     @IdPaisOrigen,
                     @Anio,
                     @Color,
-                    @Precio)";
+                    @Precio,
+                    @Stock)";
 
             return await _repository.InsertAsync(sql, new Dictionary<string, object>
             {
@@ -118,6 +113,7 @@ namespace VehiculosOnline.Vehiculos.DAL.Tables
                 {"@Anio", vehiculo.Anio},
                 {"@Color", vehiculo.Color},
                 {"@Precio", vehiculo.Precio},
+                {"@Stock", vehiculo.Stock}
             });
         }
     }

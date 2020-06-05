@@ -4,14 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="IngresoSolicitud" Height="758.4" Width="796">
-    <Grid Margin="37,20,27.6,294.8">
+        Title="Escoge un vehículo" Height="806.4" Width="847.8">
+    <Grid Margin="10,20,3.6,250.8">
         <ComboBox x:Name="marcacbo"  HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="Marcacbo_OnSelectionChanged" />
         <Label x:Name="label" Content="Seleccione Marca" HorizontalAlignment="Left" Margin="10,25,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="modelocbo" HorizontalAlignment="Left" Margin="185,56,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label1" Content="Seleccione Modelo" HorizontalAlignment="Left" Margin="185,25,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="361,56,0,0" VerticalAlignment="Top" Width="75" Click="btnBuscar_Click" Height="22"/>
-        <DataGrid x:Name="gridVehiculos" HorizontalAlignment="Left" Height="247" Margin="10,153,-4,0" VerticalAlignment="Top" Width="682">
+        <ComboBox x:Name="modelocbo" HorizontalAlignment="Left" Margin="170,56,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1" Content="Seleccione Modelo" HorizontalAlignment="Left" Margin="170,25,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="493,56,0,0" VerticalAlignment="Top" Width="75" Click="btnBuscar_Click" Height="22"/>
+        <DataGrid x:Name="gridVehiculos" HorizontalAlignment="Left" Height="359" Margin="10,137,0,0" VerticalAlignment="Top" Width="808">
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
@@ -23,7 +23,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Label x:Name="label_Copy" Content="Listado de Vehiculos" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" Width="120"/>
-        <Grid x:Name="gridDatosCliente" HorizontalAlignment="Left" Height="218" Margin="10,440,0,-244" VerticalAlignment="Top" Width="695">
+        <Grid x:Name="gridDatosCliente" HorizontalAlignment="Left" Height="218" Margin="55,510,0,-222" VerticalAlignment="Top" Width="695">
             <TextBox x:Name="nombretxt" HorizontalAlignment="Left" Height="29" Margin="21,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="119" MaxLength="30" />
             <TextBox x:Name="apellidotxt" HorizontalAlignment="Left" Height="29" Margin="175,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="121" MaxLength="30"/>
             <TextBox x:Name="ruttxt" HorizontalAlignment="Left" Height="29" Margin="324,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" MaxLength="12"/>
@@ -35,5 +35,7 @@
             <Label x:Name="label_Copy4" Content="Ingrese correo" HorizontalAlignment="Left" Margin="479,52,0,0" VerticalAlignment="Top" Width="122" Height="35"/>
             <TextBox x:Name="correoTxt" HorizontalAlignment="Left" Height="29" Margin="479,94,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="186" MaxLength="50"/>
         </Grid>
+        <ComboBox x:Name="cboAnio" HorizontalAlignment="Left" Margin="328,56,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy" Content="Año" HorizontalAlignment="Left" Margin="328,25,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

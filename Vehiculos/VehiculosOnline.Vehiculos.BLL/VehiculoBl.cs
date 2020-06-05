@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using VehiculosOnline.Model.Clases;
@@ -13,11 +14,6 @@ namespace VehiculosOnline.Vehiculos.BLL
         public VehiculoBl()
         {
             _vehiculoDal = new VehiculoDal();
-        }
-
-        public async Task<List<Vehiculo>> ObtenerTodosAsync()
-        {
-            return await _vehiculoDal.ObtenerTodosAsync();
         }
 
         public async Task<Vehiculo> ObtenerPorIdAsync(int id)
@@ -64,9 +60,9 @@ namespace VehiculosOnline.Vehiculos.BLL
             };
         }
 
-        public async Task<List<Vehiculo>> ObtenerPorMarcaModeloAsync(int idMarca, int idModelo)
+        public async Task<List<Vehiculo>> ObtenerPorMarcaModeloAsync(int idMarca, int idModelo, int anio)
         {
-            var vehiculos = await _vehiculoDal.ObtenerPorMarcaModeloAsync(idMarca, idModelo);
+            var vehiculos = await _vehiculoDal.ObtenerPorMarcaModeloAsync(idMarca, idModelo, anio);
             if (!vehiculos.Any()) return new List<Vehiculo>();
 
             return vehiculos.Select(x => new Vehiculo
@@ -79,6 +75,7 @@ namespace VehiculosOnline.Vehiculos.BLL
                 Anio = x.Anio,
                 Color = x.Color,
                 Precio = x.Precio,
+                Stock = x.Stock,
                 Modelo = new Modelo
                 {
                     Id = x.IdModelo,
@@ -106,6 +103,19 @@ namespace VehiculosOnline.Vehiculos.BLL
                     Nombre = x.NombrePaisOrigen
                 }
             }).ToList();
+        }
+
+        public async Task<int> InsertarAsync(Vehiculo vehiculo)
+        {
+            if (vehiculo.IdModelo == 0) throw new Exception("IdModelo no puede ser cero");
+            if (vehiculo.IdTipoVehiculo == 0) throw new Exception("IdTipoVehiculo no puede ser cero");
+            if (vehiculo.IdTipoCombustible == 0) throw new Exception("IdTipoCombustible no puede ser cero");
+            if (vehiculo.IdPaisOrigen == 0) throw new Exception("IdPaisOrigen no puede ser cero");
+            if (vehiculo.Anio < 2000 || vehiculo.Anio > 2020) throw new Exception("Anio debe estar entre 2000 y 2020");
+            if (string.IsNullOrEmpty(vehiculo.Color)) throw new Exception("Color no puede estar vacios");
+            if (vehiculo.Precio < 500000) throw new Exception("Precio debe igual o mayor a 500.000 pesos");
+
+            return await _vehiculoDal.InsertarAsync(vehiculo);
         }
     }
 }

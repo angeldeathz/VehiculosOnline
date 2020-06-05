@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using VehiculosOnline.Model.Clases;
 using VehiculosOnline.Vehiculos.BLL;
 
 namespace VehiculosOnline.Vehiculos.API.Controllers
@@ -26,12 +27,21 @@ namespace VehiculosOnline.Vehiculos.API.Controllers
         }
 
         [HttpGet, Route("")]
-        public async Task<IActionResult> Get([FromQuery] int idMarca, [FromQuery] int idModelo)
+        public async Task<IActionResult> Get([FromQuery] int idMarca, [FromQuery] int idModelo, [FromQuery] int anio)
         {
-            var vehiculos = await _vehiculoBl.ObtenerPorMarcaModeloAsync(idMarca, idModelo);
+            var vehiculos = await _vehiculoBl.ObtenerPorMarcaModeloAsync(idMarca, idModelo, anio);
             if (!vehiculos.Any()) return NoContent();
 
             return Ok(vehiculos);
+        }
+
+        [HttpPost, Route("")]
+        public async Task<IActionResult> Post([FromBody] Vehiculo vehiculo)
+        {
+            if (vehiculo == null) return BadRequest("El objeto no puede estar nulo");
+            var idVehiculo = await _vehiculoBl.InsertarAsync(vehiculo);
+            if (idVehiculo == 0) return BadRequest("El vehículo no pudo ser ingresado");
+            return Ok(idVehiculo);
         }
     }
 }
