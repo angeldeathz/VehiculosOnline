@@ -56,6 +56,10 @@ namespace VehiculosOnlineSite.BLL
         {
             return _vehiculoService.InsertarAsync(vehiculo);
         }
+        public int Modificar(Vehiculo vehiculo)
+        {
+            return _vehiculoService.ModificarAsync(vehiculo);
+        }
 
         public Vehiculo ObtenerPorId(int id)
         {

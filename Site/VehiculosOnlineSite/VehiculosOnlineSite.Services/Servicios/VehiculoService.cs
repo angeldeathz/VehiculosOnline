@@ -54,5 +54,12 @@ namespace VehiculosOnlineSite.Services.Servicios
             if (respuesta.StatusName != HttpStatusCode.OK) throw new Exception(respuesta.Message);
             return respuesta.Response;
         }
+        public int ModificarAsync(Vehiculo vehiculo)
+        {
+            var url = $"http://localhost/VehiculosOnline/vehiculos/api/vehiculos";
+            var respuesta = _restClientHttp.Put<int>(url, vehiculo);
+            if (respuesta.StatusName != HttpStatusCode.OK) throw new Exception(respuesta.Message);
+            return respuesta.Response;
+        }
     }
 }

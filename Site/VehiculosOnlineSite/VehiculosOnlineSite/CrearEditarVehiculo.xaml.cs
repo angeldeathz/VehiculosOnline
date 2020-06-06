@@ -14,6 +14,7 @@ namespace VehiculosOnlineSite
         private readonly VehiculoBL _vehiculoBl = new VehiculoBL();
         private readonly LocalizacionBL _localizacionBl = new LocalizacionBL();
         private bool EsModificacion { get; set; }
+        private int IdVehiculo { get; set; }
         public CrearEditarVehiculo()
         {
             try
@@ -78,12 +79,15 @@ namespace VehiculosOnlineSite
                 cboModelo.SelectedValue = vehiculoBdd.IdModelo;
                 cboAnio.SelectedValue = vehiculoBdd.Anio;
                 cboTipoVehiculo.SelectedValue = vehiculoBdd.IdTipoVehiculo;
-                cboColor.SelectedValue = vehiculoBdd.Color;
+                //ACA SE ARREGLA PORQUE  NO MOSTRABA EL COLOR
+                cboColor.SelectedValue = vehiculoBdd.Color.Substring(0, 1) + vehiculoBdd.Color.Substring(1).ToLower();
                 cboPais.SelectedValue = vehiculoBdd.IdPaisOrigen;
                 cboTipoCombustible.SelectedValue = vehiculoBdd.IdTipoCombustible;
                 txtPrecio.Text = vehiculoBdd.Precio.ToString();
                 txtStock.Text = vehiculoBdd.Stock.ToString();
-                btnGuardarVehiculo.Name = "Modificar Vehículo";
+                //aca decia .name, lo modifique por .contect
+                btnGuardarVehiculo.Content = "Modificar Vehículo";
+                IdVehiculo = vehiculo.Id;
                 EsModificacion = true;
             }
         }
@@ -120,6 +124,7 @@ namespace VehiculosOnlineSite
             {
                 var vehiculo = new Vehiculo
                 {
+                    Id = IdVehiculo,
                     IdModelo = int.Parse(cboModelo.SelectedValue.ToString()),
                     IdTipoVehiculo = int.Parse(cboTipoVehiculo.SelectedValue.ToString()),
                     IdTipoCombustible = int.Parse(cboTipoCombustible.SelectedValue.ToString()),
@@ -130,7 +135,7 @@ namespace VehiculosOnlineSite
                     Stock = int.Parse(txtStock.Text)
                 };
 
-                //var idVehiculo = _vehiculoBl.Insertar(vehiculo);
+                var idVehiculo = _vehiculoBl.Modificar(vehiculo);
 
                 //if (idVehiculo > 0)
                 //{

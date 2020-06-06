@@ -118,5 +118,17 @@ namespace VehiculosOnline.Vehiculos.BLL
 
             return await _vehiculoDal.InsertarAsync(vehiculo);
         }
+        public async Task<int> ModificarAsync(Vehiculo vehiculo)
+        {
+            if (vehiculo.IdModelo == 0) throw new Exception("IdModelo no puede ser cero");
+            if (vehiculo.IdTipoVehiculo == 0) throw new Exception("IdTipoVehiculo no puede ser cero");
+            if (vehiculo.IdTipoCombustible == 0) throw new Exception("IdTipoCombustible no puede ser cero");
+            if (vehiculo.IdPaisOrigen == 0) throw new Exception("IdPaisOrigen no puede ser cero");
+            if (vehiculo.Anio < 2000 || vehiculo.Anio > 2020) throw new Exception("Anio debe estar entre 2000 y 2020");
+            if (string.IsNullOrEmpty(vehiculo.Color)) throw new Exception("Color no puede estar vacios");
+            if (vehiculo.Precio < 500000) throw new Exception("Precio debe igual o mayor a 500.000 pesos");
+
+            return await _vehiculoDal.ModificarAsync(vehiculo);
+        }
     }
 }

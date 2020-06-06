@@ -117,5 +117,33 @@ namespace VehiculosOnline.Vehiculos.DAL.Tables
                 {"@Stock", vehiculo.Stock}
             });
         }
+
+        public async Task<int> ModificarAsync(Vehiculo vehiculo)
+        {
+            const string sql =
+                @"UPDATE VEHICULO set
+                    id_modelo = @IdModelo,
+                    id_tipo_vehiculo = @IdTipoVehiculo,
+                    id_tipo_combustible = @IdTipoCombustible,
+                    id_pais_origen = @IdPaisOrigen,
+                    anio = @Anio,
+                    color = @Color,
+                    precio = @Precio,
+                    stock = @Stock
+                    WHERE id = @Id";
+
+            return await _repository.UpdateAsync(sql, new Dictionary<string, object>
+            {
+                {"@Id", vehiculo.Id },
+                {"@IdModelo", vehiculo.IdModelo},
+                {"@IdTipoVehiculo", vehiculo.IdTipoVehiculo},
+                {"@IdTipoCombustible", vehiculo.IdTipoCombustible},
+                {"@IdPaisOrigen", vehiculo.IdPaisOrigen},
+                {"@Anio", vehiculo.Anio},
+                {"@Color", vehiculo.Color},
+                {"@Precio", vehiculo.Precio},
+                {"@Stock", vehiculo.Stock}
+            });
+        }
     }
 }
