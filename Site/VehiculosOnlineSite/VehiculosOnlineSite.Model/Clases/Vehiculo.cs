@@ -9,6 +9,7 @@
         public int Anio { get; set; }
         public string Color { get; set; }
         public int Precio { get; set; }
+        public int Stock { get; set; }
         public Modelo Modelo { get; set; }
         public TipoVehiculo TipoVehiculo { get; set; }
         public TipoCombustible TipoCombustible { get; set; }

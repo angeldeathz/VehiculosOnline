@@ -16,5 +16,6 @@
         public int Anio { get; set; }
         public string Color { get; set; }
         public int Precio { get; set; }
+        public int Stock { get; set; }
     }
 }

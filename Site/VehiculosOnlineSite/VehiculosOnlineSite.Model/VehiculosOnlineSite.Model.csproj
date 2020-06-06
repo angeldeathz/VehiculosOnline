@@ -47,6 +47,7 @@
     <Compile Include="Clases\Cotizacion.cs" />
     <Compile Include="Clases\CotizacionSeguro.cs" />
     <Compile Include="Clases\Direccion.cs" />
+    <Compile Include="Clases\Item.cs" />
     <Compile Include="Clases\Marca.cs" />
     <Compile Include="Clases\Modelo.cs" />
     <Compile Include="Clases\Pais.cs" />
