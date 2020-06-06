@@ -23,5 +23,25 @@ namespace VehiculosOnlineSite.BLL
             paises.AddRange(_localizacionService.ObtenerPaises());
             return paises;
         }
+
+        public List<Region> ObtenerRegiones()
+        {
+            var regiones = new List<Region> { new Region { Id = 0, Nombre = "Seleccione..." } };
+            regiones.AddRange(_localizacionService.ObtenerRegiones());
+            return regiones;
+        }
+        public List<Ciudad> ObtenerCiudades(int idRegion)
+        {
+            var ciudades = new List<Ciudad> { new Ciudad { Id = 0, Nombre = "Seleccione..." } };
+            ciudades.AddRange(_localizacionService.ObtenerCiudades(idRegion));
+            return ciudades;
+        }
+
+        public List<Comuna> ObtenerComunas(int idCiudad)
+        {
+            var comunas = new List<Comuna> { new Comuna { Id = 0, Nombre = "Seleccione..." } };
+            comunas.AddRange(_localizacionService.ObtenerComunas(idCiudad));
+            return comunas;
+        }
     }
 }

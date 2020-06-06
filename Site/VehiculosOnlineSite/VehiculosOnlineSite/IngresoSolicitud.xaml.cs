@@ -109,11 +109,14 @@ namespace VehiculosOnlineSite
                 if (idSolicitud > 0)
                 {
                     var detalleVehiculoForm = new DetalleVehiculo();
+                    detalleVehiculoForm.ObtenerVehiculoDetalle(solicitud);
                     this.Hide();
                     detalleVehiculoForm.ShowDialog();
                 }
             }
         }
+
+        
 
         private bool EsPersonaValida()
         {

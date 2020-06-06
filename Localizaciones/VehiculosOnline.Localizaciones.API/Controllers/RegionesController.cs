@@ -24,5 +24,7 @@ namespace VehiculosOnline.Localizaciones.API.Controllers
 
             return Ok(regiones);
         }
+
+        
     }
 }

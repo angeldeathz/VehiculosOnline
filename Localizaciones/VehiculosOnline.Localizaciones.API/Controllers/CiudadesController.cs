@@ -36,6 +36,15 @@ namespace VehiculosOnline.Localizaciones.API.Controllers
             return Ok(ciudad);
         }
 
+        [HttpGet, Route("{idRegion}/Ciudades")]
+        public async Task<IActionResult> GetCiudades(int idRegion)
+        {
+            var ciudades = await _comunaBl.ObtenerPorIdRegionAsync(idRegion);
+            if (!ciudades.Any()) return NoContent();
+
+            return Ok(ciudades);
+        }
+
         [HttpGet, Route("{id}/comunas")]
         public async Task<IActionResult> GetComunas(int id)
         {

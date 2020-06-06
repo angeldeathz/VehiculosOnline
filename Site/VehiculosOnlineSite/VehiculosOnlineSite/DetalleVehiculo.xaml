@@ -12,8 +12,8 @@
         <Label x:Name="lblMarca"  Content="lblMarca" HorizontalAlignment="Left" Margin="159,105,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label2" Content="Modelo:" HorizontalAlignment="Left" Margin="461,105,0,0" VerticalAlignment="Top"/>
         <Label x:Name="lblModelo" Content="lblModelo" HorizontalAlignment="Left" Margin="520,105,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label3" Content="Detalle:" HorizontalAlignment="Left" Margin="104,198,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblDetalle" Content="lblDetalle" HorizontalAlignment="Left" Margin="159,198,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.497,0.547"/>
+        <!--<Label x:Name="label3" Content="Detalle:" HorizontalAlignment="Left" Margin="104,198,0,0" VerticalAlignment="Top"/>-->
+        <!--<Label x:Name="lblDetalle" Content="lblDetalle" HorizontalAlignment="Left" Margin="159,198,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.497,0.547"/>-->
         <Button x:Name="btnCotizar" Content="Confirmar Cotización" HorizontalAlignment="Left" Margin="322,247,0,0" VerticalAlignment="Top" Width="118" Click="btnCotizar_Click"/>
         <Label x:Name="label4" Content="Pais de origen:" HorizontalAlignment="Left" Margin="109,136,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label5" Content="Año:" HorizontalAlignment="Left" Margin="461,136,0,0" VerticalAlignment="Top"/>

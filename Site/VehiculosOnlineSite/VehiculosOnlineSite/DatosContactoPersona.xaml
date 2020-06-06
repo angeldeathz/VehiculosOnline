@@ -5,30 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VehiculosOnlineSite"
         mc:Ignorable="d"
-        Title="DatosContactoPersona" Height="450" Width="800">
+        Title="DatosContactoPersona" Height="481.49" Width="800">
     <Grid>
-        <ComboBox x:Name="comuna" HorizontalAlignment="Left" Margin="252,128,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="ciudad" HorizontalAlignment="Left" Margin="453,128,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cboRegion" HorizontalAlignment="Left" Margin="252,128,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboRegion_SelectionChanged"/>
+        <ComboBox x:Name="cboCiudad" HorizontalAlignment="Left" Margin="453,128,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboCiudad_SelectionChanged"/>
         <DatePicker HorizontalAlignment="Left" Name="fechNacimiento" Margin="56,58,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.94,1.449" DisplayDateStart="3/1/1950"  DisplayDateEnd="3/31/2020"/>
-        <TextBox x:Name="emailtxt" HorizontalAlignment="Left" Height="23" Margin="252,58,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" MaxLength="70"/>
-        <TextBox x:Name="celular"  PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="453,58,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" MaxLength="12"/>
+        <TextBox x:Name="emailtxt" HorizontalAlignment="Left" Height="23" Margin="252,58,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="321" MaxLength="70"/>
+        <TextBox x:Name="celular"  PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="624,58,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" MaxLength="12"/>
         <TextBox x:Name="telefono"  PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="56,126,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" MaxLength="17"/>
-        <ComboBox x:Name="region" HorizontalAlignment="Left" Margin="624,128,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cboComuna" HorizontalAlignment="Left" Margin="624,128,0,0" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="direccion" HorizontalAlignment="Left" Height="23" Margin="56,190,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="517" MaxLength="120"/>
-        <ComboBox x:Name="cboTipoPago" HorizontalAlignment="Left" Margin="56,253,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="btnConfirmarCotizacion" Content="Confirmar Cotizacion" HorizontalAlignment="Left" Margin="295,325,0,0" VerticalAlignment="Top" Width="170" Click="btnConfirmarCotizacion_Click"/>
-        <TextBox x:Name="txtCuotas"  PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="252,253,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="120" MaxLength="2"/>
+        <ComboBox x:Name="cboTipoPago" HorizontalAlignment="Left" Margin="56,253,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboTipoPago_SelectionChanged"/>
+        <Button x:Name="btnConfirmarCotizacion" Content="Confirmar Cotizacion" HorizontalAlignment="Left" Margin="298,348,0,0" VerticalAlignment="Top" Width="170" Click="btnConfirmarCotizacion_Click"/>
+        <TextBox x:Name="txtCuotas" IsEnabled="False"  PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="252,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="2"/>
         <Label x:Name="label" Content="Ingrese Email" HorizontalAlignment="Left" Margin="252,34,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_Copy" Content="Ingrese Celular" HorizontalAlignment="Left" Margin="453,34,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy" Content="Ingrese Celular" HorizontalAlignment="Left" Margin="624,34,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label_Copy1" Content="Ingrese Telefono" HorizontalAlignment="Left" Margin="56,100,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label_Copy2" Content="Ingrese Dirección" HorizontalAlignment="Left" Margin="56,164,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_Copy3" Content="Seleccione Comuna" HorizontalAlignment="Left" Margin="252,100,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy3" Content="Seleccione Region" HorizontalAlignment="Left" Margin="252,100,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label_Copy4" Content="Seleccione Ciudad" HorizontalAlignment="Left" Margin="453,97,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_Copy5" Content="Seleccione Region" HorizontalAlignment="Left" Margin="624,97,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy5" Content="Seleccione Comuna" HorizontalAlignment="Left" Margin="624,97,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label_Copy6" Content="Selecciones Tipo de Pago" HorizontalAlignment="Left" Margin="56,227,0,0" VerticalAlignment="Top" Width="165"/>
         <Label x:Name="label_Copy7" Content="Ingrese Cuotas" HorizontalAlignment="Left" Margin="252,222,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label_Copy8" Content="Seleccione fecha nacimiento" HorizontalAlignment="Left" Margin="56,34,0,0" VerticalAlignment="Top" Width="165"/>
-        <Label x:Name="lblMensaje" Content="&#xD;&#xA;" HorizontalAlignment="Left" Margin="499,227,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblMensaje" Content="&#xD;&#xA;" HorizontalAlignment="Left" Margin="499,280,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy10" Content="Seleccione meses a diferir" HorizontalAlignment="Left" Margin="624,227,0,0" VerticalAlignment="Top" Width="160"/>
+        <ComboBox x:Name="cboMesesDiferidos" HorizontalAlignment="Left" Margin="624,253,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1" Content="¿Desea diferir Pago?" HorizontalAlignment="Left" Margin="453,222,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbSi" Content="Si" HorizontalAlignment="Left" Margin="424,253,0,0" VerticalAlignment="Top" GroupName="diferirPago" Checked="rbSi_Checked"/>
+        <RadioButton x:Name="rbNo" Content="No" HorizontalAlignment="Left" Margin="514,253,0,0" VerticalAlignment="Top" IsChecked="True" GroupName="diferirPago" Checked="rbNo_Checked"/>
 
     </Grid>
 </Window>
