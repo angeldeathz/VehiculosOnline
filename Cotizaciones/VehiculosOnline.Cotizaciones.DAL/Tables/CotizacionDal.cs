@@ -29,6 +29,7 @@ namespace VehiculosOnline.Cotizaciones.DAL.Tables
             
             return await _repository.GetAllAsync<Cotizacion>(sql);
         }
+
         public async Task<int> ObtenerIdCotizacionAsync()
         {
             const string sql = @"select TOP 1 id
@@ -37,7 +38,6 @@ namespace VehiculosOnline.Cotizaciones.DAL.Tables
             return await _repository.GetAsync<int>(sql);
         }
         
-
         public async Task<int> InsertarAsync(Cotizacion cotizacion)
         {
             const string sql = @"INSERT INTO COTIZACION

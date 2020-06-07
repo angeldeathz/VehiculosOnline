@@ -33,12 +33,12 @@ namespace VehiculosOnline.Cotizaciones.Facade
         {
             return await _cotizacionDal.ObtenerTodosAsync();
         }
+
         public async Task<int> GetIdCotizacionAsync()
         {
             return await _cotizacionDal.ObtenerIdCotizacionAsync();
         }
         
-
         public async Task<PagoDto> InsertaYCalculaPagoAsync(Cotizacion cotizacion)
         {
             var solicitud = await _cotizacionDal.InsertarAsync(cotizacion);
@@ -68,6 +68,5 @@ namespace VehiculosOnline.Cotizaciones.Facade
             return calculaCotizacion;
 
         }
-
     }
 }

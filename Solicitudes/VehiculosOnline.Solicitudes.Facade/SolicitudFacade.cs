@@ -81,9 +81,9 @@ namespace VehiculosOnline.Solicitudes.Facade
             nuevaVenta.TotalVenta = vehiculo.Precio;
 
             //var cotizaciones = _vehiculoService.ObtenerCotizacionesAsync();
-            _vehiculoService.InsertarVentaAsync(nuevaVenta);
+            await _vehiculoService.InsertarVentaAsync(nuevaVenta);
 
-            _vehiculoService.ModificarAsync(solicitud.Vehiculo);
+            await _vehiculoService.ModificarAsync(solicitud.Vehiculo);
 
             return 1;
         }
@@ -93,6 +93,5 @@ namespace VehiculosOnline.Solicitudes.Facade
             var solicitud = await _solicitudDal.ObtenerUltimoIdAsync();
             return solicitud;
         }
-        
     }
 }
