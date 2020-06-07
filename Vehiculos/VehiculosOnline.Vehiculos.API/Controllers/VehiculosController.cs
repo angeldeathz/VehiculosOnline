@@ -39,18 +39,22 @@ namespace VehiculosOnline.Vehiculos.API.Controllers
         public async Task<IActionResult> Post([FromBody] Vehiculo vehiculo)
         {
             if (vehiculo == null) return BadRequest("El objeto no puede estar nulo");
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
             var idVehiculo = await _vehiculoBl.InsertarAsync(vehiculo);
             if (idVehiculo == 0) return BadRequest("El vehículo no pudo ser ingresado");
             return Ok(idVehiculo);
         }
+
         [HttpPut, Route("")]
         public async Task<IActionResult> Put([FromBody] Vehiculo vehiculo)
         {
             if (vehiculo == null) return BadRequest("El objeto no puede estar nulo");
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+            
             var idVehiculo = await _vehiculoBl.ModificarAsync(vehiculo);
-            if (idVehiculo == 0) return BadRequest("El vehículo no pudo ser ingresado");
+            if (idVehiculo == 0) return BadRequest("El vehículo no pudo ser modificado");
             return Ok(idVehiculo);
         }
-
     }
 }

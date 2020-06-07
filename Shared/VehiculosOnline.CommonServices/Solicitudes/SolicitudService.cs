@@ -18,6 +18,5 @@ namespace VehiculosOnline.CommonServices.Solicitudes
             var url = $"http://localhost/VehiculosOnline/solicitudes/api/solicitudes/{id}";
             return await _restClientHttp.GetObjectAsync<Solicitud>(url);
         }
-
     }
 }

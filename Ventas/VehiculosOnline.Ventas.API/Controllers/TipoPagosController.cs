@@ -17,12 +17,12 @@ namespace VehiculosOnline.Ventas.API.Controllers
             _tipoPagosBl = new TipoPagoBl();
         }
 
-
         [HttpPost, Route("")]
         public async Task<IActionResult> Post([FromBody] Venta venta)
         {
             if (venta == null) return BadRequest("El objeto no puede estar nulo");
             var idVenta = await _tipoPagosBl.InsertarVentaAsync(venta);
+
             if (idVenta == 0) return BadRequest("El vehículo no pudo ser ingresado");
             return Ok(idVenta);
         }

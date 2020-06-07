@@ -18,6 +18,7 @@ namespace VehiculosOnline.CommonServices.Vehiculos
             const string url = "http://localhost/VehiculosOnline/vehiculos/api/vehiculos/";
             return await _restClientHttp.PostAsync<int>(url, vehiculo);
         }
+
         public async Task<RestClientResponse<int>> ModificarAsync(Vehiculo vehiculo)
         {
             const string url = "http://localhost/VehiculosOnline/vehiculos/api/vehiculos/";
@@ -30,8 +31,6 @@ namespace VehiculosOnline.CommonServices.Vehiculos
             return await _restClientHttp.GetObjectAsync<Vehiculo>(url);
         }
 
-
-
         public async Task<RestClientResponse<int>> InsertarVentaAsync(Venta venta)
         {
             const string url = "http://localhost/VehiculosOnline/ventas/api/ventas/formasDePago";
@@ -42,12 +41,5 @@ namespace VehiculosOnline.CommonServices.Vehiculos
             //if (respuesta.StatusName != HttpStatusCode.OK) return new List<TipoPago>();
             //return respuesta.Response;
         }
-
-        //public async Task<Cotizacion> ObtenerCotizacionesAsync()
-        //{
-        //    var url = $"http://localhost/VehiculosOnline/cotizaciones/api/cotizaciones/";
-        //    return await _restClientHttp.GetObjectAsync<Cotizacion>(url);
-        //}
-        
     }
 }

@@ -5,6 +5,9 @@ using VehiculosOnlineSite.Services.Shared;
 
 namespace VehiculosOnlineSite.Services.Servicios
 {
+    /// <summary>
+    /// Servicio de API Cotizaciones
+    /// </summary>
     public class CotizacionService
     {
         private readonly RestClientHttp _restClientHttp;

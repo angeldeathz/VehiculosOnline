@@ -16,10 +16,7 @@ using VehiculosOnlineSite.Model.Clases;
 
 namespace VehiculosOnlineSite
 {
-    /// <summary>
-    /// Lógica de interacción para IngresoVenta.xaml
-    /// </summary>
-    public partial class IngresoVenta : Window
+    public partial class IngresoVenta
     {
         private readonly SolicitudBL _solicitudBl = new SolicitudBL();
 
@@ -27,7 +24,6 @@ namespace VehiculosOnlineSite
         {
             InitializeComponent();
         }
-
 
         public void CargarDetallePago(PagoDto pago)
         {
@@ -40,15 +36,15 @@ namespace VehiculosOnlineSite
 
         private void btnPagar_Click(object sender, RoutedEventArgs e)
         {
-            var guardaVenta = _solicitudBl.IngresarVentaActualizaStock();
-            if (guardaVenta==0)
-            {
-                MessageBox.Show("Existe un error", "ERROR");
-            }
-            else
-            {
-                MessageBox.Show("Se han guardado la compra del vehiculo, un ejecutivo se comunicara con usted a la brevedad", "VEHICULO VENDIDO");
-            }
+            //var guardaVenta = _solicitudBl.IngresarVentaActualizaStock();
+            //if (guardaVenta==0)
+            //{
+            //    MessageBox.Show("Existe un error", "ERROR");
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Se han guardado la compra del vehiculo, un ejecutivo se comunicara con usted a la brevedad", "VEHICULO VENDIDO");
+            //}
         }
     }
 }

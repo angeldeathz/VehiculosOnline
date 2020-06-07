@@ -118,6 +118,7 @@ namespace VehiculosOnline.Vehiculos.BLL
 
             return await _vehiculoDal.InsertarAsync(vehiculo);
         }
+
         public async Task<int> ModificarAsync(Vehiculo vehiculo)
         {
             if (vehiculo.IdModelo == 0) throw new Exception("IdModelo no puede ser cero");

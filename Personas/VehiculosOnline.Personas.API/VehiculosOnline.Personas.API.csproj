@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\VehiculosOnline.Personas.BLL\VehiculosOnline.Personas.BLL.csproj" />
     <ProjectReference Include="..\VehiculosOnline.Personas.Facade\VehiculosOnline.Personas.Facade.csproj" />
   </ItemGroup>

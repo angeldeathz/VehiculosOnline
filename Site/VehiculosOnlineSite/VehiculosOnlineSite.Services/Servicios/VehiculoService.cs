@@ -6,6 +6,9 @@ using VehiculosOnlineSite.Services.Shared;
 
 namespace VehiculosOnlineSite.Services.Servicios
 {
+    /// <summary>
+    /// Servicio de API Vehiculos
+    /// </summary>
     public class VehiculoService
     {
         private readonly RestClientHttp _restClientHttp;
@@ -49,14 +52,15 @@ namespace VehiculosOnlineSite.Services.Servicios
 
         public int InsertarAsync(Vehiculo vehiculo)
         {
-            var url = $"http://localhost/VehiculosOnline/vehiculos/api/vehiculos";
+            var url = "http://localhost/VehiculosOnline/vehiculos/api/vehiculos";
             var respuesta = _restClientHttp.Post<int>(url, vehiculo);
             if (respuesta.StatusName != HttpStatusCode.OK) throw new Exception(respuesta.Message);
             return respuesta.Response;
         }
+
         public int ModificarAsync(Vehiculo vehiculo)
         {
-            var url = $"http://localhost/VehiculosOnline/vehiculos/api/vehiculos";
+            var url = "http://localhost/VehiculosOnline/vehiculos/api/vehiculos";
             var respuesta = _restClientHttp.Put<int>(url, vehiculo);
             if (respuesta.StatusName != HttpStatusCode.OK) throw new Exception(respuesta.Message);
             return respuesta.Response;

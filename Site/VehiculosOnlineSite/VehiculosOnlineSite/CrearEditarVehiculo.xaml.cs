@@ -137,11 +137,11 @@ namespace VehiculosOnlineSite
 
                 var idVehiculo = _vehiculoBl.Modificar(vehiculo);
 
-                //if (idVehiculo > 0)
-                //{
-                //    MessageBox.Show("Vehiculo ingresado correctamente", "Éxito", MessageBoxButton.OK);
-                //    this.Close();
-                //}
+                if (idVehiculo > 0)
+                {
+                    MessageBox.Show("Vehiculo ingresado correctamente", "Éxito", MessageBoxButton.OK);
+                    this.Close();
+                }
             }
         }
 

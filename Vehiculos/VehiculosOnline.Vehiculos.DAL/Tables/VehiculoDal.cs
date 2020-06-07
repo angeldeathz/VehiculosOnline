@@ -120,8 +120,9 @@ namespace VehiculosOnline.Vehiculos.DAL.Tables
 
         public async Task<int> ModificarAsync(Vehiculo vehiculo)
         {
-            const string sql =
-                @"UPDATE VEHICULO set
+            const string sql = 
+                @"UPDATE VEHICULO 
+                set
                     id_modelo = @IdModelo,
                     id_tipo_vehiculo = @IdTipoVehiculo,
                     id_tipo_combustible = @IdTipoCombustible,
@@ -130,7 +131,7 @@ namespace VehiculosOnline.Vehiculos.DAL.Tables
                     color = @Color,
                     precio = @Precio,
                     stock = @Stock
-                    WHERE id = @Id";
+                WHERE id = @Id";
 
             return await _repository.UpdateAsync(sql, new Dictionary<string, object>
             {

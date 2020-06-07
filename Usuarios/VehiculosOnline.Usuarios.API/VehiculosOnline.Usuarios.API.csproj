@@ -13,9 +13,5 @@
     <ProjectReference Include="..\VehiculosOnline.Usuarios.Facade\VehiculosOnline.Usuarios.Facade.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
-  </ItemGroup>
-
 
 </Project>

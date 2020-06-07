@@ -16,12 +16,10 @@ namespace VehiculosOnlineSite.Services.Servicios
 
         public List<TipoPago> ObtenerTipoPago()
         {
-            var url = $"http://localhost/VehiculosOnline/ventas/api/ventas/formasDePago";
+            var url = "http://localhost/VehiculosOnline/ventas/api/ventas/formasDePago";
             var respuesta = _restClientHttp.Get<List<TipoPago>>(url);
             if (respuesta.StatusName != HttpStatusCode.OK) return new List<TipoPago>();
             return respuesta.Response;
         }
-
-        
     }
 }

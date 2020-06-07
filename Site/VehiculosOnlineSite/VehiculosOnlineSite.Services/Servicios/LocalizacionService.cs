@@ -5,6 +5,9 @@ using VehiculosOnlineSite.Services.Shared;
 
 namespace VehiculosOnlineSite.Services.Servicios
 {
+    /// <summary>
+    /// Servicio de APO Localizaciones
+    /// </summary>
     public class LocalizacionService
     {
         private readonly RestClientHttp _restClientHttp;

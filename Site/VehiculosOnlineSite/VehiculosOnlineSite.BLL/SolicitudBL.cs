@@ -16,15 +16,5 @@ namespace VehiculosOnlineSite.BLL
         {
             return _solicitudService.IngresarSolicitud(solicitud);
         }
-        
-        public Solicitud ObtenerUltimaSolicitud()
-        {
-            return _solicitudService.ObtenerUltimaSolicitud();
-        }
-
-        public int IngresarVentaActualizaStock()
-        {
-            return _solicitudService.InsertarVentaActualizaStockVehiculo();
-        }
     }
 }

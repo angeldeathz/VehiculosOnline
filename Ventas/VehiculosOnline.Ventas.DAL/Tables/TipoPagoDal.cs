@@ -23,6 +23,5 @@ namespace VehiculosOnline.Ventas.DAL.Tables
                         from TipoPago";
             return await _repository.GetAllAsync<TipoPago>(sql);
         }
-
     }
 }

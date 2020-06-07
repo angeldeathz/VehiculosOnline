@@ -5,6 +5,9 @@ using VehiculosOnlineSite.Services.Shared;
 
 namespace VehiculosOnlineSite.Services.Servicios
 {
+    /// <summary>
+    /// Servicio de API Marcas
+    /// </summary>
     public class MarcaService
     {
         private readonly RestClientHttp _restClientHttp;

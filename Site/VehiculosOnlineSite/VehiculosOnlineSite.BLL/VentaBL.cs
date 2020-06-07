@@ -19,6 +19,5 @@ namespace VehiculosOnlineSite.BLL
             tipopagos.AddRange(_ventaService.ObtenerTipoPago());
             return tipopagos;
         }
-
     }
 }

@@ -44,6 +44,5 @@ namespace VehiculosOnline.Ventas.DAL.Tables
                 {"@TotalVenta", venta.TotalVenta}
             });
         }
-
     }
 }

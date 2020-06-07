@@ -21,6 +21,5 @@ namespace VehiculosOnline.CommonServices.Ventas
             if (respuesta.StatusName != HttpStatusCode.OK) return 0;
             return respuesta.Response;
         }
-
     }
 }
