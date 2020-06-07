@@ -16,6 +16,5 @@ namespace VehiculosOnlineSite.BLL
         {
             return _cotizacionService.IngresarCotizacion(solicitud);
         }
-
     }
 }

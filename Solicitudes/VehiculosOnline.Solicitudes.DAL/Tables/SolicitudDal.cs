@@ -42,19 +42,6 @@ namespace VehiculosOnline.Solicitudes.DAL.Tables
             });
         }
 
-        public async Task<int> ObtenerUltimoIdAsync()
-        {
-            const string sql = @"select top 1  
-                        id
-                        from solicitud
-                        order by ID desc";
-
-            return await _repository.GetAsync<int>(sql, new Dictionary<string, object>
-            {
-            });
-        }
-        
-
         public async Task<int> InsertarAsync(Solicitud solicitud)
         {
             const string sql =

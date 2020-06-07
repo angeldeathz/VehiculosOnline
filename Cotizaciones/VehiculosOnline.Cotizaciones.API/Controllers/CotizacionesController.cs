@@ -39,17 +39,7 @@ namespace VehiculosOnline.Cotizaciones.API.Controllers
           
             return Ok(detallePago);
         }
-        [HttpGet, Route("idcotizacion")]
-        public async Task<IActionResult> GetIdCotizacion()
-        {
-            //var modelos = await _cotizacionFacade.ObtenerPorIdMarcaAsync(idMarca);
-            //if (!modelos.Any()) return NoContent();
-            if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            var idCotizacion = await _cotizacionFacade.GetIdCotizacionAsync();
-
-            return Ok(idCotizacion);
-        }
         [HttpGet]
         public async Task<IActionResult> Get()
         {

@@ -1,28 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using VehiculosOnlineSite.BLL;
 using VehiculosOnlineSite.Model.Clases;
 
 namespace VehiculosOnlineSite
 {
-    /// <summary>
-    /// Lógica de interacción para DetalleVehiculo.xaml
-    /// </summary>
-    public partial class DetalleVehiculo : Window
+    public partial class DetalleVehiculo
     {
         private SolicitudDto soliObj;
         private readonly VehiculoBL _vehiculoBl = new VehiculoBL();
+
         public DetalleVehiculo()
         {
             InitializeComponent();
@@ -51,6 +37,5 @@ namespace VehiculosOnlineSite
                 
             }
         }
-
     }
 }

@@ -116,8 +116,6 @@ namespace VehiculosOnlineSite
             }
         }
 
-        
-
         private bool EsPersonaValida()
         {
             var mensaje = string.Empty;

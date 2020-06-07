@@ -16,11 +16,10 @@ namespace VehiculosOnlineSite.Services.Servicios
 
         public PagoDto IngresarCotizacion(Cotizacion cotizacion)
         {
-            var url = $"http://localhost/VehiculosOnline/cotizaciones/api/cotizaciones/pago";
+            var url = "http://localhost/VehiculosOnline/cotizaciones/api/cotizaciones";
             var respuesta = _restClientHttp.Post<PagoDto>(url, cotizacion);
             if (respuesta.StatusName != HttpStatusCode.OK) throw new Exception(respuesta.Message);
             return respuesta.Response;
         }
-
     }
 }

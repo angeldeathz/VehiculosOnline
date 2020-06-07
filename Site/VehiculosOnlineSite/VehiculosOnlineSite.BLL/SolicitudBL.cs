@@ -17,7 +17,6 @@ namespace VehiculosOnlineSite.BLL
             return _solicitudService.IngresarSolicitud(solicitud);
         }
         
-
         public Solicitud ObtenerUltimaSolicitud()
         {
             return _solicitudService.ObtenerUltimaSolicitud();

@@ -1,28 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using VehiculosOnlineSite.BLL;
 using VehiculosOnlineSite.Model.Clases;
 
 namespace VehiculosOnlineSite
 {
-    /// <summary>
-    /// Lógica de interacción para DatosContactoPersona.xaml
-    /// </summary>
-    public partial class DatosContactoPersona : Window
+    public partial class DatosContactoPersona
     {
-        //private readonly VehiculoBL _vehiculoBl = new VehiculoBL();
         private readonly VentaBL _ventaBl = new VentaBL();
         private readonly LocalizacionBL _localizacionBl = new LocalizacionBL();
         private readonly SolicitudBL _solicitudBl = new SolicitudBL();
@@ -93,11 +81,13 @@ namespace VehiculosOnlineSite
             cboMesesDiferidos.IsEnabled = false;
             
         }
+
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);
         }
+
         public bool validarFormulario()
         {
             bool hayErrores = false;
@@ -183,6 +173,7 @@ namespace VehiculosOnlineSite
             this.cboTipoPago.SelectedValuePath = "Id";
             this.cboTipoPago.SelectedIndex = 0;
         }
+
         private void ObtenerRegion()
         {
             this.cboRegion.ItemsSource = _localizacionBl.ObtenerRegiones();
@@ -190,6 +181,7 @@ namespace VehiculosOnlineSite
             this.cboRegion.SelectedValuePath = "Id";
             this.cboRegion.SelectedIndex = 0;
         }
+
         private void ObtenerCiudades(int idRegion)
         {
             this.cboCiudad.ItemsSource = _localizacionBl.ObtenerCiudades(idRegion);
@@ -197,6 +189,7 @@ namespace VehiculosOnlineSite
             this.cboCiudad.SelectedValuePath = "Id";
             this.cboCiudad.SelectedIndex = 0;
         }
+
         private void ObtenerComunas(int idCiudad)
         {
             this.cboComuna.ItemsSource = _localizacionBl.ObtenerComunas(idCiudad);
@@ -248,9 +241,6 @@ namespace VehiculosOnlineSite
                 MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
             }
         }
-
-        
-        
 
         private void rbNo_Checked(object sender, RoutedEventArgs e)
         {

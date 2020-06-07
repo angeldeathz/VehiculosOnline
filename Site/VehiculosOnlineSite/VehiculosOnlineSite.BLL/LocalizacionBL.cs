@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using VehiculosOnlineSite.Model.Clases;
 using VehiculosOnlineSite.Services.Servicios;
 
@@ -30,6 +26,7 @@ namespace VehiculosOnlineSite.BLL
             regiones.AddRange(_localizacionService.ObtenerRegiones());
             return regiones;
         }
+
         public List<Ciudad> ObtenerCiudades(int idRegion)
         {
             var ciudades = new List<Ciudad> { new Ciudad { Id = 0, Nombre = "Seleccione..." } };
