@@ -35,5 +35,24 @@ namespace VehiculosOnline.Solicitudes.API.Controllers
 
             return Ok(id);
         }
+
+        [HttpGet, Route("ultimasolicitud")]
+        public async Task<IActionResult> Get()
+        {
+            int idSolicitud = await _solicitudFacade.ObtenerUltimoId();
+            var ultimaSolicitud = await _solicitudFacade.ObtenerPorIdAsync(idSolicitud);
+            if (ultimaSolicitud == null) return NoContent();
+            return Ok(ultimaSolicitud);
+        }
+        [HttpGet, Route("insertarventaactualizastockvehiculo")]
+        public async Task<IActionResult> GetVenta()
+        {
+            int idSolicitud = await _solicitudFacade.ObtenerUltimoId();
+            var registraVenta = await _solicitudFacade.ActualizarPorIdAsync(idSolicitud);
+            if (registraVenta == null) return NoContent();
+            return Ok(1);
+        }
+
+        
     }
 }

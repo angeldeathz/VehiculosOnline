@@ -24,5 +24,26 @@ namespace VehiculosOnline.Ventas.DAL.Tables
                         from venta";
             return await _repository.GetAllAsync<Venta>(sql);
         }
+
+        public async Task<int> InsertarAsync(Venta venta)
+        {
+            const string sql =
+                @"INSERT INTO venta 
+                    (id_cotizacion,
+                    fec_venta,
+                    total_venta)
+                    VALUES
+                    (@IdCotizacion,
+                    @FecVenta,
+                    @TotalVenta)";
+
+            return await _repository.InsertAsync(sql, new Dictionary<string, object>
+            {
+                {"@IdCotizacion", venta.IdCotizacion},
+                {"@FecVenta", venta.FechaVenta},
+                {"@TotalVenta", venta.TotalVenta}
+            });
+        }
+
     }
 }

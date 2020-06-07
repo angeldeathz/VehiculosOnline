@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using VehiculosOnline.Cotizaciones.DTO;
 using VehiculosOnline.Cotizaciones.Facade;
+using Cotizacion = VehiculosOnline.Model.Clases.Cotizacion;
 
 namespace VehiculosOnline.Cotizaciones.API.Controllers
 {
@@ -25,6 +26,37 @@ namespace VehiculosOnline.Cotizaciones.API.Controllers
             if (id == 0) return NoContent();
 
             return Ok(id);
+        }
+
+        [HttpPost, Route("pago")]
+        public async Task<IActionResult> PostModelos(Cotizacion cotizacion)
+        {
+            //var modelos = await _cotizacionFacade.ObtenerPorIdMarcaAsync(idMarca);
+            //if (!modelos.Any()) return NoContent();
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var detallePago = await _cotizacionFacade.InsertaYCalculaPagoAsync(cotizacion);
+          
+            return Ok(detallePago);
+        }
+        [HttpGet, Route("idcotizacion")]
+        public async Task<IActionResult> GetIdCotizacion()
+        {
+            //var modelos = await _cotizacionFacade.ObtenerPorIdMarcaAsync(idMarca);
+            //if (!modelos.Any()) return NoContent();
+            if (!ModelState.IsValid) return BadRequest(ModelState);
+
+            var idCotizacion = await _cotizacionFacade.GetIdCotizacionAsync();
+
+            return Ok(idCotizacion);
+        }
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            var cotizaciones = await _cotizacionFacade.ObtenerTodosAsync();
+            //if (!cotizaciones.Any()) return NoContent();
+
+            return Ok(cotizaciones);
         }
     }
 }

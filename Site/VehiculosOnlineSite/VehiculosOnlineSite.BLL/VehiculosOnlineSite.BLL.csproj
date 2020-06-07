@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LocalizacionBL.cs" />
+    <Compile Include="CotizacionBL.cs" />
     <Compile Include="VentaBL.cs" />
     <Compile Include="MarcaBL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

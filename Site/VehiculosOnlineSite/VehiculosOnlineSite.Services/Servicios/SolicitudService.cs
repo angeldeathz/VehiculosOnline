@@ -21,5 +21,20 @@ namespace VehiculosOnlineSite.Services.Servicios
             if (respuesta.StatusName != HttpStatusCode.OK) throw new Exception(respuesta.Message);
             return respuesta.Response;
         }
+
+        public Solicitud ObtenerUltimaSolicitud()
+        {
+            var url = $"http://localhost/VehiculosOnline/solicitudes/api/solicitudes/ultimasolicitud";
+            var respuesta = _restClientHttp.Get<Solicitud>(url);
+            if (respuesta.StatusName != HttpStatusCode.OK) throw new Exception(respuesta.Message);
+            return respuesta.Response;
+        }
+        public int InsertarVentaActualizaStockVehiculo()
+        {
+            var url = $"http://localhost/VehiculosOnline/solicitudes/api/solicitudes/insertarventaactualizastockvehiculo";
+            var respuesta = _restClientHttp.Get<int>(url);
+            if (respuesta.StatusName != HttpStatusCode.OK) throw new Exception(respuesta.Message);
+            return respuesta.Response;
+        }
     }
 }

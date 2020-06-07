@@ -26,6 +26,7 @@ namespace VehiculosOnlineSite
         private readonly VentaBL _ventaBl = new VentaBL();
         private readonly LocalizacionBL _localizacionBl = new LocalizacionBL();
         private readonly SolicitudBL _solicitudBl = new SolicitudBL();
+        private readonly CotizacionBL _cotizacionBl = new CotizacionBL();
 
         public string mensaje;
 
@@ -44,25 +45,43 @@ namespace VehiculosOnlineSite
             }
             else
             {
-                if (cboTipoPago.SelectedIndex == 2)
-                {
-                    IngresoVenta ingresoVentaForm = new IngresoVenta();
-
-                    ingresoVentaForm.ShowDialog();
-                }
-                else
-                {
-                    guardarVenta();
-                }
-                
+                 guardarCotizacion();
             }
             
         }
 
-        public void guardarVenta()
+        public void guardarCotizacion()
         {
-            //_solicitudBl.IngresarSolicitud
-            //_ventaBl.
+            var solicitud = _solicitudBl.ObtenerUltimaSolicitud();
+            Cotizacion ingresaCotizacion = new Cotizacion();
+            ingresaCotizacion.IdSolicitud = solicitud.Id;
+            ingresaCotizacion.IdTipoPago = cboTipoPago.SelectedIndex;
+            ingresaCotizacion.FechaIngresoCotizacion = DateTime.Now;
+            if (rbSi.IsChecked==true)
+            {
+                ingresaCotizacion.EsPagoDiferido = true;
+                ingresaCotizacion.CantidadMesesDiferido = cboMesesDiferidos.SelectedIndex;
+            }
+            else
+            {
+                ingresaCotizacion.EsPagoDiferido = false;
+                ingresaCotizacion.CantidadMesesDiferido = 0;
+            }
+            if (cboTipoPago.SelectedIndex == 2)
+            {
+                ingresaCotizacion.CantidadCuotas = Convert.ToInt32(txtCuotas.Text);
+            }
+            else
+            {
+                ingresaCotizacion.CantidadCuotas = 0;
+            }
+            ingresaCotizacion.ValorVehiculo = solicitud.Vehiculo.Precio;
+
+            var pago = _cotizacionBl.IngresarCotizacion(ingresaCotizacion);
+
+            IngresoVenta ingresoVentaForm = new IngresoVenta();
+            ingresoVentaForm.CargarDetallePago(pago);
+            ingresoVentaForm.ShowDialog();
         }
 
         public void solicitudCotizada(SolicitudDto solicitud)
@@ -72,6 +91,7 @@ namespace VehiculosOnlineSite
             ObtenerTipoPago();
             ObtenerRegion();
             cboMesesDiferidos.IsEnabled = false;
+            
         }
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {

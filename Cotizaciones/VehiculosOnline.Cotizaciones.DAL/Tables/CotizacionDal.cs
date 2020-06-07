@@ -17,15 +17,26 @@ namespace VehiculosOnline.Cotizaciones.DAL.Tables
         public async Task<List<Cotizacion>> ObtenerTodosAsync()
         {
             const string sql = @"select 
-                        id,
-                        id_solicitud AS IdSolicitud,
-                        id_vehiculo AS IdVehiculo,
+                        id_solicitud,
+                        id_tipo_pago,
                         fec_ingreso_cotizacion,
-                        estaCerrada
+                        es_pago_diferido,
+                        cant_meses_diferido,
+                        estaCerrada,
+                        cant_cuotas,
+                        valor_vehiculo
                         from cotizacion";
-
+            
             return await _repository.GetAllAsync<Cotizacion>(sql);
         }
+        public async Task<int> ObtenerIdCotizacionAsync()
+        {
+            const string sql = @"select TOP 1 id
+                        from cotizacion order by id desc";
+
+            return await _repository.GetAsync<int>(sql);
+        }
+        
 
         public async Task<int> InsertarAsync(Cotizacion cotizacion)
         {

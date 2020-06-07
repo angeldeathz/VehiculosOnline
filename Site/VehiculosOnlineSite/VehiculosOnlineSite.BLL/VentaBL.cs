@@ -7,7 +7,7 @@ namespace VehiculosOnlineSite.BLL
     public class VentaBL
     {
         private readonly VentaService _ventaService;
-
+        
         public VentaBL()
         {
             _ventaService = new VentaService();

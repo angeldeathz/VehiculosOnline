@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Servicios\LocalizacionService.cs" />
+    <Compile Include="Servicios\CotizacionService.cs" />
     <Compile Include="Servicios\VentaService.cs" />
     <Compile Include="Servicios\MarcaService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

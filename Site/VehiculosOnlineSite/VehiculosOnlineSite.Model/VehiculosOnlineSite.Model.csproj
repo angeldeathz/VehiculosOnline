@@ -55,6 +55,7 @@
     <Compile Include="Clases\Region.cs" />
     <Compile Include="Clases\Seguro.cs" />
     <Compile Include="Clases\Solicitud.cs" />
+    <Compile Include="Clases\PagoDto.cs" />
     <Compile Include="Clases\SolicitudDto.cs" />
     <Compile Include="Clases\TipoCombustible.cs" />
     <Compile Include="Clases\TipoPago.cs" />

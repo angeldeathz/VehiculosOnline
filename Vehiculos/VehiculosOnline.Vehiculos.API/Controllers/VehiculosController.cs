@@ -51,5 +51,6 @@ namespace VehiculosOnline.Vehiculos.API.Controllers
             if (idVehiculo == 0) return BadRequest("El vehículo no pudo ser ingresado");
             return Ok(idVehiculo);
         }
+
     }
 }
