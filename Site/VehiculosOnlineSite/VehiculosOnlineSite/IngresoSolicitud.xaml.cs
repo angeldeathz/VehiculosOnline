@@ -108,10 +108,12 @@ namespace VehiculosOnlineSite
 
                 if (idSolicitud > 0)
                 {
-                    var detalleVehiculoForm = new DetalleVehiculo();
-                    detalleVehiculoForm.ObtenerVehiculoDetalle(solicitud);
+                    var datosContacto = new DatosContactoPersona();
+                    solicitud.Id = idSolicitud;
+
+                    datosContacto.CargarDatosVehiculo(solicitud);
                     this.Hide();
-                    detalleVehiculoForm.ShowDialog();
+                    datosContacto.ShowDialog();
                 }
             }
         }

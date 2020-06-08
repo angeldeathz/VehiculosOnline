@@ -4,21 +4,21 @@ using System.Threading.Tasks;
 using RestClient.Core;
 using VehiculosOnline.Model.Clases;
 
-namespace VehiculosOnline.CommonServices.Solicitudes
+namespace VehiculosOnline.CommonServices.Cotizaciones
 {
-    public class SolicitudService
+    public class CotizacionService
     {
         private readonly RestClientHttp _restClientHttp;
 
-        public SolicitudService()
+        public CotizacionService()
         {
             _restClientHttp = new RestClientHttp();
         }
 
-        public async Task<Solicitud> ObtenerPorIdAsync(int id)
+        public async Task<Cotizacion> ObtenerPorIdAsync(int id)
         {
-            var url = $"http://localhost/VehiculosOnline/solicitudes/api/solicitudes/{id}";
-            var respuesta = await _restClientHttp.GetAsync<Solicitud>(url);
+            var url = $"http://localhost/VehiculosOnline/cotizaciones/api/cotizaciones/{id}";
+            var respuesta = await _restClientHttp.GetAsync<Cotizacion>(url);
             if (respuesta.StatusName != HttpStatusCode.OK) throw new Exception(respuesta.Message);
             return respuesta.Response;
         }

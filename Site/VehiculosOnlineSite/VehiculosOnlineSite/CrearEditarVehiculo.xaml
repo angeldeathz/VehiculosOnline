@@ -8,24 +8,24 @@
         Title="Información del Vehículo" Height="498.8" Width="800">
     <Grid>
         <Label Content="Detalle del Vehículo" HorizontalAlignment="Left" Margin="333,19,0,0" VerticalAlignment="Top"/>
-        <Label Content="Marca" HorizontalAlignment="Left" Margin="147,86,0,0" VerticalAlignment="Top"/>
-        <Label Content="Modelo" HorizontalAlignment="Left" Margin="353,86,0,0" VerticalAlignment="Top"/>
-        <Label Content="Precio" HorizontalAlignment="Left" Margin="353,283,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.644,3.367"/>
-        <Label Content="Stock" HorizontalAlignment="Left" Margin="585,283,0,0" VerticalAlignment="Top"/>
-        <Label Content="Año" HorizontalAlignment="Left" Margin="585,86,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.445"/>
-        <Label Content="Tipo Vehículo" HorizontalAlignment="Left" Margin="147,174,0,0" VerticalAlignment="Top"/>
-        <Label Content="Tipo Combustible" HorizontalAlignment="Left" Margin="147,283,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.921,2.578"/>
-        <Label Content="País Origen" HorizontalAlignment="Left" Margin="585,174,0,0" VerticalAlignment="Top"/>
-        <Label Content="Color" HorizontalAlignment="Left" Margin="353,174,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.641,3.078"/>
-        <ComboBox x:Name="cboMarca" HorizontalAlignment="Left" Margin="147,126,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboMarca_SelectionChanged"/>
-        <ComboBox x:Name="cboModelo" HorizontalAlignment="Left" Margin="353,126,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="cboAnio" HorizontalAlignment="Left" Margin="585,126,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="cboTipoVehiculo" HorizontalAlignment="Left" Margin="147,222,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="cboPais" HorizontalAlignment="Left" Margin="585,222,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="cboTipoCombustible" HorizontalAlignment="Left" Margin="147,338,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Height="23" Margin="353,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtStock" HorizontalAlignment="Left" Height="23" Margin="585,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Marca" HorizontalAlignment="Left" Margin="122,84,0,0" VerticalAlignment="Top"/>
+        <Label Content="Modelo" HorizontalAlignment="Left" Margin="328,84,0,0" VerticalAlignment="Top"/>
+        <Label Content="Precio" HorizontalAlignment="Left" Margin="328,281,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.644,3.367"/>
+        <Label Content="Stock" HorizontalAlignment="Left" Margin="560,281,0,0" VerticalAlignment="Top"/>
+        <Label Content="Año" HorizontalAlignment="Left" Margin="560,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.444,0.445"/>
+        <Label Content="Tipo Vehículo" HorizontalAlignment="Left" Margin="122,172,0,0" VerticalAlignment="Top"/>
+        <Label Content="Tipo Combustible" HorizontalAlignment="Left" Margin="122,281,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.921,2.578"/>
+        <Label Content="País Origen" HorizontalAlignment="Left" Margin="560,172,0,0" VerticalAlignment="Top"/>
+        <Label Content="Color" HorizontalAlignment="Left" Margin="328,172,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.641,3.078"/>
+        <ComboBox x:Name="cboMarca" HorizontalAlignment="Left" Margin="122,124,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboMarca_SelectionChanged"/>
+        <ComboBox x:Name="cboModelo" HorizontalAlignment="Left" Margin="328,124,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cboAnio" HorizontalAlignment="Left" Margin="560,124,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cboTipoVehiculo" HorizontalAlignment="Left" Margin="122,220,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cboPais" HorizontalAlignment="Left" Margin="560,220,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cboTipoCombustible" HorizontalAlignment="Left" Margin="122,336,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtPrecio" HorizontalAlignment="Left" Height="23" Margin="328,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtStock" HorizontalAlignment="Left" Height="23" Margin="560,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnGuardarVehiculo" Content="Guardar Vehículo" HorizontalAlignment="Left" Margin="319,399,0,0" VerticalAlignment="Top" Width="129" Height="35" Click="btnGuardarVehiculo_Click"/>
-        <ComboBox x:Name="cboColor" HorizontalAlignment="Left" Margin="353,222,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cboColor" HorizontalAlignment="Left" Margin="328,220,0,0" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

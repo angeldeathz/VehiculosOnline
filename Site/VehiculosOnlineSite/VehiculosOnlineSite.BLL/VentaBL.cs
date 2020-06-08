@@ -19,5 +19,10 @@ namespace VehiculosOnlineSite.BLL
             tipopagos.AddRange(_ventaService.ObtenerTipoPago());
             return tipopagos;
         }
+
+        public int RealizarVenta(Venta venta)
+        {
+            return _ventaService.RealizarVenta(venta);
+        }
     }
 }

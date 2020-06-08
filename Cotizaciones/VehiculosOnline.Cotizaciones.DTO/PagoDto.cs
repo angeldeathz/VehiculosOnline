@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using VehiculosOnline.Model.Clases;
-
-namespace VehiculosOnline.Cotizaciones.DTO
+﻿namespace VehiculosOnline.Cotizaciones.DTO
 {
     public class PagoDto
     {

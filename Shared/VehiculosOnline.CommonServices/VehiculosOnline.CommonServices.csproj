@@ -9,10 +9,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Base\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="RestClient.Core" Version="1.0.1" />
   </ItemGroup>
 

@@ -1,16 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using VehiculosOnlineSite.BLL;
 using VehiculosOnlineSite.Model.Clases;
 
@@ -18,33 +7,83 @@ namespace VehiculosOnlineSite
 {
     public partial class IngresoVenta
     {
-        private readonly SolicitudBL _solicitudBl = new SolicitudBL();
+        private readonly VentaBL _ventaBl = new VentaBL();
+        public Cotizacion CotizacionActual { get; set; }
 
         public IngresoVenta()
         {
-            InitializeComponent();
-        }
-
-        public void CargarDetallePago(PagoDto pago)
-        {
-            lblPrecioVehiculo.Content = "$"+pago.PrecioVehiuclo;
-            lblCostoTotalCredito.Content = "$" + pago.CostoTotalCredito;
-            lblCuota.Content = pago.Cuota;
-            lblPrecioSinIVA.Content = "$" + pago.PrecioSinIVA;
-            lblValorCouta.Content = "$" + pago.ValorCuota;
+            try
+            {
+                InitializeComponent();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
+            }
         }
 
         private void btnPagar_Click(object sender, RoutedEventArgs e)
         {
-            //var guardaVenta = _solicitudBl.IngresarVentaActualizaStock();
-            //if (guardaVenta==0)
-            //{
-            //    MessageBox.Show("Existe un error", "ERROR");
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Se han guardado la compra del vehiculo, un ejecutivo se comunicara con usted a la brevedad", "VEHICULO VENDIDO");
-            //}
+            try
+            {
+                RealizarPago();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
+            }
+        }
+
+        private void BtnVolver_OnClick(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                this.Hide();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
+            }
+        }
+
+        private void RealizarPago()
+        {
+            var venta = new Venta
+            {
+                IdCotizacion = CotizacionActual.Id
+            };
+
+            var idVenta = _ventaBl.RealizarVenta(venta);
+
+            if (idVenta == 0)
+            {
+                MessageBox.Show("No se puso generar el pago", "Error");
+            }
+            else
+            {
+                MessageBox.Show($"Se realizó la venta con el número {idVenta}, un ejecutivo se contactará con usted a la brevedad.", "VEHICULO VENDIDO");
+                CerrarVentanas();
+            }
+        }
+
+        public void CargarDetallePago(ResumenCotizacion resumenCotizacion, Cotizacion cotizacion)
+        {
+            CotizacionActual = cotizacion;
+            CotizacionActual.Id = resumenCotizacion.IdCotizacion;
+
+            lblPrecioVehiculo.Content = "$"+resumenCotizacion.PrecioFinal;
+            lblCostoTotalCredito.Content = "$" + resumenCotizacion.CostoTotalCredito;
+            lblCuota.Content = resumenCotizacion.Cuotas;
+            lblPrecioSinIVA.Content = "$" + resumenCotizacion.PrecioSinIva;
+            lblValorCouta.Content = "$" + resumenCotizacion.ValorCuota;
+        }
+
+        private void CerrarVentanas()
+        {
+            for (int intCounter = Application.Current.Windows.Count - 1; intCounter >= 1; intCounter--)
+            {
+                Application.Current.Windows[intCounter]?.Close();
+            }
         }
     }
 }

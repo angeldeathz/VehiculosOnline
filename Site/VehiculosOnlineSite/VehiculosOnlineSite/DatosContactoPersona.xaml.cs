@@ -11,202 +11,64 @@ namespace VehiculosOnlineSite
 {
     public partial class DatosContactoPersona
     {
+        #region Propiedades
+
         private readonly VentaBL _ventaBl = new VentaBL();
         private readonly LocalizacionBL _localizacionBl = new LocalizacionBL();
         private readonly SolicitudBL _solicitudBl = new SolicitudBL();
         private readonly CotizacionBL _cotizacionBl = new CotizacionBL();
+        private readonly VehiculoBL _vehiculoBl = new VehiculoBL();
 
-        public string mensaje;
+        private SolicitudDto SolicitudActual { get; set; }
 
         public DatosContactoPersona()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
+                ObtenerTipoPago();
+                ObtenerRegion();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
+            }
         }
+
+        #endregion
+
+        #region Eventos
 
         private void btnConfirmarCotizacion_Click(object sender, RoutedEventArgs e)
         {
-            lblMensaje.Content = "";
-            mensaje = "";
-            if (validarFormulario())
+            try
             {
-                lblMensaje.Content = mensaje;
+                GuardarCotizacion();
             }
-            else
+            catch (Exception ex)
             {
-                 guardarCotizacion();
+                MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
             }
-            
-        }
-
-        public void guardarCotizacion()
-        {
-            var solicitud = _solicitudBl.ObtenerUltimaSolicitud();
-            Cotizacion ingresaCotizacion = new Cotizacion();
-            ingresaCotizacion.IdSolicitud = solicitud.Id;
-            ingresaCotizacion.IdTipoPago = cboTipoPago.SelectedIndex;
-            ingresaCotizacion.FechaIngresoCotizacion = DateTime.Now;
-            if (rbSi.IsChecked==true)
-            {
-                ingresaCotizacion.EsPagoDiferido = true;
-                ingresaCotizacion.CantidadMesesDiferido = cboMesesDiferidos.SelectedIndex;
-            }
-            else
-            {
-                ingresaCotizacion.EsPagoDiferido = false;
-                ingresaCotizacion.CantidadMesesDiferido = 0;
-            }
-            if (cboTipoPago.SelectedIndex == 2)
-            {
-                ingresaCotizacion.CantidadCuotas = Convert.ToInt32(txtCuotas.Text);
-            }
-            else
-            {
-                ingresaCotizacion.CantidadCuotas = 0;
-            }
-            ingresaCotizacion.ValorVehiculo = solicitud.Vehiculo.Precio;
-
-            var pago = _cotizacionBl.IngresarCotizacion(ingresaCotizacion);
-
-            IngresoVenta ingresoVentaForm = new IngresoVenta();
-            ingresoVentaForm.CargarDetallePago(pago);
-            ingresoVentaForm.ShowDialog();
-        }
-
-        public void solicitudCotizada(SolicitudDto solicitud)
-        {
-            //var vehiculoBdd = _vehiculoBl.ObtenerPorId(solicitud.IdVehiculo);
-            emailtxt.Text = solicitud.Cliente.Email;
-            ObtenerTipoPago();
-            ObtenerRegion();
-            cboMesesDiferidos.IsEnabled = false;
-            
-        }
-
-        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
-        {
-            Regex regex = new Regex("[^0-9]+");
-            e.Handled = regex.IsMatch(e.Text);
-        }
-
-        public bool validarFormulario()
-        {
-            bool hayErrores = false;
-            if (String.IsNullOrEmpty(fechNacimiento.Text))
-            {
-                hayErrores = true;
-                mensaje = "Debe seleccionar la fecha de nacimiento" + "\r\n";
-            }
-            if (String.IsNullOrEmpty(emailtxt.Text))
-            {
-                hayErrores = true;
-                mensaje = mensaje += "Debe ingresar el mail" + "\r\n";
-            }
-            else
-            {
-                //valida formato del mail
-                try
-                {
-                    new System.Net.Mail.MailAddress(emailtxt.Text.ToLower());
-                }
-                catch (FormatException)
-                {
-                    hayErrores = true;
-                    mensaje = mensaje += "El mail no corresponde" + "\r\n";
-                }
-            }
-            if (String.IsNullOrEmpty(celular.Text))
-            {
-                hayErrores = true;
-                mensaje = mensaje += "Debe ingresar el celular" + "\r\n";
-            }
-            if (String.IsNullOrEmpty(telefono.Text))
-            {
-                hayErrores = true;
-                mensaje = mensaje += "Debe ingresar el telefono" + "\r\n";
-            }
-            if (String.IsNullOrEmpty(cboComuna.Text)|| cboComuna.SelectedIndex==0)
-            {
-                hayErrores = true;
-                mensaje = mensaje += "Debe seleccionar la comuna" + "\r\n";
-            }
-            if (String.IsNullOrEmpty(cboCiudad.Text)|| cboCiudad.SelectedIndex == 0)
-            {
-                hayErrores = true;
-                mensaje = mensaje += "Debe seleccionar la ciudad" + "\r\n";
-            }
-            if (String.IsNullOrEmpty(cboRegion.Text)|| cboRegion.SelectedIndex == 0)
-            {
-                hayErrores = true;
-                mensaje = mensaje += "Debe seleccionar la region" + "\r\n";
-            }
-            if (String.IsNullOrEmpty(direccion.Text))
-            {
-                hayErrores = true;
-                mensaje = mensaje += "Debe ingresar su dirección" + "\r\n";
-            }
-            if (String.IsNullOrEmpty(cboTipoPago.Text))
-            {
-                hayErrores = true;
-                mensaje = mensaje += "Debe seleccionar el tipo de pago" + "\r\n";
-            }
-            else
-            {
-                //aca deberia preguntar si es tarjeta de credito
-                if (cboTipoPago.SelectedIndex == 2)
-                {
-                    if (String.IsNullOrEmpty(txtCuotas.Text))
-                    {
-                        hayErrores = true;
-                        mensaje = mensaje += "Debe ingresar las cuotas" + "\r\n";
-                    }
-                }
-                
-            }
-            
-            return hayErrores;
-        }
-
-        private void ObtenerTipoPago()
-        {
-            this.cboTipoPago.ItemsSource = _ventaBl.ObtenerTipoPago();
-            this.cboTipoPago.DisplayMemberPath = "Nombre";
-            this.cboTipoPago.SelectedValuePath = "Id";
-            this.cboTipoPago.SelectedIndex = 0;
-        }
-
-        private void ObtenerRegion()
-        {
-            this.cboRegion.ItemsSource = _localizacionBl.ObtenerRegiones();
-            this.cboRegion.DisplayMemberPath = "Nombre";
-            this.cboRegion.SelectedValuePath = "Id";
-            this.cboRegion.SelectedIndex = 0;
-        }
-
-        private void ObtenerCiudades(int idRegion)
-        {
-            this.cboCiudad.ItemsSource = _localizacionBl.ObtenerCiudades(idRegion);
-            this.cboCiudad.DisplayMemberPath = "Nombre";
-            this.cboCiudad.SelectedValuePath = "Id";
-            this.cboCiudad.SelectedIndex = 0;
-        }
-
-        private void ObtenerComunas(int idCiudad)
-        {
-            this.cboComuna.ItemsSource = _localizacionBl.ObtenerComunas(idCiudad);
-            this.cboComuna.DisplayMemberPath = "Nombre";
-            this.cboComuna.SelectedValuePath = "Id";
-            this.cboComuna.SelectedIndex = 0;
         }
 
         private void cboTipoPago_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cboTipoPago.SelectedIndex == 2)
+            try
             {
-                txtCuotas.IsEnabled = true;
+                if (cboTipoPago.SelectedIndex == 2)
+                {
+                    txtCuotas.IsEnabled = true;
+                }
+                else
+                {
+                    txtCuotas.IsEnabled = false;
+                }
+
+                txtCuotas.Text = string.Empty;
             }
-            else
+            catch (Exception ex)
             {
-                txtCuotas.IsEnabled = false;
+                MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
             }
         }
 
@@ -244,8 +106,10 @@ namespace VehiculosOnlineSite
 
         private void rbNo_Checked(object sender, RoutedEventArgs e)
         {
-            cboMesesDiferidos.IsEnabled = false;
-            var diferido = new List<Item>
+            try
+            {
+                cboMesesDiferidos.IsEnabled = false;
+                var diferido = new List<Item>
                 {
                     new Item
                     {
@@ -269,16 +133,23 @@ namespace VehiculosOnlineSite
                     }
                 };
 
-            this.cboMesesDiferidos.ItemsSource = diferido;
-            this.cboMesesDiferidos.DisplayMemberPath = "Text";
-            this.cboMesesDiferidos.SelectedValuePath = "Value";
-            this.cboMesesDiferidos.SelectedIndex = 0;
+                this.cboMesesDiferidos.ItemsSource = diferido;
+                this.cboMesesDiferidos.DisplayMemberPath = "Text";
+                this.cboMesesDiferidos.SelectedValuePath = "Value";
+                this.cboMesesDiferidos.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
+            }
         }
 
         private void rbSi_Checked(object sender, RoutedEventArgs e)
         {
-            cboMesesDiferidos.IsEnabled = true;
-            var diferido = new List<Item>
+            try
+            {
+                cboMesesDiferidos.IsEnabled = true;
+                var diferido = new List<Item>
                 {
                     new Item
                     {
@@ -302,10 +173,213 @@ namespace VehiculosOnlineSite
                     }
                 };
 
-            this.cboMesesDiferidos.ItemsSource = diferido;
-            this.cboMesesDiferidos.DisplayMemberPath = "Text";
-            this.cboMesesDiferidos.SelectedValuePath = "Value";
-            this.cboMesesDiferidos.SelectedIndex = 0;
+                this.cboMesesDiferidos.ItemsSource = diferido;
+                this.cboMesesDiferidos.DisplayMemberPath = "Text";
+                this.cboMesesDiferidos.SelectedValuePath = "Value";
+                this.cboMesesDiferidos.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
+            }
         }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
+        #endregion
+
+        #region Metodos
+
+        public void CargarDatosVehiculo(SolicitudDto solicitud)
+        {
+            var vehiculo = _vehiculoBl.ObtenerPorId(solicitud.IdVehiculo);
+
+            if (vehiculo != null)
+            {
+                lblMarca.Content = vehiculo.Modelo.Marca.Nombre;
+                lblModelo.Content = vehiculo.Modelo.Nombre;
+                lblPaisOrigen.Content = vehiculo.PaisOrigen.Nombre;
+                lblAño.Content = vehiculo.Anio;
+                lblColor.Content = vehiculo.Color;
+                lblPrecio.Content = vehiculo.Precio;
+            }
+
+            solicitud.Vehiculo = vehiculo;
+            SolicitudActual = solicitud;
+
+            emailtxt.Text = solicitud.Cliente.Email;
+            cboMesesDiferidos.IsEnabled = false;
+        }
+
+        private void GuardarCotizacion()
+        {
+            if (EsFormularioValido())
+            {
+                var cotizacion = new Cotizacion
+                {
+                    IdSolicitud = SolicitudActual.Id,
+                    IdTipoPago = cboTipoPago.SelectedIndex,
+                    FechaIngresoCotizacion = DateTime.Now
+                };
+
+                if (rbSi.IsChecked == true)
+                {
+                    cotizacion.EsPagoDiferido = true;
+                    cotizacion.CantidadMesesDiferido = cboMesesDiferidos.SelectedIndex;
+                }
+                else
+                {
+                    cotizacion.EsPagoDiferido = false;
+                    cotizacion.CantidadMesesDiferido = 0;
+                }
+
+                cotizacion.CantidadCuotas = cboTipoPago.SelectedIndex == 2 ? Convert.ToInt32(txtCuotas.Text) : 0;
+
+                var resumenCotizacion = _cotizacionBl.IngresarCotizacion(cotizacion);
+
+                if (resumenCotizacion != null)
+                {
+                    var ingresoVentaForm = new IngresoVenta();
+                    ingresoVentaForm.CargarDetallePago(resumenCotizacion, cotizacion);
+                    ingresoVentaForm.ShowDialog();
+                }
+            }
+        }
+
+        private bool EsFormularioValido()
+        {
+            var esValido = true;
+            var mensaje = string.Empty;
+            
+            if (string.IsNullOrEmpty(fechNacimiento.Text))
+            {
+                esValido = false;
+                mensaje = "Debe seleccionar la fecha de nacimiento" + "\r\n";
+            }
+
+            if (emailtxt.Text.Trim().Length == 0)
+            {
+                esValido = false;
+                mensaje += "Debe ingresar el mail" + "\r\n";
+            }
+            else
+            {
+                //valida formato del mail
+                try
+                {
+                    new System.Net.Mail.MailAddress(emailtxt.Text.ToLower());
+                }
+                catch (FormatException)
+                {
+                    esValido = false;
+                    mensaje += "El mail no corresponde" + "\r\n";
+                }
+            }
+
+            if (celular.Text.Trim().Length == 0)
+            {
+                esValido = false;
+                mensaje += "Debe ingresar el celular" + "\r\n";
+            }
+
+            if (telefono.Text.Trim().Length == 0)
+            {
+                esValido = false;
+                mensaje += "Debe ingresar el telefono" + "\r\n";
+            }
+
+            if (cboComuna.SelectedIndex == 0)
+            {
+                esValido = false;
+                mensaje += "Debe seleccionar la comuna" + "\r\n";
+            }
+
+            if (cboCiudad.SelectedIndex == 0)
+            {
+                esValido = false;
+                mensaje += "Debe seleccionar la ciudad" + "\r\n";
+            }
+
+            if (cboRegion.SelectedIndex == 0)
+            {
+                esValido = false;
+                mensaje += "Debe seleccionar la region" + "\r\n";
+            }
+
+            if (direccion.Text.Trim().Length == 0)
+            {
+                esValido = false;
+                mensaje += "Debe ingresar su dirección" + "\r\n";
+            }
+
+            if (cboTipoPago.SelectedIndex == 0)
+            {
+                esValido = false;
+                mensaje += "Debe seleccionar el tipo de pago" + "\r\n";
+            }
+            else
+            {
+                //aca deberia preguntar si es tarjeta de credito
+                if (cboTipoPago.SelectedIndex == 2)
+                {
+                    if (txtCuotas.Text.Trim().Length == 0)
+                    {
+                        esValido = false;
+                        mensaje += "Debe ingresar las cuotas" + "\r\n";
+                    }
+                    else
+                    {
+                        if (int.Parse(txtCuotas.Text) <= 0)
+                        {
+                            esValido = false;
+                            mensaje += "El n° de cuotas debe ser igual o mayor a 1" + "\r\n";
+                        }
+                    }
+                }
+
+            }
+
+            if (!esValido) MessageBox.Show(mensaje, "Ha ocurrido un error");
+
+            return esValido;
+        }
+
+        private void ObtenerTipoPago()
+        {
+            this.cboTipoPago.ItemsSource = _ventaBl.ObtenerTipoPago();
+            this.cboTipoPago.DisplayMemberPath = "Nombre";
+            this.cboTipoPago.SelectedValuePath = "Id";
+            this.cboTipoPago.SelectedIndex = 0;
+        }
+
+        private void ObtenerRegion()
+        {
+            this.cboRegion.ItemsSource = _localizacionBl.ObtenerRegiones();
+            this.cboRegion.DisplayMemberPath = "Nombre";
+            this.cboRegion.SelectedValuePath = "Id";
+            this.cboRegion.SelectedIndex = 0;
+        }
+
+        private void ObtenerCiudades(int idRegion)
+        {
+            this.cboCiudad.ItemsSource = _localizacionBl.ObtenerCiudades(idRegion);
+            this.cboCiudad.DisplayMemberPath = "Nombre";
+            this.cboCiudad.SelectedValuePath = "Id";
+            this.cboCiudad.SelectedIndex = 0;
+        }
+
+        private void ObtenerComunas(int idCiudad)
+        {
+            this.cboComuna.ItemsSource = _localizacionBl.ObtenerComunas(idCiudad);
+            this.cboComuna.DisplayMemberPath = "Nombre";
+            this.cboComuna.SelectedValuePath = "Id";
+            this.cboComuna.SelectedIndex = 0;
+        }
+
+        #endregion
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using VehiculosOnline.Model.Clases;
 using VehiculosOnline.Transversal.Repositorios;
@@ -40,7 +41,7 @@ namespace VehiculosOnline.Ventas.DAL.Tables
             return await _repository.InsertAsync(sql, new Dictionary<string, object>
             {
                 {"@IdCotizacion", venta.IdCotizacion},
-                {"@FecVenta", venta.FechaVenta},
+                {"@FecVenta", DateTime.Now},
                 {"@TotalVenta", venta.TotalVenta}
             });
         }

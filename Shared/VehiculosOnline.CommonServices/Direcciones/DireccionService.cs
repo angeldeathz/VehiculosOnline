@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Net;
+using System.Threading.Tasks;
 using RestClient.Core;
 using VehiculosOnline.Model.Clases;
 
@@ -16,7 +18,9 @@ namespace VehiculosOnline.CommonServices.Direcciones
         public async Task<Direccion> ObtenerPorIdAsync(int id)
         {
             var url = $"http://localhost/VehiculosOnline/localizaciones/api/direcciones/{id}";
-            return await _restClientHttp.GetObjectAsync<Direccion>(url);
+            var respuesta = await _restClientHttp.GetAsync<Direccion>(url);
+            if (respuesta.StatusName != HttpStatusCode.OK) throw new Exception(respuesta.Message);
+            return respuesta.Response;
         }
 
         public async Task<RestClientResponse<int>> InsertarAsync(Direccion direccion)

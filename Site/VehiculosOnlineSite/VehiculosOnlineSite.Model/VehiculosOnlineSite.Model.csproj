@@ -53,6 +53,7 @@
     <Compile Include="Clases\Pais.cs" />
     <Compile Include="Clases\Persona.cs" />
     <Compile Include="Clases\Region.cs" />
+    <Compile Include="Clases\ResumenCotizacion.cs" />
     <Compile Include="Clases\Seguro.cs" />
     <Compile Include="Clases\Solicitud.cs" />
     <Compile Include="Clases\PagoDto.cs" />

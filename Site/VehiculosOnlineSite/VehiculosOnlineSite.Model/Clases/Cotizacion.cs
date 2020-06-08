@@ -15,6 +15,5 @@ namespace VehiculosOnlineSite.Model.Clases
         public int ValorVehiculo { get; set; }
         public Solicitud Solicitud { get; set; }
         public TipoPago TipoPago { get; set; }
-        public List<CotizacionSeguro> Seguros { get; set; }
     }
 }

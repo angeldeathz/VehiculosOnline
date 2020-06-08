@@ -139,7 +139,7 @@ namespace VehiculosOnlineSite
 
                 if (idVehiculo > 0)
                 {
-                    MessageBox.Show("Vehiculo ingresado correctamente", "Éxito", MessageBoxButton.OK);
+                    MessageBox.Show("Vehiculo modificado correctamente", "Éxito", MessageBoxButton.OK);
                     this.Close();
                 }
             }

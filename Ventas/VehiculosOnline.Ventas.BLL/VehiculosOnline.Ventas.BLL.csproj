@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared\VehiculosOnline.CommonServices\VehiculosOnline.CommonServices.csproj" />
     <ProjectReference Include="..\VehiculosOnline.Ventas.DAL\VehiculosOnline.Ventas.DAL.csproj" />
   </ItemGroup>
 
