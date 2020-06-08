@@ -14,6 +14,7 @@ namespace VehiculosOnlineSite
         {
             try
             {
+                WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 InitializeComponent();
             }
             catch (Exception ex)

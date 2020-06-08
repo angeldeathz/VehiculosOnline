@@ -56,5 +56,13 @@ namespace VehiculosOnline.Vehiculos.API.Controllers
             if (idVehiculo == 0) return BadRequest("El vehículo no pudo ser modificado");
             return Ok(idVehiculo);
         }
+
+        [HttpPut, Route("{id}/Stock")]
+        public async Task<IActionResult> PutStock(int id)
+        {
+            var idVehiculo = await _vehiculoBl.ActualizarStock(id);
+            if (idVehiculo == 0) return BadRequest("El stock no pudo ser modificado");
+            return Ok(idVehiculo);
+        }
     }
 }

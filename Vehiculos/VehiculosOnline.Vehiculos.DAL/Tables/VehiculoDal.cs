@@ -146,5 +146,20 @@ namespace VehiculosOnline.Vehiculos.DAL.Tables
                 {"@Stock", vehiculo.Stock}
             });
         }
+
+        public async Task<int> ActualizarStock(int stock, int idVehiculo)
+        {
+            const string sql =
+                @"UPDATE VEHICULO 
+                set
+                    stock = @Stock
+                WHERE id = @Id";
+
+            return await _repository.UpdateAsync(sql, new Dictionary<string, object>
+            {
+                {"@Id", idVehiculo },
+                {"@Stock", stock}
+            });
+        }
     }
 }

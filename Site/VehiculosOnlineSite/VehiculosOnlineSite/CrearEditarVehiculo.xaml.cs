@@ -15,6 +15,7 @@ namespace VehiculosOnlineSite
         private readonly LocalizacionBL _localizacionBl = new LocalizacionBL();
         private bool EsModificacion { get; set; }
         private int IdVehiculo { get; set; }
+
         public CrearEditarVehiculo()
         {
             try

@@ -131,5 +131,13 @@ namespace VehiculosOnline.Vehiculos.BLL
 
             return await _vehiculoDal.ModificarAsync(vehiculo);
         }
+
+        public async Task<int> ActualizarStock(int id)
+        {
+            var vehiculo = await _vehiculoDal.ObtenerPorIdAsync(id);
+            if (vehiculo == null) throw new Exception($"Vehiculo con id {id} no existe");
+            var stock = vehiculo.Stock - 1;
+            return await _vehiculoDal.ActualizarStock(stock, vehiculo.Id);
+        }
     }
 }

@@ -25,6 +25,7 @@ namespace VehiculosOnlineSite
         {
             try
             {
+                WindowStartupLocation = WindowStartupLocation.CenterScreen;
                 InitializeComponent();
                 ObtenerTipoPago();
                 ObtenerRegion();
