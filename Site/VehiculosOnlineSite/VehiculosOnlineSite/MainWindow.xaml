@@ -16,7 +16,7 @@
         <Grid x:Name="gridIniciadoSesion" HorizontalAlignment="Left" Height="64" Margin="30,200,0,0" VerticalAlignment="Top" Width="628">
             <Button x:Name="btnIngresarVenta" Content="Ingresar venta" HorizontalAlignment="Left" Margin="280,19,0,0" VerticalAlignment="Top" Width="86" Height="21" Click="btnIngresarVenta_Click"/>
             <Button x:Name="btnVerSolicitudes" Content="Ver Solicitudes" HorizontalAlignment="Left" Margin="164,19,0,0" VerticalAlignment="Top" Width="88" Height="21"/>
-            <Button x:Name="btnVerVentas" Content="Ver Ventas" HorizontalAlignment="Left" Margin="400,19,0,0" VerticalAlignment="Top" Width="72" Height="21"/>
+            <Button x:Name="btnVerVentas" Content="Ver Ventas" HorizontalAlignment="Left" Margin="400,19,0,0" VerticalAlignment="Top" Width="72" Height="21" Click="btnVerVentas_Click"/>
             <Button x:Name="btnFlujoEjecutivo" Content="Vehículos" HorizontalAlignment="Left" Margin="39,19,0,0" VerticalAlignment="Top" Width="90" Height="21" Click="btnFlujoEjecutivo_Click" RenderTransformOrigin="0.184,0.592"/>
             <Button x:Name="btnCerrarSesion" Content="Cerrar sesión" HorizontalAlignment="Left" Margin="506,19,0,0" VerticalAlignment="Top" Width="82" Height="21" Click="btnCerrarSesion_Click"/>
         </Grid>

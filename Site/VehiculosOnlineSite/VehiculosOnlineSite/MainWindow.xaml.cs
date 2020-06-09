@@ -112,5 +112,12 @@ namespace VehiculosOnlineSite
             gridInicio.Visibility = Visibility.Hidden;
             gridIniciadoSesion.Visibility = Visibility.Visible;
         }
+
+        private void btnVerVentas_Click(object sender, RoutedEventArgs e)
+        {
+            var listarVentaForm = new ListarVenta();
+            //Hide();
+            listarVentaForm.ShowDialog();
+        }
     }
 }

@@ -1,0 +1,40 @@
+﻿<Window x:Class="VehiculosOnlineSite.ListarVenta"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VehiculosOnlineSite"
+        mc:Ignorable="d"
+        Title="Listado de Ventas" Height="544.47" Width="1112">
+    <Grid>
+        <Label x:Name="label" Content="Seleccione Marca" HorizontalAlignment="Left" Margin="597,35,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Seleccione Modelo" HorizontalAlignment="Left" Margin="763,35,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboMarca" HorizontalAlignment="Left" Margin="597,66,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboMarca_SelectionChanged"/>
+        <ComboBox x:Name="cboModelo" HorizontalAlignment="Left" Margin="763,66,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="960,126,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnBuscar_Click"/>
+        <Label x:Name="label2" Content="Listado de ventas" HorizontalAlignment="Left" Margin="29,162,0,0" VerticalAlignment="Top"/>
+        <Label Content="Seleccione Año" HorizontalAlignment="Left" Margin="915,35,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="gridVentas" HorizontalAlignment="Left" Height="312" Margin="29,193,0,0" VerticalAlignment="Top" Width="1046">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btnVerDetalles" Click="BtnVerDetalles_OnClick">Ver Detalles</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox x:Name="cboAnio" HorizontalAlignment="Left" Margin="915,67,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="10,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" />
+        <Label x:Name="label_Copy1" Content="Ingrese nombre del cliente" HorizontalAlignment="Left" Margin="73,36,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="10,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" />
+        <Label x:Name="label_Copy2" Content="Ingrese correo del cliente" HorizontalAlignment="Left" Margin="73,95,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy3" Content="Seleccione Tipo de Pago" HorizontalAlignment="Left" Margin="418,35,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboMarca_Copy" HorizontalAlignment="Left" Margin="418,66,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboMarca_SelectionChanged"/>
+        <DatePicker HorizontalAlignment="Left" Margin="418,126,0,0" Name="fechDesde" VerticalAlignment="Top"/>
+        <DatePicker HorizontalAlignment="Left" Margin="701,126,0,0" Name="fechHasta" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy4" Content="Ingrese fecha desde" HorizontalAlignment="Left" Margin="418,95,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy5" Content="Ingrese fecha hasta" HorizontalAlignment="Left" Margin="701,95,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
