@@ -57,6 +57,18 @@ namespace VehiculosOnlineSite
             }
         }
 
+        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ActualizarRegistros();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
+            }
+        }
+
         private void BtnVerDetalles_OnClick(object sender, RoutedEventArgs e)
         {
             try
@@ -99,6 +111,18 @@ namespace VehiculosOnlineSite
             int.TryParse(this.cboAnio.SelectedValue.ToString(), out int anio);
 
             var vehiculos = _vehiculoBl.ObtenerPorIdMarcaModelo(idMarca, idModelo, anio);
+            this.gridVehiculos.ItemsSource = vehiculos;
+            this.gridVehiculos.IsReadOnly = true;
+
+            if (!vehiculos.Any())
+            {
+                MessageBox.Show("No se han encontrado resultados", "Atención");
+            }
+        }
+
+        private void ActualizarRegistros()
+        {
+            var vehiculos = _vehiculoBl.ObtenerPorIdMarcaModelo(0, 0, 0);
             this.gridVehiculos.ItemsSource = vehiculos;
             this.gridVehiculos.IsReadOnly = true;
 
