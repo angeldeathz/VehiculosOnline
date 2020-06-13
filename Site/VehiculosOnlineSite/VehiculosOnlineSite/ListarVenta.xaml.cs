@@ -13,6 +13,7 @@ namespace VehiculosOnlineSite
     {
         private readonly MarcaBL _marcaBl = new MarcaBL();
         private readonly VehiculoBL _vehiculoBl = new VehiculoBL();
+        private readonly VentaBL _ventaBL = new VentaBL();
 
         public ListarVenta()
         {
@@ -75,7 +76,22 @@ namespace VehiculosOnlineSite
 
         private void BuscarVenta()
         {
+            //aca el ejemplo
+            int.TryParse(this.cboMarca.SelectedValue.ToString(), out int idMarca);
+            int.TryParse(this.cboModelo.SelectedValue.ToString(), out int idModelo);
+            int.TryParse(this.cboAnio.SelectedValue.ToString(), out int anio);
             
+            var vehiculos = _vehiculoBl.ObtenerPorIdMarcaModelo(idMarca, idModelo, anio);
+            this.gridVentas.ItemsSource = vehiculos;
+            this.gridVentas.IsReadOnly = true;
+
+            if (!vehiculos.Any())
+            {
+                MessageBox.Show("No se han encontrado resultados", "Atención");
+            }
+
+            //aca el de ventas
+
         }
 
         private void ObtenerAnios()

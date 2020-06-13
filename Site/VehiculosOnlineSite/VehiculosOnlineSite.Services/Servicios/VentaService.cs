@@ -30,5 +30,14 @@ namespace VehiculosOnlineSite.Services.Servicios
             if (respuesta.StatusName != HttpStatusCode.OK) throw new Exception(respuesta.Message);
             return respuesta.Response;
         }
+
+        public List<VentaDataGrid> ObtenerVentasListado(string nombre, string correo, int tipoPago, int idMarca, int idModelo, int anio, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            //var url = $"http://localhost/VehiculosOnline/vehiculos/api/vehiculos?idModelo={idModelo}&idMarca={idMarca}&anio={anio}";
+            //var respuesta = _restClientHttp.Get<List<Vehiculo>>(url);
+            //if (respuesta.StatusName != HttpStatusCode.OK) return new List<Vehiculo>();
+            //return respuesta.Response;
+            return new List<VentaDataGrid>;
+        }
     }
 }
