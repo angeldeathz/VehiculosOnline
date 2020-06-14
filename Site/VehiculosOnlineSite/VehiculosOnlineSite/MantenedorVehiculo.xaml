@@ -1,9 +1,8 @@
-﻿<Window x:Class="VehiculosOnlineSite.ListarVehiculo"
+﻿<Window x:Class="VehiculosOnlineSite.MantenedorVehiculo"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:VehiculosOnlineSite"
         mc:Ignorable="d"
         Title="Mantenedor de Vehículos" Height="544.47" Width="800">
     <Grid>
@@ -27,5 +26,6 @@
             </DataGrid.Columns>
         </DataGrid>
         <ComboBox x:Name="cboAnio" HorizontalAlignment="Left" Margin="348,75,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="507,43,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnActualizar_Click"/>
     </Grid>
 </Window>

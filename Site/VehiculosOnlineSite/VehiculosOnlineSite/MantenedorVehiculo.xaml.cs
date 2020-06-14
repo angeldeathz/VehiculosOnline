@@ -8,12 +8,12 @@ using VehiculosOnlineSite.Model.Clases;
 
 namespace VehiculosOnlineSite
 {
-    public partial class ListarVehiculo
+    public partial class MantenedorVehiculo
     {
         private readonly MarcaBL _marcaBl = new MarcaBL();
         private readonly VehiculoBL _vehiculoBl = new VehiculoBL();
 
-        public ListarVehiculo()
+        public MantenedorVehiculo()
         {
             try
             {
@@ -50,6 +50,18 @@ namespace VehiculosOnlineSite
             try
             {
                 BuscarVehiculo();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
+            }
+        }
+
+        private void btnActualizar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ActualizarRegistros();
             }
             catch (Exception ex)
             {
@@ -99,6 +111,18 @@ namespace VehiculosOnlineSite
             int.TryParse(this.cboAnio.SelectedValue.ToString(), out int anio);
 
             var vehiculos = _vehiculoBl.ObtenerPorIdMarcaModelo(idMarca, idModelo, anio);
+            this.gridVehiculos.ItemsSource = vehiculos;
+            this.gridVehiculos.IsReadOnly = true;
+
+            if (!vehiculos.Any())
+            {
+                MessageBox.Show("No se han encontrado resultados", "Atención");
+            }
+        }
+
+        private void ActualizarRegistros()
+        {
+            var vehiculos = _vehiculoBl.ObtenerPorIdMarcaModelo(0, 0, 0);
             this.gridVehiculos.ItemsSource = vehiculos;
             this.gridVehiculos.IsReadOnly = true;
 

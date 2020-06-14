@@ -23,9 +23,12 @@ namespace VehiculosOnline.Cotizaciones.DAL.Tables
                         fec_ingreso_cotizacion as FechaIngresoCotizacion,
                         es_pago_diferido as EsPagoDiferido,
                         cant_meses_diferido as CantidadMesesDiferido,
-                        estaCerrada,
                         cant_cuotas as CantidadCuotas,
-                        valor_vehiculo as ValorVehiculo
+                        valor_cuota as ValorCuota,
+                        con_factura as ConFactura,
+                        total_sin_iva as TotalSinIva,
+                        iva as Iva,
+                        total_final as TotalFinal
                         from cotizacion 
                         where id = @Id";
 
@@ -43,9 +46,12 @@ namespace VehiculosOnline.Cotizaciones.DAL.Tables
                         fec_ingreso_cotizacion as FechaIngresoCotizacion,
                         es_pago_diferido as EsPagoDiferido,
                         cant_meses_diferido as CantidadMesesDiferido,
-                        estaCerrada,
                         cant_cuotas as CantidadCuotas,
-                        valor_vehiculo as ValorVehiculo
+                        valor_cuota as ValorCuota,
+                        con_factura as ConFactura,
+                        total_sin_iva as TotalSinIva,
+                        iva as Iva,
+                        total_final as TotalFinal
                         from cotizacion";
             
             return await _repository.GetAllAsync<Cotizacion>(sql);
@@ -60,9 +66,12 @@ namespace VehiculosOnline.Cotizaciones.DAL.Tables
                 fec_ingreso_cotizacion,
                 es_pago_diferido,
                 cant_meses_diferido,
-                estaCerrada,
                 cant_cuotas,
-                valor_vehiculo
+                valor_cuota,
+                con_factura,
+                total_sin_iva,
+                iva,
+                total_final
                 )
                 VALUES
                 (
@@ -71,9 +80,12 @@ namespace VehiculosOnline.Cotizaciones.DAL.Tables
                 @FechaIngresoCotizacion,
                 @EsPagoDiferido,
                 @CantidadMesesDiferido,
-                @EstaCerrada,
                 @CantidadCuotas,
-                @ValorVehiculo
+                @ValorCuota,
+                @ConFactura,
+                @TotalSinIva,
+                @Iva,
+                @TotalFinal
                 );";
 
             return await _repository.InsertAsync(sql, new Dictionary<string, object>
@@ -83,9 +95,12 @@ namespace VehiculosOnline.Cotizaciones.DAL.Tables
                 {"@FechaIngresoCotizacion", DateTime.Now},
                 {"@EsPagoDiferido", cotizacion.EsPagoDiferido},
                 {"@CantidadMesesDiferido", cotizacion.CantidadMesesDiferido},
-                {"@EstaCerrada", cotizacion.EstaCerrada},
                 {"@CantidadCuotas", cotizacion.CantidadCuotas},
-                {"@ValorVehiculo", cotizacion.ValorVehiculo}
+                {"@ValorCuota", cotizacion.ValorCuota},
+                {"@ConFactura", cotizacion.ConFactura},
+                {"@TotalSinIva", cotizacion.TotalSinIva},
+                {"@Iva", cotizacion.Iva},
+                {"@TotalFinal", cotizacion.TotalFinal}
             });
         }
     }

@@ -9,19 +9,18 @@ using VehiculosOnlineSite.Model.Clases;
 
 namespace VehiculosOnlineSite
 {
-    public partial class DatosContactoPersona
+    public partial class CrearCotizacion
     {
         #region Propiedades
 
         private readonly VentaBL _ventaBl = new VentaBL();
         private readonly LocalizacionBL _localizacionBl = new LocalizacionBL();
-        private readonly SolicitudBL _solicitudBl = new SolicitudBL();
         private readonly CotizacionBL _cotizacionBl = new CotizacionBL();
         private readonly VehiculoBL _vehiculoBl = new VehiculoBL();
 
         private SolicitudDto SolicitudActual { get; set; }
 
-        public DatosContactoPersona()
+        public CrearCotizacion()
         {
             try
             {
@@ -29,6 +28,7 @@ namespace VehiculosOnlineSite
                 InitializeComponent();
                 ObtenerTipoPago();
                 ObtenerRegion();
+                LlenarCboFactura();
             }
             catch (Exception ex)
             {
@@ -201,12 +201,14 @@ namespace VehiculosOnlineSite
 
             if (vehiculo != null)
             {
-                lblMarca.Content = vehiculo.Modelo.Marca.Nombre;
-                lblModelo.Content = vehiculo.Modelo.Nombre;
-                lblPaisOrigen.Content = vehiculo.PaisOrigen.Nombre;
-                lblAño.Content = vehiculo.Anio;
-                lblColor.Content = vehiculo.Color;
-                lblPrecio.Content = vehiculo.Precio;
+                txtMarca.Text = vehiculo.Modelo.Marca.Nombre;
+                txtModelo.Text = vehiculo.Modelo.Nombre;
+                txtAnio.Text = vehiculo.Anio.ToString();
+                txtColor.Text = vehiculo.Color;
+                txtTipoVehiculo.Text = vehiculo.TipoVehiculo.Nombre;
+                txtTipoCombustible.Text = vehiculo.TipoCombustible.Nombre;
+                txtPaisOrigen.Text = vehiculo.PaisOrigen.Nombre;
+                txtPrecio.Text = vehiculo.Precio.ToString();
             }
 
             solicitud.Vehiculo = vehiculo;
@@ -224,7 +226,20 @@ namespace VehiculosOnlineSite
                 {
                     IdSolicitud = SolicitudActual.Id,
                     IdTipoPago = cboTipoPago.SelectedIndex,
-                    FechaIngresoCotizacion = DateTime.Now
+                    FechaIngresoCotizacion = DateTime.Now,
+                    Solicitud = new Solicitud
+                    {
+                        Persona = SolicitudActual.Cliente
+                    }
+                };
+                cotizacion.Solicitud.Persona.Email = emailtxt.Text;
+                cotizacion.Solicitud.Persona.Telefono = txtTelefono.Text;
+                cotizacion.Solicitud.Persona.FechaNacimiento = Convert.ToDateTime(fechNacimiento.Text);
+                cotizacion.Solicitud.Persona.Direccion = new Direccion
+                {
+                    Calle = txtCalle.Text,
+                    IdComuna = int.Parse(cboComuna.SelectedValue.ToString()),
+                    Numero = txtNumeroCalle.Text
                 };
 
                 if (rbSi.IsChecked == true)
@@ -239,14 +254,15 @@ namespace VehiculosOnlineSite
                 }
 
                 cotizacion.CantidadCuotas = cboTipoPago.SelectedIndex == 2 ? Convert.ToInt32(txtCuotas.Text) : 0;
+                cotizacion.ConFactura = int.Parse(cboFactura.SelectedValue.ToString()) == 1;
 
-                var resumenCotizacion = _cotizacionBl.IngresarCotizacion(cotizacion);
+                cotizacion = _cotizacionBl.IngresarCotizacion(cotizacion);
 
-                if (resumenCotizacion != null)
+                if (cotizacion != null)
                 {
-                    var ingresoVentaForm = new IngresoVenta();
-                    ingresoVentaForm.CargarDetallePago(resumenCotizacion, cotizacion);
-                    ingresoVentaForm.ShowDialog();
+                    var pagoFinal = new PagoFinal();
+                    pagoFinal.CargarDetallePago(cotizacion);
+                    pagoFinal.ShowDialog();
                 }
             }
         }
@@ -272,22 +288,16 @@ namespace VehiculosOnlineSite
                 //valida formato del mail
                 try
                 {
-                    new System.Net.Mail.MailAddress(emailtxt.Text.ToLower());
+                    var unused = new System.Net.Mail.MailAddress(emailtxt.Text.ToLower());
                 }
                 catch (FormatException)
                 {
                     esValido = false;
-                    mensaje += "El mail no corresponde" + "\r\n";
+                    mensaje += "El mail es inválido" + "\r\n";
                 }
             }
 
-            if (celular.Text.Trim().Length == 0)
-            {
-                esValido = false;
-                mensaje += "Debe ingresar el celular" + "\r\n";
-            }
-
-            if (telefono.Text.Trim().Length == 0)
+            if (txtTelefono.Text.Trim().Length == 0)
             {
                 esValido = false;
                 mensaje += "Debe ingresar el telefono" + "\r\n";
@@ -311,10 +321,16 @@ namespace VehiculosOnlineSite
                 mensaje += "Debe seleccionar la region" + "\r\n";
             }
 
-            if (direccion.Text.Trim().Length == 0)
+            if (txtCalle.Text.Trim().Length == 0)
             {
                 esValido = false;
                 mensaje += "Debe ingresar su dirección" + "\r\n";
+            }
+
+            if (txtNumeroCalle.Text.Trim().Length == 0)
+            {
+                esValido = false;
+                mensaje += "Debe ingresar el número de la dirección" + "\r\n";
             }
 
             if (cboTipoPago.SelectedIndex == 0)
@@ -379,6 +395,28 @@ namespace VehiculosOnlineSite
             this.cboComuna.DisplayMemberPath = "Nombre";
             this.cboComuna.SelectedValuePath = "Id";
             this.cboComuna.SelectedIndex = 0;
+        }
+
+        private void LlenarCboFactura()
+        {
+            var siNo = new List<Item>
+            {
+                new Item
+                {
+                    Value = 0,
+                    Text = "No"
+                },
+                new Item
+                {
+                    Value = 1,
+                    Text = "Si"
+                }
+            };
+
+            this.cboFactura.ItemsSource = siNo;
+            this.cboFactura.DisplayMemberPath = "Text";
+            this.cboFactura.SelectedValuePath = "Value";
+            this.cboFactura.SelectedIndex = 0;
         }
 
         #endregion

@@ -12,7 +12,7 @@ namespace VehiculosOnlineSite.BLL
             _cotizacionService = new CotizacionService();
         }
 
-        public ResumenCotizacion IngresarCotizacion(Cotizacion solicitud)
+        public Cotizacion IngresarCotizacion(Cotizacion solicitud)
         {
             return _cotizacionService.IngresarCotizacion(solicitud);
         }

@@ -12,8 +12,7 @@ namespace VehiculosOnlineSite.Model.Clases
         public string Apellidos { get; set; }
         public DateTime FechaNacimiento { get; set; }
         public string Email { get; set; }
-        public int Celular { get; set; }
-        public int Telefono { get; set; }
+        public string Telefono { get; set; }
         public Direccion Direccion { get; set; }
 
         /// <summary>
