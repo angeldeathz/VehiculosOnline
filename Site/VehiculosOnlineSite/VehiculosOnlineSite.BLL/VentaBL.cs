@@ -26,9 +26,9 @@ namespace VehiculosOnlineSite.BLL
             return _ventaService.RealizarVenta(venta);
         }
 
-        public List<VehiculoDataGrid> ObtenerVentasListado(string nombre,string correo, int tipoPago, int idMarca, int idModelo, int anio, DateTime fechaDesde, DateTime fechaHasta)
+        public List<VentaDataGrid> ObtenerVentasListado(string nombre,string correo, int tipoPago, int idMarca, int idModelo, int anio, DateTime fechaDesde, DateTime fechaHasta)
         {
-            var ventas = new List<VehiculoDataGrid>();
+            var ventas = new List<VentaDataGrid>();
             var ventasService = _ventaService.ObtenerVentasListado(nombre, correo, tipoPago, idMarca, idModelo, anio,fechaDesde,fechaHasta);
 
             foreach (var v in ventasService)
@@ -36,15 +36,14 @@ namespace VehiculosOnlineSite.BLL
                 ventas.Add(new VentaDataGrid
                 {
                     Id = v.Id,
-                    Marca = v.Modelo.Marca.Nombre,
-                    Modelo = v.Modelo.Nombre,
-                    TipoVehiculo = v.TipoVehiculo.Nombre,
-                    TipoCombustible = v.TipoCombustible.Nombre,
-                    Pais = v.PaisOrigen.Nombre,
+                    Nombre = v.Nombre,
+                    Correo = v.Correo,
+                    Marca = v.Marca,
+                    Modelo = v.Modelo,
                     Anio = v.Anio,
-                    Color = v.Color,
-                    Precio = v.Precio,
-                    Stock = v.Stock
+                    TipoPago = v.TipoPago,
+                    PrecioVenta = v.PrecioVenta,
+                    FechaVenta = v.FechaVenta
                 });
             }
 

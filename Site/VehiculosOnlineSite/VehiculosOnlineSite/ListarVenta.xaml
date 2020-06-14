@@ -31,7 +31,7 @@
         <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="10,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" />
         <Label x:Name="label_Copy2" Content="Ingrese correo del cliente" HorizontalAlignment="Left" Margin="73,95,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy3" Content="Seleccione Tipo de Pago" HorizontalAlignment="Left" Margin="418,35,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="cboMarca_Copy" HorizontalAlignment="Left" Margin="418,66,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboMarca_SelectionChanged"/>
+        <ComboBox x:Name="cboTipoPago" HorizontalAlignment="Left" Margin="418,66,0,0" VerticalAlignment="Top" Width="120"/>
         <DatePicker HorizontalAlignment="Left" Margin="418,126,0,0" Name="fechDesde" VerticalAlignment="Top"/>
         <DatePicker HorizontalAlignment="Left" Margin="701,126,0,0" Name="fechHasta" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy4" Content="Ingrese fecha desde" HorizontalAlignment="Left" Margin="418,95,0,0" VerticalAlignment="Top"/>

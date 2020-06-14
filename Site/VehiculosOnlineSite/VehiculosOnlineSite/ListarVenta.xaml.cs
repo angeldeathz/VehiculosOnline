@@ -80,12 +80,18 @@ namespace VehiculosOnlineSite
             int.TryParse(this.cboMarca.SelectedValue.ToString(), out int idMarca);
             int.TryParse(this.cboModelo.SelectedValue.ToString(), out int idModelo);
             int.TryParse(this.cboAnio.SelectedValue.ToString(), out int anio);
-            
-            var vehiculos = _vehiculoBl.ObtenerPorIdMarcaModelo(idMarca, idModelo, anio);
-            this.gridVentas.ItemsSource = vehiculos;
+            int.TryParse(this.cboTipoPago.SelectedValue.ToString(), out int tipoPago);
+            var fechaDesde = this.fechDesde.SelectedDate.Value;
+            var fechaHasta = this.fechHasta.SelectedDate.Value;
+            var nombre = this.txtNombre.Text;
+            var correo = this.txtCorreo.Text;
+
+
+            var ventas = _ventaBL.ObtenerVentasListado(nombre,correo, tipoPago, idMarca, idModelo, anio, fechaDesde, fechaHasta);
+            this.gridVentas.ItemsSource = ventas;
             this.gridVentas.IsReadOnly = true;
 
-            if (!vehiculos.Any())
+            if (!ventas.Any())
             {
                 MessageBox.Show("No se han encontrado resultados", "Atención");
             }

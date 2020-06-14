@@ -6,13 +6,13 @@ namespace VehiculosOnlineSite.Model.Clases
     public class VentaDataGrid
     {
         public int Id { get; set; }
-        public string nombre { get; set; }
-        public string correo { get; set; }
-        public string marca { get; set; }
-        public string modelo { get; set; }
+        public string Nombre { get; set; }
+        public string Correo { get; set; }
+        public string Marca { get; set; }
+        public string Modelo { get; set; }
         public int Anio { get; set; }
-        public string tipoPago { get; set; }
-        public int precioVenta { get; set; }
-        public DateTime fechaVenta { get; set; }
+        public string TipoPago { get; set; }
+        public int PrecioVenta { get; set; }
+        public DateTime FechaVenta { get; set; }
     }
 }
