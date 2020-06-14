@@ -9,7 +9,7 @@ using VehiculosOnlineSite.Model.Clases;
 
 namespace VehiculosOnlineSite
 {
-    public partial class DatosContactoPersona
+    public partial class CrearCotizacion
     {
         #region Propiedades
 
@@ -21,7 +21,7 @@ namespace VehiculosOnlineSite
 
         private SolicitudDto SolicitudActual { get; set; }
 
-        public DatosContactoPersona()
+        public CrearCotizacion()
         {
             try
             {
@@ -244,9 +244,9 @@ namespace VehiculosOnlineSite
 
                 if (resumenCotizacion != null)
                 {
-                    var ingresoVentaForm = new IngresoVenta();
-                    ingresoVentaForm.CargarDetallePago(resumenCotizacion, cotizacion);
-                    ingresoVentaForm.ShowDialog();
+                    var pagoFinal = new PagoFinal();
+                    pagoFinal.CargarDetallePago(resumenCotizacion, cotizacion);
+                    pagoFinal.ShowDialog();
                 }
             }
         }

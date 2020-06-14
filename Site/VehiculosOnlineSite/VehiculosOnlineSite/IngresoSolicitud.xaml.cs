@@ -108,12 +108,12 @@ namespace VehiculosOnlineSite
 
                 if (idSolicitud > 0)
                 {
-                    var datosContacto = new DatosContactoPersona();
+                    var crearCotizacion = new CrearCotizacion();
                     solicitud.Id = idSolicitud;
 
-                    datosContacto.CargarDatosVehiculo(solicitud);
+                    crearCotizacion.CargarDatosVehiculo(solicitud);
                     this.Hide();
-                    datosContacto.ShowDialog();
+                    crearCotizacion.ShowDialog();
                 }
             }
         }

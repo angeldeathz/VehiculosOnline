@@ -5,12 +5,12 @@ using VehiculosOnlineSite.Model.Clases;
 
 namespace VehiculosOnlineSite
 {
-    public partial class IngresoVenta
+    public partial class PagoFinal
     {
         private readonly VentaBL _ventaBl = new VentaBL();
         public Cotizacion CotizacionActual { get; set; }
 
-        public IngresoVenta()
+        public PagoFinal()
         {
             try
             {

@@ -8,12 +8,12 @@ using VehiculosOnlineSite.Model.Clases;
 
 namespace VehiculosOnlineSite
 {
-    public partial class ListarVehiculo
+    public partial class MantenedorVehiculo
     {
         private readonly MarcaBL _marcaBl = new MarcaBL();
         private readonly VehiculoBL _vehiculoBl = new VehiculoBL();
 
-        public ListarVehiculo()
+        public MantenedorVehiculo()
         {
             try
             {
