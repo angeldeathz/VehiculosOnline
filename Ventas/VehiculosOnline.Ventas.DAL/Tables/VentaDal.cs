@@ -45,5 +45,40 @@ namespace VehiculosOnline.Ventas.DAL.Tables
                 {"@TotalVenta", venta.TotalVenta}
             });
         }
+
+        public async Task<int> InsertarDetalleAsync(VentaDetalle detalle)
+        {
+            const string sql =
+                @"INSERT INTO ventaDetalle 
+                  (id_venta
+                  ,id_banco
+                  ,id_tipo_tarjeta
+                  ,dia_vencimiento
+                  ,num_cuenta_corriente
+                  ,num_tarjeta_credito
+                  ,venc_tarjeta_credito
+                  ,cvv_tarjeta_credito)
+                    VALUES
+                  (@IdVenta,
+                   @IdBanco,
+                   @IdTipoTarjeta,
+                   @DiaVencimiento,
+                   @NumeroCuentaCorriente,
+                   @NumeroTarjetaCredito,
+                   @VencimientoTarjetaCredito,
+                   @CvvTarjetaCredito)";
+
+            return await _repository.InsertAsync(sql, new Dictionary<string, object>
+            {
+                {"@IdVenta", detalle.IdVenta},
+                {"@IdBanco", detalle.IdBanco},
+                {"@IdTipoTarjeta", detalle.IdTipoTarjeta},
+                {"@DiaVencimiento", detalle.DiaVencimiento},
+                {"@NumeroCuentaCorriente", detalle.NumeroCuentaCorriente},
+                {"@NumeroTarjetaCredito", detalle.NumeroTarjetaCredito},
+                {"@VencimientoTarjetaCredito", detalle.VencimientoTarjetaCredito},
+                {"@CvvTarjetaCredito", detalle.CvvTarjetaCredito}
+            });
+        }
     }
 }

@@ -23,6 +23,22 @@ namespace VehiculosOnlineSite.Services.Servicios
             return respuesta.Response;
         }
 
+        public List<Banco> ObtenerBancos()
+        {
+            var url = "http://localhost/VehiculosOnline/ventas/api/ventas/bancos";
+            var respuesta = _restClientHttp.Get<List<Banco>>(url);
+            if (respuesta.StatusName != HttpStatusCode.OK) return new List<Banco>();
+            return respuesta.Response;
+        }
+
+        public List<TarjetaCredito> ObtenerTarjetasDeCredito()
+        {
+            var url = "http://localhost/VehiculosOnline/ventas/api/ventas/tarjetasDeCredito";
+            var respuesta = _restClientHttp.Get<List<TarjetaCredito>>(url);
+            if (respuesta.StatusName != HttpStatusCode.OK) return new List<TarjetaCredito>();
+            return respuesta.Response;
+        }
+
         public int RealizarVenta(Venta venta)
         {
             var url = "http://localhost/VehiculosOnline/ventas/api/ventas";

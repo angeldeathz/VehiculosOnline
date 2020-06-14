@@ -20,6 +20,20 @@ namespace VehiculosOnlineSite.BLL
             return tipopagos;
         }
 
+        public List<Banco> ObtenerBancos()
+        {
+            var bancos = new List<Banco> { new Banco { Id = 0, Nombre = "Seleccione..." } };
+            bancos.AddRange(_ventaService.ObtenerBancos());
+            return bancos;
+        }
+
+        public List<TarjetaCredito> ObtenerTarjetasDeCredito()
+        {
+            var tarjetasDeCredito = new List<TarjetaCredito> { new TarjetaCredito { Id = 0, Nombre = "Seleccione..." } };
+            tarjetasDeCredito.AddRange(_ventaService.ObtenerTarjetasDeCredito());
+            return tarjetasDeCredito;
+        }
+
         public int RealizarVenta(Venta venta)
         {
             return _ventaService.RealizarVenta(venta);

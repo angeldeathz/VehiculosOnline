@@ -1,4 +1,4 @@
-﻿namespace VehiculosOnline.Model.Clases
+﻿namespace VehiculosOnlineSite.Model.Clases
 {
     public class VentaDetalle : Base
     {

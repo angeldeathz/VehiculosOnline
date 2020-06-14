@@ -19,7 +19,7 @@ namespace VehiculosOnline.Ventas.DAL.Tables
             const string sql = @"select 
                         id,
                         nombre
-                        from Banco where activo = 1 and id > 0
+                        from Banco where activo = 1
                         order by id asc";
             return await _repository.GetAllAsync<Banco>(sql);
         }
