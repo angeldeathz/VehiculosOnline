@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using VehiculosOnline.CommonServices.Solicitudes;
 using VehiculosOnline.Cotizaciones.DAL.Tables;
 using VehiculosOnline.Model.Clases;
-using Cotizacion = VehiculosOnline.Model.Clases.Cotizacion;
 
 namespace VehiculosOnline.Cotizaciones.Facade
 {
@@ -36,7 +35,7 @@ namespace VehiculosOnline.Cotizaciones.Facade
             return cotizacion;
         }
 
-        public async Task<ResumenCotizacion> InsertarAsync(Cotizacion cotizacion)
+        public async Task<Cotizacion> InsertarAsync(Cotizacion cotizacion)
         {
             if (cotizacion.IdSolicitud <= 0) throw new Exception("IdSolicitud es inválido");
             if (cotizacion.IdTipoPago <= 0) throw new Exception("IdTipoPago es inválido");
@@ -46,28 +45,28 @@ namespace VehiculosOnline.Cotizaciones.Facade
             var solicitud = await _solicitudService.ObtenerPorIdAsync(cotizacion.IdSolicitud);
             if (solicitud == null) throw new Exception($"La solicitud {cotizacion.IdSolicitud} no existe");
 
-            cotizacion.ValorVehiculo = solicitud.Vehiculo.Precio;
-            var idCotizacion = await _cotizacionDal.InsertarAsync(cotizacion);
-            var resumenCotizacion = new ResumenCotizacion
+            if (!cotizacion.ConFactura)
             {
-                IdSolicitud = cotizacion.IdSolicitud, 
-                IdCotizacion = idCotizacion
-            };
-
-            var ivaDelVehiculo = solicitud.Vehiculo.Precio * 0.19;
-            resumenCotizacion.PrecioSinIva = solicitud.Vehiculo.Precio;
-            resumenCotizacion.Iva = int.Parse(Math.Round(ivaDelVehiculo).ToString());
-            resumenCotizacion.PrecioFinal = solicitud.Vehiculo.Precio + resumenCotizacion.Iva;
+                var ivaDelVehiculo = solicitud.Vehiculo.Precio * 0.19;
+                cotizacion.Iva = int.Parse(Math.Round(ivaDelVehiculo).ToString());
+                cotizacion.TotalFinal = solicitud.Vehiculo.Precio + cotizacion.Iva;
+            }
+            else
+            {
+                cotizacion.TotalFinal = solicitud.Vehiculo.Precio;
+            }
 
             if (cotizacion.IdTipoPago == 2)
             {
-                var valorCuota = Convert.ToDouble(resumenCotizacion.PrecioFinal) / Convert.ToDouble(cotizacion.CantidadCuotas);
-                resumenCotizacion.Cuotas = cotizacion.CantidadCuotas;
-                resumenCotizacion.ValorCuota = int.Parse(Math.Round(valorCuota).ToString());
-                resumenCotizacion.CostoTotalCredito = resumenCotizacion.PrecioFinal;
+                var valorCuota = Convert.ToDouble(cotizacion.TotalFinal) / Convert.ToDouble(cotizacion.CantidadCuotas);
+                cotizacion.CantidadCuotas = cotizacion.CantidadCuotas;
+                cotizacion.ValorCuota = int.Parse(Math.Round(valorCuota).ToString());
             }
 
-            return resumenCotizacion;
+            cotizacion.TotalSinIva = solicitud.Vehiculo.Precio;
+            cotizacion.Id = await _cotizacionDal.InsertarAsync(cotizacion);
+
+            return cotizacion;
         }
     }
 }

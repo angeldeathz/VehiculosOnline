@@ -6,17 +6,19 @@
         mc:Ignorable="d"
         Title="Pago Final" Height="450" Width="800">
     <Grid>
-        <Label x:Name="label" Content="Precio vehiculo:" HorizontalAlignment="Left" Margin="467,65,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy" Content="Precio vehiculo sin IVA:" HorizontalAlignment="Left" Margin="123,65,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy1" Content="Cuotas:" HorizontalAlignment="Left" Margin="123,125,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label_Copy2" Content="Valor Couta:" HorizontalAlignment="Left" Margin="467,125,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Costo total del credito:" HorizontalAlignment="Left" Margin="123,192,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnPagar" Content="Pagar" HorizontalAlignment="Left" Margin="467,296,0,0" VerticalAlignment="Top" Width="113" Click="btnPagar_Click" Height="34"/>
-        <Label x:Name="lblPrecioVehiculo" Content="lblPrecioVehiculo" HorizontalAlignment="Left" Margin="565,65,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblPrecioSinIVA" Content="lblPrecioSinIVA" HorizontalAlignment="Left" Margin="259,65,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblCuota" Content="lblCuota" HorizontalAlignment="Left" Margin="173,125,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblValorCouta" Content="lblValorCouta" HorizontalAlignment="Left" Margin="546,125,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="lblCostoTotalCredito" Content="lblCostoTotalCredito" HorizontalAlignment="Left" Margin="259,192,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnVolver" Content="Volver a Cotizar" HorizontalAlignment="Left" Margin="221,296,0,0" VerticalAlignment="Top" Width="113" Click="BtnVolver_OnClick" Height="34"/>
+        <Label Content="IVA:" HorizontalAlignment="Left" Margin="375,84,0,0" VerticalAlignment="Top"/>
+        <Label Content="Precio sin IVA:" HorizontalAlignment="Left" Margin="54,84,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnPagar" Content="Pagar" HorizontalAlignment="Left" Margin="455,331,0,0" VerticalAlignment="Top" Width="113" Click="btnPagar_Click" Height="34"/>
+        <Button x:Name="btnVolver" Content="Volver a Cotizar" HorizontalAlignment="Left" Margin="221,331,0,0" VerticalAlignment="Top" Width="113" Click="BtnVolver_OnClick" Height="34"/>
+        <Label Content="Número de Cotización:" HorizontalAlignment="Left" Margin="54,47,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="195,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="txtNumCotizacion" IsEnabled="False"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="195,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="txtPrecioSinIva" IsEnabled="False"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="520,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="txtIva" IsEnabled="False"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="195,123,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="txtPrecioFinal" IsEnabled="False"/>
+        <Label Content="Cuotas" HorizontalAlignment="Left" Margin="54,155,0,0" VerticalAlignment="Top"/>
+        <Label Content="Precio Final:" HorizontalAlignment="Left" Margin="54,120,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="195,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="txtCuotas" IsEnabled="False"/>
+        <Label Content="Valor Cuotas:" HorizontalAlignment="Left" Margin="375,154,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="520,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="txtValorCuotas" IsEnabled="False"/>
     </Grid>
 </Window>

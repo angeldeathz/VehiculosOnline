@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows;
 using VehiculosOnlineSite.BLL;
 using VehiculosOnlineSite.Model.Clases;
@@ -67,16 +68,19 @@ namespace VehiculosOnlineSite
             }
         }
 
-        public void CargarDetallePago(ResumenCotizacion resumenCotizacion, Cotizacion cotizacion)
+        public void CargarDetallePago(Cotizacion cotizacion)
         {
             CotizacionActual = cotizacion;
-            CotizacionActual.Id = resumenCotizacion.IdCotizacion;
+            CotizacionActual.Id = cotizacion.Id;
 
-            lblPrecioVehiculo.Content = "$"+resumenCotizacion.PrecioFinal;
-            lblCostoTotalCredito.Content = "$" + resumenCotizacion.CostoTotalCredito;
-            lblCuota.Content = resumenCotizacion.Cuotas;
-            lblPrecioSinIVA.Content = "$" + resumenCotizacion.PrecioSinIva;
-            lblValorCouta.Content = "$" + resumenCotizacion.ValorCuota;
+            var format = new NumberFormatInfo { NumberDecimalSeparator = ",", NumberGroupSeparator = "." };
+
+            txtNumCotizacion.Text = cotizacion.Id.ToString();
+            txtPrecioSinIva.Text = $"$ {cotizacion.TotalSinIva.ToString("#,##0.00", format)}";
+            txtIva.Text = $"$ {cotizacion.Iva.ToString("#,##0.00", format)}";
+            txtPrecioFinal.Text = $"$ {cotizacion.TotalFinal.ToString("#,##0.00", format)}";
+            txtCuotas.Text = $"$ {cotizacion.CantidadCuotas.ToString("#,##0.00", format)}";
+            txtValorCuotas.Text = $"$ {cotizacion.ValorCuota.ToString("#,##0.00", format)}";
         }
 
         private void CerrarVentanas()

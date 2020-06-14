@@ -15,7 +15,6 @@ namespace VehiculosOnlineSite
 
         private readonly VentaBL _ventaBl = new VentaBL();
         private readonly LocalizacionBL _localizacionBl = new LocalizacionBL();
-        private readonly SolicitudBL _solicitudBl = new SolicitudBL();
         private readonly CotizacionBL _cotizacionBl = new CotizacionBL();
         private readonly VehiculoBL _vehiculoBl = new VehiculoBL();
 
@@ -29,6 +28,7 @@ namespace VehiculosOnlineSite
                 InitializeComponent();
                 ObtenerTipoPago();
                 ObtenerRegion();
+                LlenarCboFactura();
             }
             catch (Exception ex)
             {
@@ -201,12 +201,14 @@ namespace VehiculosOnlineSite
 
             if (vehiculo != null)
             {
-                lblMarca.Content = vehiculo.Modelo.Marca.Nombre;
-                lblModelo.Content = vehiculo.Modelo.Nombre;
-                lblPaisOrigen.Content = vehiculo.PaisOrigen.Nombre;
-                lblAño.Content = vehiculo.Anio;
-                lblColor.Content = vehiculo.Color;
-                lblPrecio.Content = vehiculo.Precio;
+                txtMarca.Text = vehiculo.Modelo.Marca.Nombre;
+                txtModelo.Text = vehiculo.Modelo.Nombre;
+                txtAnio.Text = vehiculo.Anio.ToString();
+                txtColor.Text = vehiculo.Color;
+                txtTipoVehiculo.Text = vehiculo.TipoVehiculo.Nombre;
+                txtTipoCombustible.Text = vehiculo.TipoCombustible.Nombre;
+                txtPaisOrigen.Text = vehiculo.PaisOrigen.Nombre;
+                txtPrecio.Text = vehiculo.Precio.ToString();
             }
 
             solicitud.Vehiculo = vehiculo;
@@ -239,13 +241,14 @@ namespace VehiculosOnlineSite
                 }
 
                 cotizacion.CantidadCuotas = cboTipoPago.SelectedIndex == 2 ? Convert.ToInt32(txtCuotas.Text) : 0;
+                cotizacion.ConFactura = int.Parse(cboFactura.SelectedValue.ToString()) == 1;
 
-                var resumenCotizacion = _cotizacionBl.IngresarCotizacion(cotizacion);
+                cotizacion = _cotizacionBl.IngresarCotizacion(cotizacion);
 
-                if (resumenCotizacion != null)
+                if (cotizacion != null)
                 {
                     var pagoFinal = new PagoFinal();
-                    pagoFinal.CargarDetallePago(resumenCotizacion, cotizacion);
+                    pagoFinal.CargarDetallePago(cotizacion);
                     pagoFinal.ShowDialog();
                 }
             }
@@ -272,7 +275,7 @@ namespace VehiculosOnlineSite
                 //valida formato del mail
                 try
                 {
-                    new System.Net.Mail.MailAddress(emailtxt.Text.ToLower());
+                    var unused = new System.Net.Mail.MailAddress(emailtxt.Text.ToLower());
                 }
                 catch (FormatException)
                 {
@@ -379,6 +382,28 @@ namespace VehiculosOnlineSite
             this.cboComuna.DisplayMemberPath = "Nombre";
             this.cboComuna.SelectedValuePath = "Id";
             this.cboComuna.SelectedIndex = 0;
+        }
+
+        private void LlenarCboFactura()
+        {
+            var siNo = new List<Item>
+            {
+                new Item
+                {
+                    Value = 0,
+                    Text = "No"
+                },
+                new Item
+                {
+                    Value = 0,
+                    Text = "Si"
+                }
+            };
+
+            this.cboFactura.ItemsSource = siNo;
+            this.cboFactura.DisplayMemberPath = "Text";
+            this.cboFactura.SelectedValuePath = "Value";
+            this.cboFactura.SelectedIndex = 0;
         }
 
         #endregion

@@ -31,7 +31,7 @@ namespace VehiculosOnline.Ventas.BLL
             var cotizacion = await _cotizacionService.ObtenerPorIdAsync(venta.IdCotizacion);
             if (cotizacion == null) throw new Exception($"La cotización {venta.IdCotizacion} no existe");
 
-            venta.TotalVenta = cotizacion.ValorVehiculo;
+            venta.TotalVenta = cotizacion.TotalFinal;
             var idVenta = await _ventaDal.InsertarAsync(venta);
 
             await _vehiculoService.ActualizarStock(cotizacion.Solicitud.IdVehiculo);
