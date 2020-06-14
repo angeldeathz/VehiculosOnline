@@ -61,13 +61,9 @@ namespace VehiculosOnline.Cotizaciones.Facade
                 cotizacion.TotalFinal = solicitud.Vehiculo.Precio;
             }
 
-            if (cotizacion.IdTipoPago == 2)
-            {
-                var valorCuota = Convert.ToDouble(cotizacion.TotalFinal) / Convert.ToDouble(cotizacion.CantidadCuotas);
-                cotizacion.CantidadCuotas = cotizacion.CantidadCuotas;
-                cotizacion.ValorCuota = int.Parse(Math.Round(valorCuota).ToString());
-            }
-
+            var valorCuota = Convert.ToDouble(cotizacion.TotalFinal) / Convert.ToDouble(cotizacion.CantidadCuotas);
+            cotizacion.CantidadCuotas = cotizacion.CantidadCuotas;
+            cotizacion.ValorCuota = int.Parse(Math.Round(valorCuota).ToString());
             cotizacion.TotalSinIva = solicitud.Vehiculo.Precio;
             cotizacion.Id = await _cotizacionDal.InsertarAsync(cotizacion);
 

@@ -5,23 +5,23 @@ using VehiculosOnline.Transversal.Repositorios;
 
 namespace VehiculosOnline.Ventas.DAL.Tables
 {
-    public class TipoPagoDal
+    public class BancoDal
     {
         private readonly Repository _repository;
-            
-        public TipoPagoDal()
+
+        public BancoDal()
         {
             _repository = new Repository(ConnectionStrings.VehiculosOnline);
         }
 
-        public async Task<List<TipoPago>> ObtenerTodosAsync()
+        public async Task<List<Banco>> ObtenerTodosAsync()
         {
             const string sql = @"select 
                         id,
-                        nombre,
-                        activo
-                        from TipoPago where activo = 1";
-            return await _repository.GetAllAsync<TipoPago>(sql);
+                        nombre
+                        from Banco where activo = 1 and id > 0
+                        order by id asc";
+            return await _repository.GetAllAsync<Banco>(sql);
         }
     }
 }

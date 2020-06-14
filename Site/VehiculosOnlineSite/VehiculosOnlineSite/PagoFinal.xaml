@@ -8,8 +8,8 @@
     <Grid>
         <Label Content="IVA:" HorizontalAlignment="Left" Margin="375,84,0,0" VerticalAlignment="Top"/>
         <Label Content="Precio sin IVA:" HorizontalAlignment="Left" Margin="54,84,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnPagar" Content="Pagar" HorizontalAlignment="Left" Margin="455,331,0,0" VerticalAlignment="Top" Width="113" Click="btnPagar_Click" Height="34"/>
-        <Button x:Name="btnVolver" Content="Volver a Cotizar" HorizontalAlignment="Left" Margin="221,331,0,0" VerticalAlignment="Top" Width="113" Click="BtnVolver_OnClick" Height="34"/>
+        <Button x:Name="btnPagar" Content="Pagar" HorizontalAlignment="Left" Margin="455,373,0,0" VerticalAlignment="Top" Width="113" Click="btnPagar_Click" Height="34"/>
+        <Button x:Name="btnVolver" Content="Volver a Cotizar" HorizontalAlignment="Left" Margin="215,373,0,0" VerticalAlignment="Top" Width="113" Click="BtnVolver_OnClick" Height="34"/>
         <Label Content="Número de Cotización:" HorizontalAlignment="Left" Margin="54,47,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="195,50,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="txtNumCotizacion" IsEnabled="False"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="195,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="txtPrecioSinIva" IsEnabled="False"/>
@@ -20,5 +20,15 @@
         <TextBox HorizontalAlignment="Left" Height="23" Margin="195,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="txtCuotas" IsEnabled="False"/>
         <Label Content="Valor Cuotas:" HorizontalAlignment="Left" Margin="375,154,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="520,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" x:Name="txtValorCuotas" IsEnabled="False"/>
+        <Label Content="Detalle Final" HorizontalAlignment="Left" Margin="360,20,0,0" VerticalAlignment="Top"/>
+        <Grid x:Name="gridPac" HorizontalAlignment="Left" Height="106" Margin="35,245,0,0" VerticalAlignment="Top" Width="730">
+            <ComboBox x:Name="cboBancos" HorizontalAlignment="Left" Margin="160,19,0,0" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Banco:" HorizontalAlignment="Left" Margin="30,16,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtNumeroCuentaCorriente" HorizontalAlignment="Left" Height="23" Margin="495,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label Content="Día Vencimiento:" HorizontalAlignment="Left" Margin="30,54,0,0" VerticalAlignment="Top"/>
+            <Label Content="Número Cuenta Corriente:" HorizontalAlignment="Left" Margin="343,19,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtDiaVencimiento" HorizontalAlignment="Left" Height="23" Margin="160,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        </Grid>
+        <Label Content="Ingrese Detalle de Cuenta Corriente o Tarjeta de Crédito" HorizontalAlignment="Left" Margin="250,204,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>
