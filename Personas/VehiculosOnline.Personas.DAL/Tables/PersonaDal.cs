@@ -25,7 +25,6 @@ namespace VehiculosOnline.Personas.DAL.Tables
                     apellidos,
                     fec_nacimiento,
                     email,
-                    celular,
                     telefono)
                   VALUES 
                     (@IdDireccion,
@@ -35,7 +34,6 @@ namespace VehiculosOnline.Personas.DAL.Tables
                     @Apellidos,
                     @FechaNacimiento,
                     @Email,
-                    @Celular,
                     @Telefono)";
 
             return await _repository.InsertAsync(sql, new Dictionary<string, object>
@@ -47,7 +45,6 @@ namespace VehiculosOnline.Personas.DAL.Tables
                 {"@Apellidos", persona.Apellidos},
                 {"@FechaNacimiento", persona.FechaNacimiento},
                 {"@Email", persona.Email},
-                {"@Celular", persona.Celular},
                 {"@Telefono", persona.Telefono}
             });
         }
@@ -62,7 +59,6 @@ namespace VehiculosOnline.Personas.DAL.Tables
                     apellidos = @Apellidos,
                     fec_nacimiento = @FechaNacimiento,
                     email = @Email,
-                    celular = @Celular,
                     telefono = @Telefono
                   Where id = @Id";
 
@@ -74,7 +70,6 @@ namespace VehiculosOnline.Personas.DAL.Tables
                 {"@Apellidos", persona.Apellidos},
                 {"@FechaNacimiento", persona.FechaNacimiento},
                 {"@Email", persona.Email},
-                {"@Celular", persona.Celular},
                 {"@Telefono", persona.Telefono}
             });
         }
@@ -90,7 +85,6 @@ namespace VehiculosOnline.Personas.DAL.Tables
                         apellidos,
                         fec_nacimiento as FechaNacimiento,
                         email,
-                        celular,
                         telefono
                         from persona";
 
@@ -108,7 +102,6 @@ namespace VehiculosOnline.Personas.DAL.Tables
                         apellidos,
                         fec_nacimiento as FechaNacimiento,
                         email,
-                        celular,
                         telefono
                         from persona
                         where id = @Id";
@@ -130,7 +123,6 @@ namespace VehiculosOnline.Personas.DAL.Tables
                         apellidos,
                         fec_nacimiento as FechaNacimiento,
                         email,
-                        celular,
                         telefono
                         from persona
                         where rut = @Rut";

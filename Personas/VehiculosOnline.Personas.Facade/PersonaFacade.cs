@@ -50,7 +50,7 @@ namespace VehiculosOnline.Personas.Facade
                     {
                         Calle = "Santiago",
                         IdComuna = 127,
-                        Numero = 10001
+                        Numero = "10001"
                     };
                 }
 

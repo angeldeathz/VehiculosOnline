@@ -226,7 +226,20 @@ namespace VehiculosOnlineSite
                 {
                     IdSolicitud = SolicitudActual.Id,
                     IdTipoPago = cboTipoPago.SelectedIndex,
-                    FechaIngresoCotizacion = DateTime.Now
+                    FechaIngresoCotizacion = DateTime.Now,
+                    Solicitud = new Solicitud
+                    {
+                        Persona = SolicitudActual.Cliente
+                    }
+                };
+                cotizacion.Solicitud.Persona.Email = emailtxt.Text;
+                cotizacion.Solicitud.Persona.Telefono = txtTelefono.Text;
+                cotizacion.Solicitud.Persona.FechaNacimiento = Convert.ToDateTime(fechNacimiento.Text);
+                cotizacion.Solicitud.Persona.Direccion = new Direccion
+                {
+                    Calle = txtCalle.Text,
+                    IdComuna = int.Parse(cboComuna.SelectedValue.ToString()),
+                    Numero = txtNumeroCalle.Text
                 };
 
                 if (rbSi.IsChecked == true)
@@ -280,17 +293,11 @@ namespace VehiculosOnlineSite
                 catch (FormatException)
                 {
                     esValido = false;
-                    mensaje += "El mail no corresponde" + "\r\n";
+                    mensaje += "El mail es inválido" + "\r\n";
                 }
             }
 
-            if (celular.Text.Trim().Length == 0)
-            {
-                esValido = false;
-                mensaje += "Debe ingresar el celular" + "\r\n";
-            }
-
-            if (telefono.Text.Trim().Length == 0)
+            if (txtTelefono.Text.Trim().Length == 0)
             {
                 esValido = false;
                 mensaje += "Debe ingresar el telefono" + "\r\n";
@@ -314,10 +321,16 @@ namespace VehiculosOnlineSite
                 mensaje += "Debe seleccionar la region" + "\r\n";
             }
 
-            if (direccion.Text.Trim().Length == 0)
+            if (txtCalle.Text.Trim().Length == 0)
             {
                 esValido = false;
                 mensaje += "Debe ingresar su dirección" + "\r\n";
+            }
+
+            if (txtNumeroCalle.Text.Trim().Length == 0)
+            {
+                esValido = false;
+                mensaje += "Debe ingresar el número de la dirección" + "\r\n";
             }
 
             if (cboTipoPago.SelectedIndex == 0)
@@ -395,7 +408,7 @@ namespace VehiculosOnlineSite
                 },
                 new Item
                 {
-                    Value = 0,
+                    Value = 1,
                     Text = "Si"
                 }
             };
