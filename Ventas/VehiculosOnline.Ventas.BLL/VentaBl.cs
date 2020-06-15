@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using VehiculosOnline.CommonServices.Cotizaciones;
 using VehiculosOnline.CommonServices.Vehiculos;
 using VehiculosOnline.Model.Clases;
+using VehiculosOnline.Vehiculos.DAL.ClassJoin;
 using VehiculosOnline.Ventas.DAL.Tables;
+using VehiculosOnlineSite.Model.Clases;
 
 namespace VehiculosOnline.Ventas.BLL
 {
@@ -37,6 +40,25 @@ namespace VehiculosOnline.Ventas.BLL
             await _vehiculoService.ActualizarStock(cotizacion.Solicitud.IdVehiculo);
 
             return idVenta;
+        }
+
+        public async Task<List<VentaDataGrid>> ObtenerVentasListado(string nombre, string correo, int tipoPago, int idMarca, int idModelo, int anio, DateTime fechaDesde, DateTime fechaHasta)
+        {
+            var ventas = await _ventaDal.ObtenerVentasListado(nombre, correo, tipoPago, idMarca, idModelo, anio, fechaDesde, fechaHasta);
+            if (!ventas.Any()) return new List<VentaDataGrid>();
+
+            return ventas.Select(x => new VentaDataGrid
+            {
+                Id = x.Id,
+                Nombre = x.Nombre,
+                Correo = x.Correo,
+                Marca = x.NombreMarca,
+                Modelo = x.NombreModelo,
+                Anio = x.Anio,
+                TipoPago = x.NombreTipoPago,
+                PrecioVenta = x.TotalVenta,
+                FechaVenta = x.FecVenta
+            }).ToList();
         }
     }
 }

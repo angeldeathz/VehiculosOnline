@@ -1,0 +1,31 @@
+﻿<Window x:Class="VehiculosOnlineSite.MantenedorVehiculo"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="Mantenedor de Vehículos" Height="544.47" Width="800">
+    <Grid>
+        <Label x:Name="label" Content="Seleccione Marca" HorizontalAlignment="Left" Margin="30,43,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Seleccione Modelo" HorizontalAlignment="Left" Margin="196,43,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cboMarca" HorizontalAlignment="Left" Margin="30,74,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="cboMarca_SelectionChanged"/>
+        <ComboBox x:Name="cboModelo" HorizontalAlignment="Left" Margin="196,74,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="507,74,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnBuscar_Click"/>
+        <Button x:Name="btnCrear" Content="Agregar nuevo Vehículo" HorizontalAlignment="Left" Margin="622,74,0,0" VerticalAlignment="Top" Width="138" Height="23" Click="btnCrear_Click"/>
+        <Label x:Name="label2" Content="Listado de vehiculos" HorizontalAlignment="Left" Margin="30,113,0,0" VerticalAlignment="Top"/>
+        <Label Content="Año" HorizontalAlignment="Left" Margin="348,43,0,0" VerticalAlignment="Top"/>
+        <DataGrid x:Name="gridVehiculos" HorizontalAlignment="Left" Height="332" Margin="30,144,0,0" VerticalAlignment="Top" Width="742">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="btnVerDetalles" Click="BtnVerDetalles_OnClick">Ver Detalles</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox x:Name="cboAnio" HorizontalAlignment="Left" Margin="348,75,0,0" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnActualizar" Content="Actualizar" HorizontalAlignment="Left" Margin="507,43,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnActualizar_Click"/>
+    </Grid>
+</Window>
