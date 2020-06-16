@@ -19,6 +19,9 @@ namespace VehiculosOnlineSite
         {
             try
             {
+                WindowStartupLocation = WindowStartupLocation.CenterScreen;
+                InitializeComponent();
+                ObtenerTipoPago();
                 ObtenerMarcas();
                 ObtenerAnios();
             }
@@ -57,7 +60,13 @@ namespace VehiculosOnlineSite
         }
 
 
-
+        private void ObtenerTipoPago()
+        {
+            this.cboTipoPago.ItemsSource = _ventaBL.ObtenerTipoPago();
+            this.cboTipoPago.DisplayMemberPath = "Nombre";
+            this.cboTipoPago.SelectedValuePath = "Id";
+            this.cboTipoPago.SelectedIndex = 0;
+        }
         private void ObtenerMarcas()
         {
             this.cboMarca.ItemsSource = _marcaBl.ObtenerMarcas();
@@ -81,8 +90,17 @@ namespace VehiculosOnlineSite
             int.TryParse(this.cboModelo.SelectedValue.ToString(), out int idModelo);
             int.TryParse(this.cboAnio.SelectedValue.ToString(), out int anio);
             int.TryParse(this.cboTipoPago.SelectedValue.ToString(), out int tipoPago);
-            var fechaDesde = this.fechDesde.SelectedDate.Value;
-            var fechaHasta = this.fechHasta.SelectedDate.Value;
+            DateTime fechaDesde = DateTime.MinValue;
+            DateTime fechaHasta = DateTime.MinValue;
+            if (this.fechDesde.SelectedDate!=null)
+            {
+                fechaDesde = this.fechDesde.SelectedDate.Value;
+            }
+            if (this.fechHasta.SelectedDate != null)
+            {
+                fechaHasta = this.fechHasta.SelectedDate.Value;
+            }
+
             var nombre = this.txtNombre.Text;
             var correo = this.txtCorreo.Text;
 

@@ -58,14 +58,14 @@ namespace VehiculosOnline.Ventas.DAL.Tables
                         tp.nombre as NombreTipoPago,
                         co.id_solicitud as IdSolicitud,
                         so.id_persona as IdPersona,
-                        pe.correo as Correo,
+                        pe.email as Correo,
                         pe.nombres as Nombre,
                         so.id_vehiculo as IdVehiculo,
                         ve.id_modelo as IdModelo,
                         mo.nombre as NombreModelo,
                         mo.id_marca as IdMarca,
-                        ma.nombre,
-                        v.anio as Anio
+                        ma.nombre as NombreMarca,
+                        ve.anio as Anio
                         from venta v
                         join cotizacion co on v.id_cotizacion = co.id
                         join tipopago tp on co.id_tipo_pago = tp.id
@@ -73,21 +73,20 @@ namespace VehiculosOnline.Ventas.DAL.Tables
                         join persona pe on so.id_persona = pe.id
                         join vehiculo ve on so.id_vehiculo = ve.id
                         join modelo mo on ve.id_modelo = mo.id
-                        join marca ma on mo.id_marca = ma.id
-                        WHERE (v.id_modelo = @IdModelo OR 0 = @IdModelo) 
-                        AND (ma.id = @IdMarca OR 0 = @IdMarca)
-                        AND (v.anio = @Anio OR 0 = @Anio)";
-
+                        join marca ma on mo.id_marca = ma.id";
+            //WHERE(v.id_modelo = @IdModelo OR 0 = @IdModelo)
+            //            AND(ma.id = @IdMarca OR 0 = @IdMarca)
+            //            AND(v.anio = @Anio OR 0 = @Anio)
             return await _repository.GetAllAsync<VentaJoin>(sql, new Dictionary<string, object>
             {
-                {"@Nombre", nombre},
-                {"@Correo", correo},
-                {"@TipoPago", tipoPago},
-                {"@IdMarca", idMarca},
-                {"@IdModelo", idModelo},
-                {"@Anio", anio},
-                {"@FechDesde", fechaDesde},
-                {"@FechHasta", fechaHasta}
+                //{"@Nombre", nombre},
+                //{"@Correo", correo},
+                //{"@TipoPago", tipoPago},
+                //{"@IdMarca", idMarca},
+                //{"@IdModelo", idModelo},
+                //{"@Anio", anio},
+                //{"@FechDesde", fechaDesde},
+                //{"@FechHasta", fechaHasta}
             });
         }
 
