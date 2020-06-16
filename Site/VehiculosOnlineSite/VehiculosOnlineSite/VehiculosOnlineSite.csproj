@@ -77,14 +77,14 @@
     <Compile Include="CrearEditarVehiculo.xaml.cs">
       <DependentUpon>CrearEditarVehiculo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DatosContactoPersona.xaml.cs">
-      <DependentUpon>DatosContactoPersona.xaml</DependentUpon>
+    <Compile Include="CrearCotizacion.xaml.cs">
+      <DependentUpon>CrearCotizacion.xaml</DependentUpon>
     </Compile>
     <Compile Include="IngresoSolicitud.xaml.cs">
       <DependentUpon>IngresoSolicitud.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IngresoVenta.xaml.cs">
-      <DependentUpon>IngresoVenta.xaml</DependentUpon>
+    <Compile Include="PagoFinal.xaml.cs">
+      <DependentUpon>PagoFinal.xaml</DependentUpon>
     </Compile>
     <Compile Include="ListarVenta.xaml.cs">
       <DependentUpon>ListarVenta.xaml</DependentUpon>
@@ -96,7 +96,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="DatosContactoPersona.xaml">
+    <Page Include="CrearCotizacion.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -104,7 +104,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="IngresoVenta.xaml">
+    <Page Include="PagoFinal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

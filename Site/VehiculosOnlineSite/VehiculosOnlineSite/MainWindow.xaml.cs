@@ -31,7 +31,7 @@ namespace VehiculosOnlineSite
 
         private void btnFlujoEjecutivo_Click(object sender, RoutedEventArgs e)
         {
-            var listarVehiculos = new ListarVehiculo();
+            var listarVehiculos = new MantenedorVehiculo();
             listarVehiculos.ShowDialog();
         }
 
