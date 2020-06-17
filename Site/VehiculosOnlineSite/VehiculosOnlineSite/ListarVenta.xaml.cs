@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,6 +25,8 @@ namespace VehiculosOnlineSite
                 ObtenerTipoPago();
                 ObtenerMarcas();
                 ObtenerAnios();
+                txtMontoTotal.IsEnabled = false;
+                txtTotalUnidades.IsEnabled = false;
             }
             catch (Exception ex)
             {
@@ -112,6 +115,19 @@ namespace VehiculosOnlineSite
             if (!ventas.Any())
             {
                 MessageBox.Show("No se han encontrado resultados", "Atención");
+            }
+            else
+            {
+                var totalUnidades = ventas.Count();
+                int montoTotal = 0;
+                foreach (var ve in ventas)
+                {
+                    montoTotal = montoTotal + ve.PrecioVenta;
+                }
+                var format = new NumberFormatInfo { NumberDecimalSeparator = ",", NumberGroupSeparator = "." };
+                //"$" +montoTotal.ToString();
+                txtMontoTotal.Text = $"$ {montoTotal.ToString("#,##0.00", format)}";
+                txtTotalUnidades.Text = totalUnidades.ToString();
             }
 
             //aca el de ventas

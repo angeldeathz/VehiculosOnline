@@ -14,7 +14,7 @@
         <Button x:Name="btnBuscar" Content="Buscar" HorizontalAlignment="Left" Margin="960,126,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="btnBuscar_Click"/>
         <Label x:Name="label2" Content="Listado de ventas" HorizontalAlignment="Left" Margin="29,162,0,0" VerticalAlignment="Top"/>
         <Label Content="Seleccione Año" HorizontalAlignment="Left" Margin="915,35,0,0" VerticalAlignment="Top"/>
-        <DataGrid x:Name="gridVentas" HorizontalAlignment="Left" Height="312" Margin="29,193,0,0" VerticalAlignment="Top" Width="1046">
+        <DataGrid x:Name="gridVentas" HorizontalAlignment="Left" Height="312" Margin="29,193,0,0" VerticalAlignment="Top" Width="784">
             <DataGrid.Columns>
                 <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
@@ -36,5 +36,9 @@
         <DatePicker HorizontalAlignment="Left" Margin="701,126,0,0" Name="fechHasta" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy4" Content="Ingrese fecha desde" HorizontalAlignment="Left" Margin="418,95,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy5" Content="Ingrese fecha hasta" HorizontalAlignment="Left" Margin="701,95,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Unidades Vendidas" HorizontalAlignment="Left" Margin="915,242,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtTotalUnidades" HorizontalAlignment="Left" Height="23" Margin="915,272,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label3" Content="Total Monto Vendido&#xD;&#xA;" HorizontalAlignment="Left" Margin="913,355,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtMontoTotal" HorizontalAlignment="Left" Height="23" Margin="915,402,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
