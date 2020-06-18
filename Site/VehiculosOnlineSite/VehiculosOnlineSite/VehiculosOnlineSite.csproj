@@ -83,6 +83,9 @@
     <Compile Include="IngresoSolicitud.xaml.cs">
       <DependentUpon>IngresoSolicitud.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListarSolicitud.xaml.cs">
+      <DependentUpon>ListarSolicitud.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MantenedorVehiculo.xaml.cs">
       <DependentUpon>MantenedorVehiculo.xaml</DependentUpon>
     </Compile>
@@ -103,6 +106,10 @@
     <Page Include="IngresoSolicitud.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListarSolicitud.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MantenedorVehiculo.xaml">
       <Generator>MSBuild:Compile</Generator>
