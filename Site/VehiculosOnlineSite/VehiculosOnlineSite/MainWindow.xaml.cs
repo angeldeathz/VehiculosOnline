@@ -119,5 +119,12 @@ namespace VehiculosOnlineSite
             //Hide();
             listarVentaForm.ShowDialog();
         }
+
+        private void btnVerSolicitudes_Click(object sender, RoutedEventArgs e)
+        {
+            var listarSolicitudForm = new ListarSolicitud();
+            //Hide();
+            listarSolicitudForm.ShowDialog();
+        }
     }
 }

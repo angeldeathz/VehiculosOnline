@@ -24,20 +24,19 @@ namespace VehiculosOnlineSite.BLL
             var solicitudes = new List<SolicitudDataGrid>();
             var solicitudesService = _solicitudService.ObtenerSolicitudListado(rut, idMarca, idModelo, anio, fechaDesde, fechaHasta);
 
-            foreach (var v in solicitudesService)
+            foreach (var x in solicitudesService)
             {
-                solicitudes.Add(new VentaDataGrid
+                solicitudes.Add(new SolicitudDataGrid
                 {
-                    Id = v.Id,
-                    Nombre = v.Nombre,
-                    Correo = v.Correo,
-                    Marca = v.Marca,
-                    Modelo = v.Modelo,
-                    Anio = v.Anio,
-                    TipoPago = v.TipoPago,
-                    PrecioVenta = v.PrecioVenta,
-                    FechaVenta = v.FechaVenta
+                    Id = x.Id,
+                    Nombre = x.Nombre,
+                    Rut = x.Rut,
+                    Marca = x.Marca,
+                    Modelo = x.Modelo,
+                    Anio = x.Anio,
+                    FechaSolicitud = x.FechaSolicitud
                 });
+
             }
 
             return solicitudes;

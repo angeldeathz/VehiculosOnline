@@ -68,43 +68,30 @@ namespace VehiculosOnline.Solicitudes.DAL.Tables
         public async Task<List<SolicitudJoin>> ObtenerSolicitudListado(string rut, int idMarca, int idModelo, int anio, DateTime fechaDesde, DateTime fechaHasta)
         {
             string sql = @"select 
-                        v.id,
-                        v.id_cotizacion as IdCotizacion,
-                        v.fec_venta as FecVenta,
-                        v.total_venta as TotalVenta,
-                        co.id_tipo_pago as IdTipoPago,
-                        tp.nombre as NombreTipoPago,
-                        co.id_solicitud as IdSolicitud,
-                        so.id_persona as IdPersona,
-                        pe.email as Correo,
+                        s.id,
                         pe.nombres + ' ' + pe.apellidos as Nombre,
-                        so.id_vehiculo as IdVehiculo,
-                        ve.id_modelo as IdModelo,
-                        mo.nombre as NombreModelo,
-                        mo.id_marca as IdMarca,
-                        ma.nombre as NombreMarca,
-                        ve.anio as Anio
-                        from venta v
-                        join cotizacion co on v.id_cotizacion = co.id
-                        join tipopago tp on co.id_tipo_pago = tp.id
-                        join solicitud so on co.id_solicitud = so.id
-                        join persona pe on so.id_persona = pe.id
-                        join vehiculo ve on so.id_vehiculo = ve.id
+                        pe.rut + ' - ' + pe.dv  as Rut,
+                        ma.nombre as Marca,
+                        mo.nombre as Modelo,
+                        ve.anio as Anio,
+                        s.fec_ingreso_solicitud as FechaSolicitud
+                        from solicitud s
+                        join persona pe on s.id_persona = pe.id
+                        join vehiculo ve on s.id_vehiculo = ve.id
                         join modelo mo on ve.id_modelo = mo.id
                         join marca ma on mo.id_marca = ma.id
-                        WHERE(co.id_tipo_pago = @TipoPago OR 0 = @TipoPago)
-                        AND(ve.id_modelo = @IdModelo OR 0 = @IdModelo)
+                        WHERE(ve.id_modelo = @IdModelo OR 0 = @IdModelo)
                         AND(ma.id = @IdMarca OR 0 = @IdMarca)
                         AND(ve.anio = @Anio OR 0 = @Anio)";
 
             if (rut != null)
             {
                 rut = "%" + rut + "%";
-                sql = sql + "AND(pe.nombres LIKE @Nombre or pe.apellidos LIKE @Nombre)";
+                sql = sql + "AND(pe.rut = @Rut)";
             }
             if (fechaDesde != DateTime.MinValue)
             {
-                sql = sql + "AND(v.fec_venta >= @FechDesde)";
+                sql = sql + "AND(s.fec_ingreso_solicitud >= @FechDesde)";
             }
             else
             {
@@ -112,7 +99,7 @@ namespace VehiculosOnline.Solicitudes.DAL.Tables
             }
             if (fechaHasta != DateTime.MinValue)
             {
-                sql = sql + "AND(v.fec_venta <= @FechHasta)";
+                sql = sql + "AND(s.fec_ingreso_solicitud <= @FechHasta)";
             }
             else
             {

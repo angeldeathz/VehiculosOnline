@@ -24,7 +24,8 @@ namespace VehiculosOnlineSite
                 InitializeComponent();
                 ObtenerMarcas();
                 ObtenerAnios();
-
+                txtMarcaMasSolicitada.IsEnabled = false;
+                txtModeloMasSolicitado.IsEnabled = false;
             }
             catch (Exception ex)
             {
@@ -98,13 +99,30 @@ namespace VehiculosOnlineSite
             var rut = this.txtRut.Text;
 
 
-            var ventas = _solicitudBL.ObtenerSolicitudListado(rut, idMarca, idModelo, anio, fechaDesde, fechaHasta);
-            this.gridSolicitudes.ItemsSource = ventas;
+            var solici = _solicitudBL.ObtenerSolicitudListado(rut, idMarca, idModelo, anio, fechaDesde, fechaHasta);
+            this.gridSolicitudes.ItemsSource = solici;
             this.gridSolicitudes.IsReadOnly = true;
 
-            if (!ventas.Any())
+            if (!solici.Any())
             {
                 MessageBox.Show("No se han encontrado resultados", "Atención");
+            }
+            else
+            {
+                //int contador = 0;
+                //var marcaRepetida = solici.FirstOrDefault().Marca;
+                //string pru = null;
+                //foreach (var s in solici)
+                //{
+
+                //    if (s.Marca == marcaRepetida)
+                //    {
+                //        contador = contador + 1;
+                //    }
+                //}
+
+                //txtMarcaMasSolicitada.Text = $"$ {montoTotal.ToString("#,##0.00", format)}";
+                //txtModeloMasSolicitado.Text = totalUnidades.ToString();
             }
 
         }

@@ -32,5 +32,11 @@
         <DatePicker HorizontalAlignment="Left" Margin="701,126,0,0" Name="fechHasta" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy4" Content="Ingrese fecha desde" HorizontalAlignment="Left" Margin="418,95,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy5" Content="Ingrese fecha hasta" HorizontalAlignment="Left" Margin="701,95,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content=" " HorizontalAlignment="Left" Margin="902,209,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="Marca mas solicitada" HorizontalAlignment="Left" Margin="902,209,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtMarcaMasSolicitada" HorizontalAlignment="Left" Height="23" Margin="902,240,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1_Copy" Content=" " HorizontalAlignment="Left" Margin="902,287,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3_Copy" Content="Modelo mas solicitado" HorizontalAlignment="Left" Margin="902,287,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="txtModeloMasSolicitado" HorizontalAlignment="Left" Height="23" Margin="902,318,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>
