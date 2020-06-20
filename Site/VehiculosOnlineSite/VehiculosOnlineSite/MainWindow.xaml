@@ -4,21 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="334" Width="685.6">
+        Title="MainWindow" Height="366.2" Width="685.6">
     <Grid Margin="0,0,0.2,-0.2">
-        <Grid x:Name="gridInicio" HorizontalAlignment="Left" Height="88" Margin="128,90,0,0" VerticalAlignment="Top" Width="428">
+        <Grid x:Name="gridInicio" HorizontalAlignment="Left" Height="140" Margin="511,30,0,0" VerticalAlignment="Top" Width="135">
             <Label x:Name="label" Content="Ingrese rut" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="70"/>
-            <PasswordBox x:Name="txtContrasena" HorizontalAlignment="Left" Margin="158,41,0,0" VerticalAlignment="Top" Width="120" Height="23" MaxLength="30"/>
-            <Label x:Name="label_Copy" Content="Ingrese contraseña" HorizontalAlignment="Left" Margin="158,10,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="btnLogin" Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="307,41,0,0" VerticalAlignment="Top" Width="91" Height="23" Click="btnLogin_Click" />
+            <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="10,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="70"/>
+            <PasswordBox x:Name="txtContrasena" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="120" Height="23" MaxLength="30"/>
+            <Label x:Name="label_Copy" Content="Ingrese contraseña" HorizontalAlignment="Left" Margin="10,59,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btnLogin" Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="20,113,0,0" VerticalAlignment="Top" Width="100" Height="23" Click="btnLogin_Click" />
         </Grid>
-        <Grid x:Name="gridIniciadoSesion" HorizontalAlignment="Left" Height="64" Margin="30,200,0,0" VerticalAlignment="Top" Width="628">
-            <Button x:Name="btnIngresarVenta" Content="Ingresar venta" HorizontalAlignment="Left" Margin="280,19,0,0" VerticalAlignment="Top" Width="86" Height="21" Click="btnIngresarVenta_Click"/>
-            <Button x:Name="btnVerSolicitudes" Content="Ver Solicitudes" HorizontalAlignment="Left" Margin="164,19,0,0" VerticalAlignment="Top" Width="88" Height="21" Click="btnVerSolicitudes_Click"/>
-            <Button x:Name="btnVerVentas" Content="Ver Ventas" HorizontalAlignment="Left" Margin="400,19,0,0" VerticalAlignment="Top" Width="72" Height="21" Click="btnVerVentas_Click"/>
-            <Button x:Name="btnFlujoEjecutivo" Content="Vehículos" HorizontalAlignment="Left" Margin="39,19,0,0" VerticalAlignment="Top" Width="90" Height="21" Click="btnFlujoEjecutivo_Click" RenderTransformOrigin="0.184,0.592"/>
-            <Button x:Name="btnCerrarSesion" Content="Cerrar sesión" HorizontalAlignment="Left" Margin="506,19,0,0" VerticalAlignment="Top" Width="82" Height="21" Click="btnCerrarSesion_Click"/>
+        <Grid x:Name="gridIniciadoSesion" Visibility="Hidden" HorizontalAlignment="Left" Height="50" Margin="30,265,0,0" VerticalAlignment="Top" Width="628">
+            <Button x:Name="btnVerSolicitudes" Content="Ver Solicitudes" HorizontalAlignment="Left" Margin="130,19,0,0" VerticalAlignment="Top" Width="88" Height="21" Click="btnVerSolicitudes_Click" RenderTransformOrigin="-0.686,0.762"/>
+            <Button x:Name="btnVerVentas" Content="Ver Ventas" HorizontalAlignment="Left" Margin="255,19,0,0" VerticalAlignment="Top" Width="72" Height="21" Click="btnVerVentas_Click"/>
+            <Button x:Name="btnFlujoEjecutivo" Content="Vehículos" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top" Width="90" Height="21" Click="btnFlujoEjecutivo_Click" RenderTransformOrigin="0.184,0.592"/>
+            <Button x:Name="btnCerrarSesion" Content="Cerrar sesión" HorizontalAlignment="Left" Margin="513,19,0,0" VerticalAlignment="Top" Width="82" Height="21" Click="btnCerrarSesion_Click"/>
         </Grid>
+        <Button x:Name="btnIngresarVenta" Content="Cotizar Vehículo" HorizontalAlignment="Left" Margin="511,202,0,0" VerticalAlignment="Top" Width="147" Height="36" Click="btnIngresarVenta_Click"/>
+        <Image HorizontalAlignment="Left" Height="250" Margin="10,10,0,0" VerticalAlignment="Top" Width="495" Source="img/logo.jpg"/>
     </Grid>
 </Window>

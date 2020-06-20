@@ -60,7 +60,6 @@ namespace VehiculosOnlineSite
             }
         }
 
-
         private void ObtenerMarcas()
         {
             this.cboMarca.ItemsSource = _marcaBl.ObtenerMarcas();
@@ -254,7 +253,5 @@ namespace VehiculosOnlineSite
             this.cboAnio.SelectedValuePath = "Value";
             this.cboAnio.SelectedIndex = 0;
         }
-
-
     }
 }

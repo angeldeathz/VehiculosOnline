@@ -187,7 +187,7 @@ namespace VehiculosOnlineSite
                 txtTipoVehiculo.Text = vehiculo.TipoVehiculo.Nombre;
                 txtTipoCombustible.Text = vehiculo.TipoCombustible.Nombre;
                 txtPaisOrigen.Text = vehiculo.PaisOrigen.Nombre;
-                txtPrecio.Text = vehiculo.Precio.ToString();
+                txtPrecio.Text = vehiculo.Precio.ToString("#,##0");
             }
 
             solicitud.Vehiculo = vehiculo;

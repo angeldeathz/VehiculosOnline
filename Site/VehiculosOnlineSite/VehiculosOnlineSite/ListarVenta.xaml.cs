@@ -62,7 +62,6 @@ namespace VehiculosOnlineSite
             }
         }
 
-
         private void ObtenerTipoPago()
         {
             this.cboTipoPago.ItemsSource = _ventaBL.ObtenerTipoPago();
@@ -70,6 +69,7 @@ namespace VehiculosOnlineSite
             this.cboTipoPago.SelectedValuePath = "Id";
             this.cboTipoPago.SelectedIndex = 0;
         }
+
         private void ObtenerMarcas()
         {
             this.cboMarca.ItemsSource = _marcaBl.ObtenerMarcas();
@@ -124,10 +124,9 @@ namespace VehiculosOnlineSite
                 {
                     montoTotal = montoTotal + ve.PrecioVenta;
                 }
-                var format = new NumberFormatInfo { NumberDecimalSeparator = ",", NumberGroupSeparator = "." };
-                //"$" +montoTotal.ToString();
-                txtMontoTotal.Text = $"$ {montoTotal.ToString("#,##0.00", format)}";
-                txtTotalUnidades.Text = totalUnidades.ToString();
+
+                txtMontoTotal.Text = $"$ {montoTotal:#,##0}";
+                txtTotalUnidades.Text = totalUnidades.ToString("#,##0");
             }
 
             //aca el de ventas
@@ -255,7 +254,5 @@ namespace VehiculosOnlineSite
             this.cboAnio.SelectedValuePath = "Value";
             this.cboAnio.SelectedIndex = 0;
         }
-
-
     }
 }

@@ -171,11 +171,11 @@ namespace VehiculosOnlineSite
             var format = new NumberFormatInfo { NumberDecimalSeparator = ",", NumberGroupSeparator = "." };
 
             txtNumCotizacion.Text = cotizacion.Id.ToString();
-            txtPrecioSinIva.Text = $"$ {cotizacion.TotalSinIva.ToString("#,##0.00", format)}";
-            txtIva.Text = $"$ {cotizacion.Iva.ToString("#,##0.00", format)}";
-            txtPrecioFinal.Text = $"$ {cotizacion.TotalFinal.ToString("#,##0.00", format)}";
-            txtCuotas.Text = $"$ {cotizacion.CantidadCuotas.ToString("#,##0.00", format)}";
-            txtValorCuotas.Text = $"$ {cotizacion.ValorCuota.ToString("#,##0.00", format)}";
+            txtPrecioSinIva.Text = $"$ {cotizacion.TotalSinIva.ToString("#,##0", format)}";
+            txtIva.Text = $"$ {cotizacion.Iva.ToString("#,##0", format)}";
+            txtPrecioFinal.Text = $"$ {cotizacion.TotalFinal.ToString("#,##0", format)}";
+            txtCuotas.Text = cotizacion.CantidadCuotas.ToString();
+            txtValorCuotas.Text = $"$ {cotizacion.ValorCuota.ToString("#,##0", format)}";
 
             if (cotizacion.IdTipoPago == 1)
             {

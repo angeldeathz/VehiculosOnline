@@ -103,6 +103,7 @@ namespace VehiculosOnlineSite
         {
             gridInicio.Visibility = Visibility.Visible;
             gridIniciadoSesion.Visibility = Visibility.Hidden;
+            btnIngresarVenta.Visibility = Visibility.Visible;
             txtRut.Text = string.Empty;
             txtContrasena.Password = string.Empty;
         }
@@ -111,6 +112,7 @@ namespace VehiculosOnlineSite
         {
             gridInicio.Visibility = Visibility.Hidden;
             gridIniciadoSesion.Visibility = Visibility.Visible;
+            btnIngresarVenta.Visibility = Visibility.Hidden;
         }
 
         private void btnVerVentas_Click(object sender, RoutedEventArgs e)
