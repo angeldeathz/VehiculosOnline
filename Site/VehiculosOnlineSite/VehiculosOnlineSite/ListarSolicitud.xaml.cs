@@ -109,20 +109,27 @@ namespace VehiculosOnlineSite
             }
             else
             {
-                //int contador = 0;
-                //var marcaRepetida = solici.FirstOrDefault().Marca;
-                //string pru = null;
-                //foreach (var s in solici)
-                //{
 
-                //    if (s.Marca == marcaRepetida)
-                //    {
-                //        contador = contador + 1;
-                //    }
-                //}
+                var queryMarca = solici.GroupBy(x => x.Marca)
+                .Select(group => new { Location = group.Key, Count = group.Count() })
+                .OrderByDescending(x => x.Count);
 
-                //txtMarcaMasSolicitada.Text = $"$ {montoTotal.ToString("#,##0.00", format)}";
-                //txtModeloMasSolicitado.Text = totalUnidades.ToString();
+                var itemMarca = queryMarca.First();
+
+                var mostfrequentMarca = itemMarca.Location;
+                var mostfrequentcountMarca = itemMarca.Count;
+
+                var queryModelo = solici.GroupBy(x => x.Modelo)
+               .Select(group => new { Location = group.Key, Count = group.Count() })
+               .OrderByDescending(x => x.Count);
+
+                var itemModelo = queryModelo.First();
+
+                var mostfrequentModelo = itemModelo.Location;
+                var mostfrequentcountModelo = itemModelo.Count;
+
+                txtMarcaMasSolicitada.Text = mostfrequentcountMarca.ToString()+": "+mostfrequentMarca;
+                txtModeloMasSolicitado.Text = mostfrequentcountModelo.ToString() + ": " + mostfrequentModelo;
             }
 
         }
