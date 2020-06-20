@@ -83,11 +83,17 @@
     <Compile Include="IngresoSolicitud.xaml.cs">
       <DependentUpon>IngresoSolicitud.xaml</DependentUpon>
     </Compile>
-    <Compile Include="PagoFinal.xaml.cs">
-      <DependentUpon>PagoFinal.xaml</DependentUpon>
+    <Compile Include="ListarSolicitud.xaml.cs">
+      <DependentUpon>ListarSolicitud.xaml</DependentUpon>
     </Compile>
     <Compile Include="MantenedorVehiculo.xaml.cs">
       <DependentUpon>MantenedorVehiculo.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PagoFinal.xaml.cs">
+      <DependentUpon>PagoFinal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListarVenta.xaml.cs">
+      <DependentUpon>ListarVenta.xaml</DependentUpon>
     </Compile>
     <Page Include="CrearEditarVehiculo.xaml">
       <SubType>Designer</SubType>
@@ -101,13 +107,21 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ListarSolicitud.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MantenedorVehiculo.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="PagoFinal.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MantenedorVehiculo.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="ListarVenta.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

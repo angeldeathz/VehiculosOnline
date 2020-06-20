@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Shared\VehiculosOnline.Transversal\VehiculosOnline.Transversal.csproj" />
+    <ProjectReference Include="..\VehiculosOnline.Solicitudes.BLL\VehiculosOnline.Solicitudes.BLL.csproj" />
     <ProjectReference Include="..\VehiculosOnline.Solicitudes.Facade\VehiculosOnline.Solicitudes.Facade.csproj" />
   </ItemGroup>
 

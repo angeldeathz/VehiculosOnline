@@ -1,5 +1,8 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using VehiculosOnline.Model.Clases;
+using VehiculosOnline.Solicitudes.BLL;
 using VehiculosOnline.Solicitudes.DTO;
 using VehiculosOnline.Solicitudes.Facade;
 
@@ -10,9 +13,11 @@ namespace VehiculosOnline.Solicitudes.API.Controllers
     public class SolicitudesController : ControllerBase
     {
         private readonly SolicitudFacade _solicitudFacade;
+        private readonly SolicitudBl _solicitudBl;
 
         public SolicitudesController()
         {
+            _solicitudBl = new SolicitudBl();
             _solicitudFacade = new SolicitudFacade();
         }
 
@@ -34,6 +39,14 @@ namespace VehiculosOnline.Solicitudes.API.Controllers
             if (id == 0) return NoContent();
 
             return Ok(id);
+        }
+        [HttpGet, Route("")]
+        public async Task<IActionResult> Get([FromQuery] string rut, [FromQuery] int idMarca, [FromQuery] int idModelo, [FromQuery] int anio, [FromQuery] DateTime fechaDesde, [FromQuery] DateTime fechaHasta)
+        {
+            var solicitudes = await _solicitudBl.ObtenerSolicitudListado(rut, idMarca, idModelo, anio, fechaDesde, fechaHasta);
+            
+
+            return Ok(solicitudes);
         }
     }
 }
