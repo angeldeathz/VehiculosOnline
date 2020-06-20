@@ -52,27 +52,6 @@ namespace VehiculosOnlineSite
             }
         }
 
-        private void cboTipoPago_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            try
-            {
-                if (cboTipoPago.SelectedIndex == 2)
-                {
-                    txtCuotas.IsEnabled = true;
-                }
-                else
-                {
-                    txtCuotas.IsEnabled = false;
-                }
-
-                txtCuotas.Text = string.Empty;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
-            }
-        }
-
         private void cboRegion_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             try
@@ -225,7 +204,7 @@ namespace VehiculosOnlineSite
                 var cotizacion = new Cotizacion
                 {
                     IdSolicitud = SolicitudActual.Id,
-                    IdTipoPago = cboTipoPago.SelectedIndex,
+                    IdTipoPago = Convert.ToInt32(cboTipoPago.SelectedValue.ToString()),
                     FechaIngresoCotizacion = DateTime.Now,
                     Solicitud = new Solicitud
                     {
@@ -253,7 +232,7 @@ namespace VehiculosOnlineSite
                     cotizacion.CantidadMesesDiferido = 0;
                 }
 
-                cotizacion.CantidadCuotas = cboTipoPago.SelectedIndex == 2 ? Convert.ToInt32(txtCuotas.Text) : 0;
+                cotizacion.CantidadCuotas = Convert.ToInt32(txtCuotas.Text);
                 cotizacion.ConFactura = int.Parse(cboFactura.SelectedValue.ToString()) == 1;
 
                 cotizacion = _cotizacionBl.IngresarCotizacion(cotizacion);
@@ -338,11 +317,7 @@ namespace VehiculosOnlineSite
                 esValido = false;
                 mensaje += "Debe seleccionar el tipo de pago" + "\r\n";
             }
-            else
-            {
-                //aca deberia preguntar si es tarjeta de credito
-                if (cboTipoPago.SelectedIndex == 2)
-                {
+            
                     if (txtCuotas.Text.Trim().Length == 0)
                     {
                         esValido = false;
@@ -356,9 +331,8 @@ namespace VehiculosOnlineSite
                             mensaje += "El n° de cuotas debe ser igual o mayor a 1" + "\r\n";
                         }
                     }
-                }
-
-            }
+                
+            
 
             if (!esValido) MessageBox.Show(mensaje, "Ha ocurrido un error");
 
