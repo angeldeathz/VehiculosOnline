@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Globalization;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Input;
 using VehiculosOnlineSite.BLL;
 using VehiculosOnlineSite.Model.Clases;
 
@@ -46,6 +48,12 @@ namespace VehiculosOnlineSite
             {
                 MessageBox.Show($"Error: \r\n {ex.Message}", "Ocurrió un error");
             }
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
 
         private void RealizarPago()

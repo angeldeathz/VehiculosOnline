@@ -24,25 +24,25 @@
         <Grid x:Name="gridPac" Visibility="Hidden" HorizontalAlignment="Left" Height="106" Margin="35,239,0,0" VerticalAlignment="Top" Width="730">
             <ComboBox x:Name="cboBancos" HorizontalAlignment="Left" Margin="160,19,0,0" VerticalAlignment="Top" Width="120"/>
             <Label Content="Banco:" HorizontalAlignment="Left" Margin="30,16,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtNumeroCuentaCorriente" HorizontalAlignment="Left" Height="23" Margin="495,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="20"/>
-            <Label Content="Día Vencimiento:" HorizontalAlignment="Left" Margin="30,54,0,0" VerticalAlignment="Top"/>
-            <Label Content="Número Cuenta Corriente:" HorizontalAlignment="Left" Margin="343,19,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtDiaVencimientoPac" HorizontalAlignment="Left" Height="23" Margin="160,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="2"/>
+            <TextBox x:Name="txtNumeroCuentaCorriente" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="495,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="20"/>
+            <Label Content="Día Vencimiento:" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Margin="30,54,0,0" VerticalAlignment="Top"/>
+            <Label Content="Número Cuenta Corriente:" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Margin="343,19,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtDiaVencimientoPac" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="160,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="2"/>
         </Grid>
         <Label Content="Ingrese Detalle de Cuenta Corriente o Tarjeta de Crédito" HorizontalAlignment="Left" Margin="250,204,0,0" VerticalAlignment="Top"/>
         <Grid x:Name="gridPat" Visibility="Hidden" HorizontalAlignment="Left" Height="120" Margin="35,235,0,0" VerticalAlignment="Top" Width="730">
             <ComboBox x:Name="cboTipoTarjeta" HorizontalAlignment="Left" Margin="96,23,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.498,0.08"/>
             <Label Content="Tipo Tarjeta:" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top"/>
-            <Label Content="Número Tarjeta:" HorizontalAlignment="Left" Margin="241,20,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtNumeroTarjeta" HorizontalAlignment="Left" Height="23" Margin="350,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="96" MaxLength="16"/>
+            <Label Content="Número Tarjeta:" HorizontalAlignment="Left" Margin="221,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.36,0.578"/>
+            <TextBox x:Name="txtNumeroTarjeta" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="315,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="141" MaxLength="16"/>
             <Label Content="Mes" HorizontalAlignment="Left" Margin="461,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,0.391"/>
-            <TextBox x:Name="txtMes" HorizontalAlignment="Left" Height="23" Margin="498,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" MaxLength="2"/>
-            <TextBox x:Name="txtAnio" HorizontalAlignment="Left" Height="23" Margin="573,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" MaxLength="2"/>
+            <TextBox x:Name="txtMes" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="498,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" MaxLength="2"/>
+            <TextBox x:Name="txtAnio" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="573,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="33" MaxLength="2"/>
             <Label Content="Año" HorizontalAlignment="Left" Margin="536,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,0.391"/>
             <Label Content="CVV" HorizontalAlignment="Left" Margin="611,20,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.025,0.391"/>
-            <TextBox x:Name="txtCvv" HorizontalAlignment="Left" Height="23" Margin="648,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53" MaxLength="3"/>
+            <TextBox x:Name="txtCvv" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="648,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="53" MaxLength="3"/>
             <Label Content="Día Vencimiento:" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top"/>
-            <TextBox x:Name="txtDiaVencimientoPat" HorizontalAlignment="Left" Height="23" Margin="125,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="2"/>
+            <TextBox x:Name="txtDiaVencimientoPat" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="125,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="2"/>
         </Grid>
     </Grid>
 </Window>
