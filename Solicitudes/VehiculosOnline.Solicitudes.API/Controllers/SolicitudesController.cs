@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using VehiculosOnline.Model.Clases;
 using VehiculosOnline.Solicitudes.BLL;
 using VehiculosOnline.Solicitudes.DTO;
 using VehiculosOnline.Solicitudes.Facade;
@@ -40,11 +39,12 @@ namespace VehiculosOnline.Solicitudes.API.Controllers
 
             return Ok(id);
         }
+
         [HttpGet, Route("")]
         public async Task<IActionResult> Get([FromQuery] string rut, [FromQuery] int idMarca, [FromQuery] int idModelo, [FromQuery] int anio, [FromQuery] DateTime fechaDesde, [FromQuery] DateTime fechaHasta)
         {
             var solicitudes = await _solicitudBl.ObtenerSolicitudListado(rut, idMarca, idModelo, anio, fechaDesde, fechaHasta);
-            
+            if (solicitudes.Count == 0) return NoContent();
 
             return Ok(solicitudes);
         }

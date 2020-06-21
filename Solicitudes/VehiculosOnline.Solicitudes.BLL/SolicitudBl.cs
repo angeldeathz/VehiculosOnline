@@ -4,7 +4,6 @@ using System.Linq;
 using System.Threading.Tasks;
 using VehiculosOnline.Model.Clases;
 using VehiculosOnline.Solicitudes.DAL.Tables;
-using VehiculosOnlineSite.Model.Clases;
 
 namespace VehiculosOnline.Solicitudes.BLL
 {

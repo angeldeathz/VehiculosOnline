@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VehiculosOnlineSite.Model.Clases
+namespace VehiculosOnline.Model.Clases
 {
     //Cliente nombre,correo cliente,  Marca, Modelo, Anio, tipoPago, precio de venta, fecha de venta
     public class VentaDataGrid

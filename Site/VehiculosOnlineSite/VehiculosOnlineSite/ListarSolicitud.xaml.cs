@@ -12,7 +12,6 @@ namespace VehiculosOnlineSite
     public partial class ListarSolicitud
     {
         private readonly MarcaBL _marcaBl = new MarcaBL();
-        private readonly VehiculoBL _vehiculoBl = new VehiculoBL();
         private readonly SolicitudBL _solicitudBL = new SolicitudBL();
 
         public ListarSolicitud()

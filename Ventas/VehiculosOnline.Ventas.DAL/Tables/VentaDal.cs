@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using VehiculosOnline.Model.Clases;
 using VehiculosOnline.Transversal.Repositorios;
-using VehiculosOnline.Vehiculos.DAL.ClassJoin;
+using VehiculosOnline.Ventas.DAL.ClassJoin;
 
 namespace VehiculosOnline.Ventas.DAL.Tables
 {
@@ -94,6 +94,7 @@ namespace VehiculosOnline.Ventas.DAL.Tables
                         co.id_solicitud as IdSolicitud,
                         so.id_persona as IdPersona,
                         pe.email as Correo,
+                        cast(pe.rut as nvarchar) + '-' + pe.dv as Rut,
                         pe.nombres + ' ' + pe.apellidos as Nombre,
                         so.id_vehiculo as IdVehiculo,
                         ve.id_modelo as IdModelo,

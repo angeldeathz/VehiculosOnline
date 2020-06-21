@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using VehiculosOnline.Model.Clases;
+using VehiculosOnline.Solicitudes.DAL.ClassJoin;
 using VehiculosOnline.Transversal.Repositorios;
-using VehiculosOnline.Vehiculos.DAL.ClassJoin;
 
 namespace VehiculosOnline.Solicitudes.DAL.Tables
 {
@@ -70,7 +70,7 @@ namespace VehiculosOnline.Solicitudes.DAL.Tables
             string sql = @"select 
                         s.id,
                         pe.nombres + ' ' + pe.apellidos as Nombre,
-                        pe.rut + ' - ' + pe.dv  as Rut,
+                        cast(pe.rut as nvarchar) + '-' + pe.dv as Rut,
                         ma.nombre as Marca,
                         mo.nombre as Modelo,
                         ve.anio as Anio,

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VehiculosOnlineSite"
         mc:Ignorable="d"
-        Title="Listado de Ventas" Height="544.47" Width="1112">
+        Title="Listado de Solicitudes" Height="544.47" Width="1112">
     <Grid>
         <Label x:Name="label" Content="Seleccione Marca" HorizontalAlignment="Left" Margin="383,35,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy" Content="Seleccione Modelo" HorizontalAlignment="Left" Margin="549,35,0,0" VerticalAlignment="Top"/>

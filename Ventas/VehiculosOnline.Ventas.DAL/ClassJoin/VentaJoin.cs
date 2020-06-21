@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VehiculosOnline.Vehiculos.DAL.ClassJoin
+namespace VehiculosOnline.Ventas.DAL.ClassJoin
 {
     public class VentaJoin
     {
@@ -13,6 +13,7 @@ namespace VehiculosOnline.Vehiculos.DAL.ClassJoin
         public int IdSolicitud { get; set; }
         public int IdPersona { get; set; }
         public string Correo { get; set; }
+        public string Rut { get; set; }
         public string Nombre { get; set; }
         public int IdVehiculo { get; set; }
         public int IdModelo { get; set; }
@@ -20,8 +21,5 @@ namespace VehiculosOnline.Vehiculos.DAL.ClassJoin
         public int IdMarca { get; set; }
         public string NombreMarca { get; set; }
         public int Anio { get; set; }
-
     }
-
-
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace VehiculosOnline.Vehiculos.DAL.ClassJoin
+namespace VehiculosOnline.Solicitudes.DAL.ClassJoin
 {
     public class SolicitudJoin
     {

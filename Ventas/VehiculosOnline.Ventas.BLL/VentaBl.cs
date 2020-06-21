@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 using VehiculosOnline.CommonServices.Cotizaciones;
 using VehiculosOnline.CommonServices.Vehiculos;
 using VehiculosOnline.Model.Clases;
-using VehiculosOnline.Vehiculos.DAL.ClassJoin;
 using VehiculosOnline.Ventas.DAL.Tables;
-using VehiculosOnlineSite.Model.Clases;
 
 namespace VehiculosOnline.Ventas.BLL
 {
