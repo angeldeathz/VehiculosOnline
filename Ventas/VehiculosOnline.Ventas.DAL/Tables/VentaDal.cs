@@ -82,7 +82,7 @@ namespace VehiculosOnline.Ventas.DAL.Tables
             });
         }
 
-        public async Task<List<VentaJoin>> ObtenerVentasListado(string nombre, string correo, int tipoPago, int idMarca, int idModelo, int anio, DateTime fechaDesde, DateTime fechaHasta)
+        public async Task<List<VentaJoin>> ObtenerVentasListado(string nombre, int tipoPago, int idMarca, int idModelo, int anio, DateTime fechaDesde, DateTime fechaHasta)
         {
             string sql = @"select 
                         v.id,
@@ -119,10 +119,6 @@ namespace VehiculosOnline.Ventas.DAL.Tables
                 nombre = "%" + nombre + "%";
                 sql = sql + "AND(pe.nombres LIKE @Nombre or pe.apellidos LIKE @Nombre)";
             }
-            if (correo != null) 
-            {
-                sql = sql + "AND(pe.email = @Correo)";
-            }
             if (fechaDesde != DateTime.MinValue)
             {
                 sql = sql + "AND(v.fec_venta >= @FechDesde)";
@@ -142,7 +138,6 @@ namespace VehiculosOnline.Ventas.DAL.Tables
             return await _repository.GetAllAsync<VentaJoin>(sql, new Dictionary<string, object>
             {
                 {"@Nombre", nombre},
-                {"@Correo", correo},
                 {"@TipoPago", tipoPago},
                 {"@IdMarca", idMarca},
                 {"@IdModelo", idModelo},

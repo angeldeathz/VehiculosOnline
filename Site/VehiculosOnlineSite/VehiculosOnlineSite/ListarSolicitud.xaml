@@ -26,7 +26,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <ComboBox x:Name="cboAnio" HorizontalAlignment="Left" Margin="701,67,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="10,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" />
+        <TextBox x:Name="txtRut" HorizontalAlignment="Left" Height="23" Margin="10,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" MaxLength="30" />
         <Label x:Name="label_Copy1" Content="Ingrese RUT del cliente" HorizontalAlignment="Left" Margin="73,36,0,0" VerticalAlignment="Top"/>
         <DatePicker HorizontalAlignment="Left" Margin="418,126,0,0" Name="fechDesde" VerticalAlignment="Top"/>
         <DatePicker HorizontalAlignment="Left" Margin="701,126,0,0" Name="fechHasta" VerticalAlignment="Top"/>
@@ -38,5 +38,6 @@
         <Label x:Name="label1_Copy" Content=" " HorizontalAlignment="Left" Margin="902,287,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label3_Copy" Content="Modelo mas solicitado" HorizontalAlignment="Left" Margin="902,287,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtModeloMasSolicitado" HorizontalAlignment="Left" Height="23" Margin="902,318,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="960,71,0,0" VerticalAlignment="Top" Width="75" Click="btnLimpiar_Click"/>
     </Grid>
 </Window>

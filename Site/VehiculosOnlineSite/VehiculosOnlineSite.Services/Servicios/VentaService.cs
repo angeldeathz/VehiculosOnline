@@ -47,9 +47,9 @@ namespace VehiculosOnlineSite.Services.Servicios
             return respuesta.Response;
         }
 
-        public List<VentaDataGrid> ObtenerVentasListado(string nombre, string correo, int tipoPago, int idMarca, int idModelo, int anio, DateTime fechaDesde, DateTime fechaHasta)
+        public List<VentaDataGrid> ObtenerVentasListado(string nombre, int tipoPago, int idMarca, int idModelo, int anio, DateTime fechaDesde, DateTime fechaHasta)
         {
-            var url = $"http://localhost/VehiculosOnline/ventas/api/ventas?nombre={nombre}&correo={correo}&tipoPago={tipoPago}&idMarca={idMarca}&idModelo={idModelo}&anio={anio}&fechaDesde={fechaDesde}&fechaHasta={fechaHasta}";
+            var url = $"http://localhost/VehiculosOnline/ventas/api/ventas?nombre={nombre}&tipoPago={tipoPago}&idMarca={idMarca}&idModelo={idModelo}&anio={anio}&fechaDesde={fechaDesde}&fechaHasta={fechaHasta}";
             var respuesta = _restClientHttp.Get<List<VentaDataGrid>>(url);
             if (respuesta.StatusName != HttpStatusCode.OK) return new List<VentaDataGrid>();
             return respuesta.Response;

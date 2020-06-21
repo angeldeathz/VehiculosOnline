@@ -253,5 +253,15 @@ namespace VehiculosOnlineSite
             this.cboAnio.SelectedValuePath = "Value";
             this.cboAnio.SelectedIndex = 0;
         }
+
+        private void btnLimpiar_Click(object sender, RoutedEventArgs e)
+        {
+            this.txtRut.Text = "";
+            this.cboAnio.SelectedIndex = 0;
+            this.cboMarca.SelectedIndex = 0;
+            //this.cboAnio.SelectedIndex = 0;
+            this.fechDesde.SelectedDate = null;
+            this.fechHasta.SelectedDate = null;
+        }
     }
 }

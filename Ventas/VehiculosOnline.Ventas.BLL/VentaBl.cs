@@ -45,9 +45,9 @@ namespace VehiculosOnline.Ventas.BLL
             return idVenta;
         }
 
-        public async Task<List<VentaDataGrid>> ObtenerVentasListado(string nombre, string correo, int tipoPago, int idMarca, int idModelo, int anio, DateTime fechaDesde, DateTime fechaHasta)
+        public async Task<List<VentaDataGrid>> ObtenerVentasListado(string nombre, int tipoPago, int idMarca, int idModelo, int anio, DateTime fechaDesde, DateTime fechaHasta)
         {
-            var ventas = await _ventaDal.ObtenerVentasListado(nombre, correo, tipoPago, idMarca, idModelo, anio, fechaDesde, fechaHasta);
+            var ventas = await _ventaDal.ObtenerVentasListado(nombre, tipoPago, idMarca, idModelo, anio, fechaDesde, fechaHasta);
             if (!ventas.Any()) return new List<VentaDataGrid>();
 
             return ventas.Select(x => new VentaDataGrid

@@ -53,7 +53,7 @@
         <Label Content="Datos de Pago" HorizontalAlignment="Left" Margin="349,395,0,0" VerticalAlignment="Top" Height="25"/>
         <Label Content="¿Es Factura?" HorizontalAlignment="Left" Margin="53,431,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cboFactura" HorizontalAlignment="Left" Margin="53,456,0,0" VerticalAlignment="Top" Width="120" Height="22"/>
-        <TextBox x:Name="txtNumeroCalle" HorizontalAlignment="Left" Height="23" Margin="649,345,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtNumeroCalle" HorizontalAlignment="Left" Height="23" Margin="649,345,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" MaxLength="10"/>
         <Label Content="Numero" HorizontalAlignment="Left" Margin="649,314,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

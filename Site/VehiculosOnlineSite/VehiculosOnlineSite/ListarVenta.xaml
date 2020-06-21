@@ -26,10 +26,8 @@
             </DataGrid.Columns>
         </DataGrid>
         <ComboBox x:Name="cboAnio" HorizontalAlignment="Left" Margin="915,67,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="10,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" />
+        <TextBox x:Name="txtNombre" HorizontalAlignment="Left" Height="23" Margin="10,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" MaxLength="70" />
         <Label x:Name="label_Copy1" Content="Ingrese nombre del cliente" HorizontalAlignment="Left" Margin="73,36,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtCorreo" HorizontalAlignment="Left" Height="23" Margin="10,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289" />
-        <Label x:Name="label_Copy2" Content="Ingrese correo del cliente" HorizontalAlignment="Left" Margin="73,95,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy3" Content="Seleccione Tipo de Pago" HorizontalAlignment="Left" Margin="418,35,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="cboTipoPago" HorizontalAlignment="Left" Margin="418,66,0,0" VerticalAlignment="Top" Width="120"/>
         <DatePicker HorizontalAlignment="Left" Margin="418,126,0,0" Name="fechDesde" VerticalAlignment="Top"/>
@@ -40,5 +38,6 @@
         <TextBox x:Name="txtTotalUnidades" HorizontalAlignment="Left" Height="23" Margin="915,272,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label3" Content="Total Monto Vendido&#xD;&#xA;" HorizontalAlignment="Left" Margin="913,355,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="txtMontoTotal" HorizontalAlignment="Left" Height="23" Margin="915,402,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="btnLimpiar" Content="Limpiar" HorizontalAlignment="Left" Margin="960,178,0,0" VerticalAlignment="Top" Width="75" Click="btnLimpiar_Click_1"/>
     </Grid>
 </Window>

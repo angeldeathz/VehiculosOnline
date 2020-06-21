@@ -30,9 +30,9 @@ namespace VehiculosOnline.Ventas.API.Controllers
         }
 
         [HttpGet, Route("")]
-        public async Task<IActionResult> Get([FromQuery] string nombre, [FromQuery] string correo, [FromQuery] int tipoPago, [FromQuery] int idMarca, [FromQuery] int idModelo, [FromQuery] int anio, [FromQuery] DateTime fechaDesde, [FromQuery] DateTime fechaHasta)
+        public async Task<IActionResult> Get([FromQuery] string nombre, [FromQuery] int tipoPago, [FromQuery] int idMarca, [FromQuery] int idModelo, [FromQuery] int anio, [FromQuery] DateTime fechaDesde, [FromQuery] DateTime fechaHasta)
         {
-            var ventas = await _ventaBl.ObtenerVentasListado(nombre, correo, tipoPago, idMarca, idModelo, anio, fechaDesde, fechaHasta);
+            var ventas = await _ventaBl.ObtenerVentasListado(nombre, tipoPago, idMarca, idModelo, anio, fechaDesde, fechaHasta);
             //if (!ventas.Any()) return NoContent();
 
             return Ok(ventas);

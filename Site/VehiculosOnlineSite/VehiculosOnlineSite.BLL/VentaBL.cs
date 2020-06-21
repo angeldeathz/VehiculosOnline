@@ -40,10 +40,10 @@ namespace VehiculosOnlineSite.BLL
             return _ventaService.RealizarVenta(venta);
         }
 
-        public List<VentaDataGrid> ObtenerVentasListado(string nombre,string correo, int tipoPago, int idMarca, int idModelo, int anio, DateTime fechaDesde, DateTime fechaHasta)
+        public List<VentaDataGrid> ObtenerVentasListado(string nombre, int tipoPago, int idMarca, int idModelo, int anio, DateTime fechaDesde, DateTime fechaHasta)
         {
             var ventas = new List<VentaDataGrid>();
-            var ventasService = _ventaService.ObtenerVentasListado(nombre, correo, tipoPago, idMarca, idModelo, anio,fechaDesde,fechaHasta);
+            var ventasService = _ventaService.ObtenerVentasListado(nombre, tipoPago, idMarca, idModelo, anio,fechaDesde,fechaHasta);
 
             foreach (var v in ventasService)
             {

@@ -105,10 +105,9 @@ namespace VehiculosOnlineSite
             }
 
             var nombre = this.txtNombre.Text;
-            var correo = this.txtCorreo.Text;
 
 
-            var ventas = _ventaBL.ObtenerVentasListado(nombre,correo, tipoPago, idMarca, idModelo, anio, fechaDesde, fechaHasta);
+            var ventas = _ventaBL.ObtenerVentasListado(nombre, tipoPago, idMarca, idModelo, anio, fechaDesde, fechaHasta);
             this.gridVentas.ItemsSource = ventas;
             this.gridVentas.IsReadOnly = true;
 
@@ -253,6 +252,17 @@ namespace VehiculosOnlineSite
             this.cboAnio.DisplayMemberPath = "Text";
             this.cboAnio.SelectedValuePath = "Value";
             this.cboAnio.SelectedIndex = 0;
+        }
+
+        private void btnLimpiar_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.txtNombre.Text = "";
+            this.cboTipoPago.SelectedIndex = 0;
+            this.cboAnio.SelectedIndex = 0;
+            this.cboMarca.SelectedIndex = 0;
+            //this.cboAnio.SelectedIndex = 0;
+            this.fechDesde.SelectedDate = null;
+            this.fechHasta.SelectedDate = null;
         }
     }
 }
