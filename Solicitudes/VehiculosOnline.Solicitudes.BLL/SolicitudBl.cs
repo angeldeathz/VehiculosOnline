@@ -20,6 +20,7 @@ namespace VehiculosOnline.Solicitudes.BLL
         {
             return await _solicitudDal.ObtenerTodosAsync();
         }
+
         public async Task<List<SolicitudDataGrid>> ObtenerSolicitudListado(string rut, int idMarca, int idModelo, int anio, DateTime fechaDesde, DateTime fechaHasta)
         {
             var solicitudes = await _solicitudDal.ObtenerSolicitudListado(rut, idMarca, idModelo, anio, fechaDesde, fechaHasta);
